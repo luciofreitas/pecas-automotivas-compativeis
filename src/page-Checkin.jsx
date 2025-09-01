@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import Menu from './Menu';
+import Menu from './components/Menu';
 import { AuthContext } from './App';
 import './page-Checkin.css';
 

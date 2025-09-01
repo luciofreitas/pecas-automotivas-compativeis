@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../App';
-import './Menu.css';
+import './MenuLogin.css';
 
 function Menu() {
   const [hideMenu, setHideMenu] = useState(false);
@@ -105,3 +105,5 @@ function UserMenu({ nome, isPro = false, onPerfil, onPro, onConfiguracoes, onLog
     </div>
   );
 }
+
+// styles moved to Responsive.css under the Menu namespace

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Menu from './Menu';
+import Menu from './components/Menu';
 import './page-VersaoPro.css';
 
 export default function VersaoPro() {
