@@ -12,8 +12,10 @@ dist
 dist-ssr
 *.local
 
-# Editor directories and files
-.vscode/*
+db/data/
+
+# Optional: ignore exported DB seeds or large datasets
+db/
 !.vscode/extensions.json
 .idea
 .DS_Store

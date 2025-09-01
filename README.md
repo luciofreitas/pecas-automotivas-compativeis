@@ -20,3 +20,7 @@ Estrutura relevante
 Observações
 
 - Alguns arquivos de dados (db/) foram adicionados ao repositório. Se preferir, recomendo movê-los para um repositório separado ou adicioná-los ao `.gitignore`.
+
+Repositório remoto: https://github.com/luciofreitas/pecas-automotivas-compativeis
+
+Licença: MIT
