@@ -1,0 +1,103 @@
+/* page-Contato.css - Estilos específicos da página Contato */
+
+#contato {
+  padding: 2rem 1rem;
+  background: #fff;
+}
+
+.Contato-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contato-title {
+  color: #2563eb;
+  margin-bottom: 1rem;
+}
+
+.contato-intro {
+  color: #374151;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.Contato-form-wrapper {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.Contato-input,
+.Contato-textarea {
+  width: 100%;
+  max-width: 520px;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  box-sizing: border-box;
+  font-size: 1rem;
+  background: #fff;
+  color: #111827;
+}
+
+.Contato-textarea {
+  padding: 1rem;
+  min-height: 120px;
+  resize: vertical;
+}
+
+.Contato-input:focus,
+.Contato-textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.08);
+}
+
+.Contato-submit {
+  margin-top: 1rem;
+  min-width: 260px;
+  width: auto;
+  padding: 0.75rem 1.5rem;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.Contato-submit:hover {
+  background: #1e40af;
+}
+
+.Contato-info {
+  margin-top: 3rem;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.Contato-info h3 {
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  #contato {
+    padding: 1rem 0.5rem;
+  }
+  
+  .Contato-input,
+  .Contato-textarea {
+    max-width: 100%;
+  }
+  
+  .Contato-submit {
+    width: 100%;
+    max-width: 300px;
+  }
+}

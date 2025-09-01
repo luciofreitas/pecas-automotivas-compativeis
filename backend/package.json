@@ -1,0 +1,16 @@
+{
+  "name": "parts-api",
+  "version": "0.1.0",
+  "description": "Simple API that serves seed CSV data for parts/compatibility MVP",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "csv-parse": "^5.3.4",
+  "cors": "^2.8.5",
+  "pg": "^8.11.0",
+  "dotenv": "^16.3.1"
+  }
+}

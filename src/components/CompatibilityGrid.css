@@ -1,0 +1,112 @@
+/* CompatibilityGrid.css - Estilos para o grid de compatibilidade */
+
+.compatibility-grid {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(224,224,224,0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.compatibility-grid-header {
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) 140px 120px;
+  gap: 12px;
+  padding: 0.75rem;
+  align-items: center;
+  border-bottom: 2px solid #f3f4f6;
+  font-weight: 700;
+  color: #111827;
+  background: #f8fafc;
+  border-radius: 6px;
+}
+
+.compatibility-header-vehicle {
+  text-align: left;
+}
+
+.compatibility-header-years,
+.compatibility-header-contact {
+  text-align: center;
+}
+
+.compatibility-grid-row {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  padding: 0.75rem;
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) 140px 120px;
+  gap: 12px;
+  align-items: center;
+  transition: all 0.2s ease;
+  border: 1px solid #f3f4f6;
+}
+
+.compatibility-grid-row:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transform: translateY(-1px);
+}
+
+.compatibility-grid-vehicle {
+  overflow: hidden;
+}
+
+.compatibility-vehicle-text {
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  font-weight: 500;
+  color: #111827;
+  line-height: 1.4;
+}
+
+.compatibility-grid-years {
+  text-align: center;
+}
+
+.compatibility-years-text {
+  white-space: normal;
+  color: #374151;
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+.compatibility-grid-contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .compatibility-grid-header,
+  .compatibility-grid-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    text-align: center;
+  }
+  
+  .compatibility-header-vehicle {
+    text-align: center;
+  }
+  
+  .compatibility-grid-header {
+    padding: 0.5rem;
+  }
+  
+  .compatibility-grid-row {
+    padding: 1rem 0.5rem;
+  }
+  
+  .compatibility-vehicle-text {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  .compatibility-years-text {
+    margin-bottom: 0.5rem;
+  }
+}

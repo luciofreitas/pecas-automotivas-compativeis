@@ -1,0 +1,121 @@
+/* page-VersaoPro_Assinado.css - Estilos específicos da página Versão Pro Assinado */
+
+.VersaoPro_Assinado-section {
+  padding: 2rem 1rem;
+  background: #fff;
+}
+
+.VersaoPro_Assinado-container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.VersaoPro_Assinado-title {
+  color: #2563eb;
+  margin-bottom: 1rem;
+}
+
+.VersaoPro_Assinado-intro {
+  color: #374151;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.VersaoPro_Assinado-actions {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.VersaoPro_Assinado-btnPrimary {
+  padding: 0.75rem 1.5rem;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.VersaoPro_Assinado-btnPrimary:hover {
+  background: #1e40af;
+}
+
+.VersaoPro_Assinado-btnSecondary {
+  padding: 0.75rem 1.5rem;
+  background: #f3f4f6;
+  color: #111827;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.VersaoPro_Assinado-btnSecondary:hover {
+  background: #e5e7eb;
+}
+
+.VersaoPro_Assinado-benefits {
+  margin-top: 3rem;
+  text-align: left;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.VersaoPro_Assinado-benefits-title {
+  color: #111827;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.VersaoPro_Assinado-benefits-list {
+  margin: 0;
+  padding-left: 1.5rem;
+  line-height: 1.6;
+  color: #374151;
+}
+
+.VersaoPro_Assinado-benefits-list li {
+  margin-bottom: 0.5rem;
+}
+
+.VersaoPro_Assinado-empty {
+  color: #6b7280;
+  font-style: italic;
+  text-align: center;
+  padding: 2rem;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.VersaoPro_Assinado-note {
+  margin-top: 1.5rem;
+  color: #6b7280;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .VersaoPro_Assinado-section {
+    padding: 1rem 0.5rem;
+  }
+  
+  .VersaoPro_Assinado-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .VersaoPro_Assinado-btnPrimary,
+  .VersaoPro_Assinado-btnSecondary {
+    width: 100%;
+    max-width: 300px;
+  }
+}

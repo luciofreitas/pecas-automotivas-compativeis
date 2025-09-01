@@ -1,0 +1,105 @@
+/* WhatsAppButton.css - Estilos para o botão de contato WhatsApp */
+
+.whatsapp-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.whatsapp-button-wrapper {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whatsapp-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  background: #25D366;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.whatsapp-button:hover {
+  background: #128C7E;
+  transform: scale(1.05);
+}
+
+.whatsapp-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+.whatsapp-button-blur {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  backdrop-filter: blur(3px);
+  background: rgba(255,255,255,0.4);
+  cursor: default;
+  z-index: 1;
+}
+
+.whatsapp-tooltip {
+  display: inline-block;
+  position: relative;
+}
+
+.whatsapp-tooltip-icon {
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: help;
+}
+
+.whatsapp-padlock {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: block;
+}
+
+.whatsapp-tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #111827;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.whatsapp-tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #111827 transparent transparent transparent;
+}
+
+.whatsapp-tooltip:hover .whatsapp-tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}

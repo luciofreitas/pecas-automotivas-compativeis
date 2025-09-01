@@ -1,0 +1,126 @@
+/* Menu principal centralizado, responsivo e bonito */
+.main-menu {
+  width: 100%;
+  margin: 0 auto 1em auto;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7em 2em;
+  border-radius: 0;
+  position: relative;
+  z-index: 100;
+  transition: top 0.3s, opacity 0.3s;
+}
+
+.main-menu.hide-on-scroll {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+
+.menu-logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #2563eb;
+  letter-spacing: 1px;
+}
+
+.menu-links {
+  display: flex;
+  gap: 2em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-links li {
+  display: flex;
+  align-items: center;
+}
+
+.menu-links li a {
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+  font-size: 1em;
+  transition: color 0.2s;
+  padding: 0.3em 0.7em;
+  border-radius: 6px;
+}
+
+.menu-links li a:hover {
+  color: #2563eb;
+  background: #f3f4f6;
+}
+
+.menu-links li img {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  vertical-align: middle;
+}
+
+.menu-auth {
+  display: flex;
+  gap: 1.2em;
+  margin-left: 2.5em;
+}
+
+.auth-menu {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  margin-left: 2.5em;
+  padding: 0.3em 1.2em;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.auth-menu-links {
+  display: flex;
+  gap: 1.2em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.auth-menu-links li {
+  display: flex;
+  align-items: center;
+}
+
+.auth-btn {
+  background: #fff;
+  color: #2563eb;
+  border: 1.5px solid #2563eb;
+  border-radius: 8px;
+  padding: 0.45em 1.2em;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.auth-btn:hover {
+  background: #2563eb;
+  color: #fff;
+}
+
+@media (max-width: 700px) {
+  .main-menu {
+    max-width: 100%;
+    flex-direction: column;
+    padding: 0.7em 1em;
+    border-radius: 0;
+  }
+  .menu-links {
+    gap: 1em;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .menu-logo {
+    margin-bottom: 0.5em;
+  }
+}

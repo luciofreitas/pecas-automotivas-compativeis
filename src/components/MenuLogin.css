@@ -1,0 +1,206 @@
+/* MenuLogin.css - Estilos para o componente de menu de login */
+
+/* Remove border, shadow, and background from menu container */
+.menu.menu-horizontal {
+  border: none !important;
+  box-shadow: none !important;
+  background: none !important;
+}
+
+/* Estilo para indicador acima do item do menu ao hover */
+.menu-login-item {
+  color: #374151;
+  font-weight: 500;
+  font-size: 16px !important;
+  padding: 0.35em 0.9em;
+  border-radius: 8px;
+  margin-right: 0;
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background 0.2s;
+}
+
+.menu-login-item:last-child {
+  margin-right: 0;
+}
+
+.menu-login-item:hover {
+  background: #f3f4f6;
+}
+
+.menu-login-item::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -8px;
+  transform: translateX(-50%) scaleX(0);
+  width: 60%;
+  height: 4px;
+  background: #2563eb;
+  border-radius: 2px;
+  transition: transform 0.2s;
+}
+
+.menu-login-item:hover::before {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Remove default focus outline / black border on user buttons */
+.user-button, .user-logout-button {
+  outline: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: #1976ed;
+}
+
+.user-button:focus, .user-logout-button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Dropdown items should use the same hover selection effect as top menu links */
+.dropdown-item {
+  padding: 8px 12px !important;
+  margin-right: 0 !important;
+  position: relative;
+  display: block;
+  text-align: left;
+}
+
+/* Dropdown: remove top indicator and use only color change on hover/focus */
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background: transparent;
+  color: #1976ed;
+}
+
+.dropdown-item:focus-visible {
+  color: #1976ed;
+}
+
+/* Show a blue focus/active ring for dropdown items */
+.dropdown-item:focus,
+.dropdown-item:active {
+  outline: 2px solid #2563eb;
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+.dropdown-item:focus-visible {
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.12), 0 0 0 2px rgba(37,99,235,0.18);
+}
+
+/* Ensure the top-bar indicator from .menu-login-item does not appear on dropdown items */
+.dropdown-item::before {
+  display: none !important;
+}
+
+/* Accessible focus visuals */
+.user-button:focus-visible, .user-logout-button:focus-visible, 
+.dropdown-item:focus-visible, .menu-login-item:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.12), 0 0 0 2px rgba(37,99,235,0.18);
+  border-radius: 8px;
+}
+
+/* Make dropdown items keyboard-focusable */
+.dropdown-item:focus {
+  background: #f3f4f6;
+}
+
+/* Ensure the grouped menu + logo container uses a white background */
+.menu-login-container {
+  background: #ffffff;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+/* Layout classes to replace inline styles */
+.menu-login-root { 
+  position: relative; 
+  width: 100%; 
+  display: flex; 
+  align-items: center; 
+  padding: 0 32px; 
+}
+
+.menu-login-logo { 
+  display: flex; 
+  align-items: center; 
+  align-self: center; 
+  margin-left: 8px; 
+}
+
+.menu-login-logo img { 
+  height: 70px; 
+  cursor: pointer; 
+  vertical-align: middle; 
+  transition: transform 0.2s ease;
+}
+
+.menu-login-logo img:hover {
+  transform: scale(1.05);
+}
+
+.menu-login-center { 
+  flex: 1; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+}
+
+/* Menu list styles */
+.menu-list {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+/* Responsividade */
+@media (min-width: 1600px) {
+  .menu-login-root { 
+    padding-left: 48px; 
+    padding-right: 48px; 
+  }
+  .menu-login-logo img { 
+    height: 80px; 
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-login-root {
+    padding: 0 16px;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .menu-login-logo {
+    margin-left: 0;
+  }
+  
+  .menu-login-logo img {
+    height: 50px;
+  }
+  
+  .menu-list {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .menu-login-item {
+    font-size: 14px !important;
+    padding: 0.25em 0.5em;
+  }
+}

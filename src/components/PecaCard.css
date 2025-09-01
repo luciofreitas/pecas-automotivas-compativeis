@@ -1,0 +1,84 @@
+/* PecaCard.css - Estilos para o componente de card de peça */
+
+.peca-card {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.peca-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+
+.peca-card-title {
+  color: #111827;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+.peca-card-info {
+  color: #374151;
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.peca-card-info strong {
+  color: #111827;
+  font-weight: 600;
+}
+
+.peca-card-specs {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 0.5rem 0;
+  border: 1px solid #f3f4f6;
+  font-size: 0.9rem;
+}
+
+.peca-card-specs strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #111827;
+  font-weight: 600;
+}
+
+.peca-card-spec-item {
+  color: #374151;
+  margin-bottom: 0.25rem;
+  padding-left: 0.5rem;
+}
+
+.peca-card-compat-btn {
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-top: auto;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(37,99,235,0.15);
+}
+
+.peca-card-compat-btn:hover {
+  background: #1e40af;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(37,99,235,0.2);
+}
+
+.peca-card-compat-btn:active {
+  transform: translateY(0);
+}
