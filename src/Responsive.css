@@ -3,11 +3,29 @@ body {
   margin: 0;
   padding: 0;
 }
-/* Responsive.css - Media queries para centralizar e alinhar todo o conteúdo da página em diferentes resoluções */
+/* Responsive.css - Media queries para centralizar e alinhar todo o conteúdo da /* Removed custom-margin-top classes that were causing duplicate logo/spacing issues */gina em diferentes resoluções */
 
 /* CSS variable controlling the top padding for main (keeps gap proportional per breakpoint) */
 :root {
-  --app-main-padding-top: 60px; /* default fallback */
+  --app-main-padding-top: 10px; /* default fallback - reduced to prevent excess space */
+}
+
+/* Hide any duplicate logos across all resolutions */
+.logo-container {
+  display: none !important;
+}
+
+/* Garantindo que o menu esteja centralizado sem posicionamento absoluto */
+.menu-login-center {
+  flex: 1 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* Ajustando o centro dos itens do menu */
+.menu-items-center {
+  margin: 0 auto !important;
 }
 
 /* Apply the variable to main via a class to replace inline styles */
@@ -40,16 +58,11 @@ body {
     max-width: 1100px;
     font-size: 1.15em;
   }
-  .menu-items-center { left: 48%; }
-  .logo-container img { height: 70px; }
-  .custom-margin-top {
-  margin-top: 10px !important;
-		position: static !important;
-	}
-  /* Centralize top spacing for Full HD: single source-of-truth variable */
-  :root { --app-main-padding-top: 240px; }
+  /* Removed menu-items-center positioning to allow natural centering */
+  /* Reduced top padding to prevent excessive space */
+  :root { --app-main-padding-top: 20px; }
   /* Ensure app and pages that use .page-offset follow this value (override other rules) */
-  .App { padding-top: var(--app-main-padding-top) !important; }
+  .App { padding-top: var(--app-main-padding-top) !important; margin-top: 0 !important; }
   .page-offset { padding-top: var(--app-main-padding-top) !important; box-sizing: border-box; }
   #seja-pro{
     padding: 32px 16px;
@@ -64,7 +77,9 @@ body {
 
   /* menu / header spacing */
   .site-root-header, .site-header { height: 80px; padding: 1em 1.5em; }
-  .menu-login-logo img, .logo-container img { height: 70px !important; }
+  .menu-login-logo img { height: 70px !important; }
+  /* Remove any additional logos */
+  .logo-container { display: none !important; }
 
   /* page headings and sections (QuemSomos / Login wrappers) */
   section[id], .page-section { padding: 0 1rem; }
@@ -100,7 +115,7 @@ body {
   .SejaPro-intro { color: #374151; line-height: 1.6; }
   .SejaPro-cards { display: flex; gap: 0.6rem; justify-content: center; margin-top: 1rem; flex-wrap: wrap; align-items: stretch; }
   .SejaPro-card { background: white; border: 1px solid #d1d5db; border-radius: 12px; padding: 0.5rem; width: 360px; max-width: 100%; display: flex; flex-direction: column; min-height: 320px; box-sizing: border-box; }
-  .SejaPro-card-title { color: #2563eb; margin: 0; font-size: 1.25rem; }
+  .SejaPro-card-title { color: #2563eb !important; margin: 0; font-size: 1.25rem; }
   .SejaPro-card-lead { color: #111827; margin: 1rem 0; font-size: 1.15rem; font-weight: 600; }
   .SejaPro-features { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; text-align: left; }
   .SejaPro-features li { font-size: 0.98rem; }
@@ -212,12 +227,9 @@ body {
     margin: 0 auto;
     font-size: 1.25em;
   }
-  .menu-items-center { left: 49%; }
-  .logo-container img { height: 80px; }
-  .custom-margin-top {
-    margin-top: 120px !important;
-  }
-  :root { --app-main-padding-top: 140px; }
+  /* Removed menu-items-center positioning to allow natural centering */
+  /* Removed custom-margin-top that was causing duplicate logo/spacing issues */
+  :root { --app-main-padding-top: 20px; }
 }
 
 /* 4K UHD - 3840x2160 */
@@ -227,12 +239,9 @@ body {
     margin: 0 auto;
     font-size: 1.35em;
   }
-  .menu-items-center { left: 50%; }
-  .logo-container img { height: 100px; }
-  .custom-margin-top {
-    margin-top: 140px !important;
-  }
-  :root { --app-main-padding-top: 180px; }
+  /* Removed menu-items-center positioning to allow natural centering */
+  /* Removed custom-margin-top that was causing duplicate logo/spacing issues */
+  :root { --app-main-padding-top: 20px; }
 }
 
 /* HD - 1366x768 */
@@ -243,8 +252,8 @@ body {
     font-size: 1em;
   }
   /* ensure the centered menu sits exactly centered like other breakpoints */
-  .menu-items-center { left: 50% !important; margin-top: 0 !important; }
-  .logo-container img { height: 60px; }
+  /* Removed menu-items-center positioning to allow natural centering */
+  .logo-container { display: none !important; } /* Hide duplicate logo */
   /* Make header fixed only on this resolution */
   .site-root-header { position: fixed; top: 0; left: 0; z-index: 100; width: 100%; }
 
@@ -254,7 +263,7 @@ body {
   /* Reduce welcome title slightly on 1366x768 */
   .welcome-title { font-size: 32px !important; }
   /* Keep small gap for HD screens */
-  :root { --app-main-padding-top: 60px; }
+  :root { --app-main-padding-top: 20px; }
   /* Make MenuLogin behave like Menu.jsx on 1366x768 (fixed header, centered items) */
   .menu.menu-horizontal {
     position: fixed !important;
@@ -302,12 +311,10 @@ body {
     margin: 0 auto;
     font-size: 1.05em;
   }
-  .menu-items-center { left: 47.5%; }
-  .logo-container img { height: 65px; }
-  .custom-margin-top {
-    margin-top: 80px !important;
-  }
-  :root { --app-main-padding-top: 76px; }
+  /* Removed menu-items-center positioning to allow natural centering */
+  .logo-container { display: none !important; } /* Hide duplicate logo */
+  /* Removed custom-margin-top that was causing spacing issues */
+  :root { --app-main-padding-top: 10px; }
 }
 
 /* Tablets - 768x1024 */
@@ -317,12 +324,10 @@ body {
     margin: 0 auto;
     font-size: 0.98em;
   }
-  .menu-items-center { left: 50%; }
-  .logo-container img { height: 50px; }
-  .custom-margin-top {
-    margin-top: 60px !important;
-  }
-  :root { --app-main-padding-top: 64px; }
+  /* Removed menu-items-center positioning to allow natural centering */
+  .logo-container { display: none !important; } /* Hide duplicate logo */
+  /* Removed custom-margin-top that was causing spacing issues */
+  :root { --app-main-padding-top: 10px; }
 }
 
 /* Mobile - 414x896 */
@@ -335,7 +340,7 @@ body {
   }
   .menu-items-center { left: 50%; gap: 1em; }
   .logo-container img { height: 40px; }
-  :root { --app-main-padding-top: 56px; }
+  :root { --app-main-padding-top: 20px; }
 }
 
 /* Mobile - 375x667 */
@@ -348,7 +353,7 @@ body {
   }
   .menu-items-center { left: 50%; gap: 1em; }
   .logo-container img { height: 40px; }
-  :root { --app-main-padding-top: 52px; }
+  :root { --app-main-padding-top: 20px; }
 }
 
 /* Mobile - 360x640 */
@@ -361,7 +366,7 @@ body {
   }
   .menu-items-center { left: 50%; gap: 1em; }
   .logo-container img { height: 40px; }
-  :root { --app-main-padding-top: 48px; }
+  :root { --app-main-padding-top: 20px; }
 }
 
 /* ==========================

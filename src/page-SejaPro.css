@@ -5,21 +5,21 @@
   background: #fff;
 }
 
-.SejaPro-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.SejaPro-title {
-  color: #2563eb;
-  margin-bottom: 1rem;
+/* Center heading and intro paragraph; use site blue for H2 */
+#seja-pro .page-heading {
+  color: #2563eb !important; /* same blue used elsewhere */
+  text-align: center !important;
+  margin: 0.6rem 0 0.8rem 0 !important;
+  width: 100%;
+  display: block;
 }
 
 .SejaPro-intro {
   color: #374151;
   line-height: 1.6;
-  margin-bottom: 2rem;
+  margin: 0 auto 2rem auto;
+  max-width: 760px;
+  text-align: center;
 }
 
 .SejaPro-cards {

@@ -9,7 +9,7 @@ export default function Contato() {
   <div className="page-offset">
   <section id="contato">
         <div className="page-section contato">
-          <h2 className="contato contato-title">Contato</h2>
+          <h2 className="contato page-heading">Contato</h2>
           <p className="contato-intro">
             Entre em contato conosco pelo formulário abaixo ou pelos canais oficiais.
           </p>

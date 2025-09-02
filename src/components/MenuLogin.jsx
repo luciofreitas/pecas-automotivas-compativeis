@@ -16,7 +16,7 @@ const MenuLogin = () => {
           <div className="menu-login-center">
             <nav className="menu-nav">
               <ul className="menu-list">
-                <li><a href="#inicio" className="menu-login-item" onClick={e => { e.preventDefault(); navigate('/login'); }}>Início</a></li>
+                <li><a href="#inicio" className="menu-login-item" onClick={e => { e.preventDefault(); navigate('/inicio'); }}>Início</a></li>
                 <li><a href="#quem-somos" className="menu-login-item" onClick={e => { e.preventDefault(); navigate('/quem-somos'); }}>Quem Somos</a></li>
                 <li><a href="#nosso-projeto" className="menu-login-item nosso-projeto" onClick={e => { e.preventDefault(); navigate('/nosso-projeto'); }}>Nosso Projeto</a></li>
                 <li><a href="#seja-pro" className="menu-login-item" onClick={e => { e.preventDefault(); navigate('/seja-pro'); }}>Seja Pro</a></li>
