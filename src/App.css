@@ -248,6 +248,13 @@ select:focus option[value=""], select:active option[value=""] {
 .header h1 { font-size: 2.2rem; font-weight: 700; letter-spacing: 1px; }
 .header p { opacity: 0.9; margin-top: 0.5rem; font-size: 1.1rem; }
 
+/* Catalog page heading */
+.catalog-heading {
+  color: #2563eb; /* blue */
+  font-size: 32px;
+  margin-bottom: 0.5rem;
+}
+
 /* Container principal */
 .container {
   max-width: 900px;

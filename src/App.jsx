@@ -171,7 +171,7 @@ export default function App() {
               <Route path="/" element={
                 <ProtectedRoute>
                   <section className="home-section">
-                    <h1 className="App-heading">Bem-vindo ao catálogo de peças</h1>
+                    <h2 className="catalog-heading">Bem-vindo ao catálogo de peças</h2>
                     <p className="App-subtext">Use o menu para navegar pelo site.</p>
 
                     <SearchForm
