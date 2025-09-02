@@ -23,6 +23,7 @@ export default function CustomDropdown({ options = [], value, onChange, placehol
   }
 
   const selectedLabel = options.find(opt => opt.value === value)?.label || '';
+  const visibleOptions = options; // show all options; first item can be blank
 
   return (
     <div className={`custom-dropdown${disabled ? ' disabled' : ''}`} ref={ref}>
@@ -32,7 +33,7 @@ export default function CustomDropdown({ options = [], value, onChange, placehol
         disabled={disabled}
         type="button"
       >
-        {selectedLabel || placeholder}
+        <span className="dropdown-label">{selectedLabel || placeholder}</span>
         <span className="dropdown-arrow">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="CustomDropdown-arrow-svg">
             <path d="M4 6.5L8 10.5L12 6.5" stroke="#444" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -41,8 +42,8 @@ export default function CustomDropdown({ options = [], value, onChange, placehol
       </button>
       {open && (
         <div className="dropdown-menu">
-          {options.length === 0 && <div className="dropdown-item disabled">Nenhum item</div>}
-          {options.map(opt => (
+          {visibleOptions.length === 0 && <div className="dropdown-item disabled">Nenhum item</div>}
+          {visibleOptions.map(opt => (
             <div
               key={opt.value}
               className={`dropdown-item${opt.value === value ? ' selected' : ''}`}

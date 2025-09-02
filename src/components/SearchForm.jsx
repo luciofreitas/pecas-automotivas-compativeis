@@ -1,5 +1,6 @@
 import React from 'react';
 import './SearchForm.css';
+import CustomDropdown from '../CustomDropdown';
 
 function SearchForm({
   selectedGrupo,
@@ -30,51 +31,64 @@ function SearchForm({
       <div className="search-form-row">
         <div className="search-form-field">
           <label htmlFor="grupo">Grupo</label>
-          <select id="grupo" value={selectedGrupo} onChange={e => setSelectedGrupo(e.target.value)}>
-            <option value="">Todos os grupos</option>
-            {grupos.map(g => <option key={g} value={g}>{g}</option>)}
-          </select>
+          <CustomDropdown
+            options={[{ value: '', label: '' }, ...grupos.map(g => ({ value: g, label: g }))]}
+            value={selectedGrupo}
+            onChange={setSelectedGrupo}
+            placeholder=""
+          />
         </div>
         <div className="search-form-field">
           <label htmlFor="categoria">Peça</label>
-          <select id="categoria" value={selectedCategoria} onChange={e => setSelectedCategoria(e.target.value)}>
-            <option value="">Todas as peças</option>
-            {Array.from(new Set(todasPecas.map(p => p.name))).map(n => <option key={n} value={n}>{n}</option>)}
-          </select>
+          {/* CustomDropdown abre sempre para baixo e substitui o select nativo */}
+          <CustomDropdown
+            options={[{ value: '', label: '' }, ...Array.from(new Set(todasPecas.map(p => p.name))).map(n => ({ value: n, label: n }))]}
+            value={selectedCategoria}
+            onChange={setSelectedCategoria}
+            placeholder=""
+          />
         </div>
       </div>
 
       <div className="search-form-row">
         <div className="search-form-field">
           <label htmlFor="marca">Marca</label>
-          <select id="marca" value={selectedMarca} onChange={e => setSelectedMarca(e.target.value)}>
-            <option value="">Todas as marcas</option>
-            {marcas.map(m => <option key={m} value={m}>{m}</option>)}
-          </select>
+          <CustomDropdown
+            options={[{ value: '', label: '' }, ...marcas.map(m => ({ value: m, label: m }))]}
+            value={selectedMarca}
+            onChange={setSelectedMarca}
+            placeholder=""
+          />
         </div>
         <div className="search-form-field">
           <label htmlFor="modelo">Modelo</label>
-          <select id="modelo" value={selectedModelo} onChange={e => setSelectedModelo(e.target.value)}>
-            <option value="">Todos os modelos</option>
-            {modelos.map(m => <option key={m} value={m}>{m}</option>)}
-          </select>
+          <CustomDropdown
+            options={[{ value: '', label: '' }, ...modelos.map(m => ({ value: m, label: m }))]}
+            value={selectedModelo}
+            onChange={setSelectedModelo}
+            placeholder=""
+          />
         </div>
       </div>
 
       <div className="search-form-row">
         <div className="search-form-field">
           <label htmlFor="ano">Ano</label>
-          <select id="ano" value={selectedAno} onChange={e => setSelectedAno(e.target.value)}>
-            <option value="">Todos os anos</option>
-            {anos.map(a => <option key={a} value={a}>{a}</option>)}
-          </select>
+          <CustomDropdown
+            options={[{ value: '', label: '' }, ...anos.map(a => ({ value: a, label: a }))]}
+            value={selectedAno}
+            onChange={setSelectedAno}
+            placeholder=""
+          />
         </div>
         <div className="search-form-field">
           <label htmlFor="fabricante">Fabricante</label>
-          <select id="fabricante" value={selectedFabricante} onChange={e => setSelectedFabricante(e.target.value)}>
-            <option value="">Todos os fabricantes</option>
-            {fabricantes.map(f => <option key={f} value={f}>{f}</option>)}
-          </select>
+          <CustomDropdown
+            options={[{ value: '', label: '' }, ...fabricantes.map(f => ({ value: f, label: f }))]}
+            value={selectedFabricante}
+            onChange={setSelectedFabricante}
+            placeholder=""
+          />
         </div>
       </div>
 

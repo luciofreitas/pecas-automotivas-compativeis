@@ -1,4 +1,4 @@
-import React, { useState, createContext, useContext } from 'react';
+import React, { useState, createContext, useContext, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Menu from './components/Menu';
 import Login from './page-Login';
@@ -22,13 +22,16 @@ import './Responsive.css';
 export const AuthContext = createContext(null);
 
 function ProtectedRoute({ children }) {
-  const { usuarioLogado } = useContext(AuthContext) || {};
+  const { usuarioLogado, authLoaded } = useContext(AuthContext) || {};
+  // while we haven't hydrated auth from localStorage, don't redirect — render nothing
+  if (!authLoaded) return null;
   if (!usuarioLogado) return <Navigate to="/login" replace />;
   return children;
 }
 
 export default function App() {
   const [usuarioLogado, setUsuarioLogado] = useState(null);
+  const [authLoaded, setAuthLoaded] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [modalTitle, setModalTitle] = useState('');
   const [modalContent, setModalContent] = useState(null);
@@ -62,8 +65,10 @@ export default function App() {
     } catch (e) {
       console.warn('Failed to parse usuarioLogado from localStorage', e);
     }
-
-    (async () => {
+    // mark auth as loaded so ProtectedRoute doesn't redirect prematurely
+    setAuthLoaded(true);
+    // load metadata; also re-run when 'app-refresh' event is fired
+    const loadMeta = async () => {
       try {
         const res = await fetch('/api/pecas/meta');
         if (!res.ok) throw new Error(`Server returned ${res.status}`);
@@ -78,7 +83,13 @@ export default function App() {
         console.warn('Failed to load /api/pecas/meta:', err && err.message ? err.message : err);
         setError('Não foi possível carregar os dados iniciais. Tente recarregar a página.');
       }
-    })();
+    };
+
+    loadMeta();
+
+    const onRefresh = () => loadMeta();
+    window.addEventListener('app-refresh', onRefresh);
+    return () => window.removeEventListener('app-refresh', onRefresh);
   }, []);
 
   const renderPecasModal = (lista) => (
@@ -146,7 +157,7 @@ export default function App() {
   };
 
   return (
-    <AuthContext.Provider value={{ usuarioLogado, setUsuarioLogado }}>
+  <AuthContext.Provider value={{ usuarioLogado, setUsuarioLogado, authLoaded, setAuthLoaded }}>
       <BrowserRouter>
         <div className="App page-offset">
           <header className="site-root-header">

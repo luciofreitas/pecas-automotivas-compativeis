@@ -73,57 +73,77 @@ function get_unique(field){
 }
 
 function extract_brands(){
-  const brands = new Set();
-  PARTS_DB.forEach(part => {
-    (part.applications||[]).forEach(app => {
-      if(typeof app === 'string'){
-        const token = app.split(/\s+/)[0];
-        if(token) brands.add(token);
-      } else if(typeof app === 'object' && app.vehicle){
-        const token = app.vehicle.split(/\s+/)[0];
-        if(token) brands.add(token);
-      }
+  try{
+    const brands = new Set();
+    (PARTS_DB||[]).forEach(part => {
+      try{
+        (part.applications||[]).forEach(app => {
+          if(typeof app === 'string'){
+            const token = app.split(/\s+/)[0];
+            if(token) brands.add(token);
+          } else if(typeof app === 'object' && app.vehicle){
+            const token = String(app.vehicle||'').split(/\s+/)[0];
+            if(token) brands.add(token);
+          }
+        });
+      }catch(e){ /* ignore per-item parse errors */ }
     });
-  });
-  return Array.from(brands).sort();
+    return Array.from(brands).sort();
+  }catch(e){
+    console.error('extract_brands error:', e && e.message ? e.message : e);
+    return [];
+  }
 }
 
 function extract_models(){
-  const models = new Set();
-  PARTS_DB.forEach(part => {
-    (part.applications||[]).forEach(app => {
-      if(typeof app === 'string'){
-        const tokens = app.split(/\s+/);
-        if(tokens.length >= 2){
-          // assume last token might be year(s)
-          const last = tokens[tokens.length-1];
-          if(/^\d{4}$/.test(last) || /\d{4}-\d{4}/.test(last)){
-            models.add(tokens.slice(0, -1).join(' '));
-          } else {
-            models.add(tokens.join(' '));
+  try{
+    const models = new Set();
+    (PARTS_DB||[]).forEach(part => {
+      try{
+        (part.applications||[]).forEach(app => {
+          if(typeof app === 'string'){
+            const tokens = app.split(/\s+/);
+            if(tokens.length >= 2){
+              const last = tokens[tokens.length-1];
+              if(/^[0-9]{4}$/.test(last) || /[0-9]{4}-[0-9]{4}/.test(last)){
+                models.add(tokens.slice(0, -1).join(' '));
+              } else {
+                models.add(tokens.join(' '));
+              }
+            }
+          } else if(typeof app === 'object' && app.vehicle){
+            models.add(String(app.vehicle));
           }
-        }
-      } else if(typeof app === 'object' && app.vehicle){
-        models.add(app.vehicle);
-      }
+        });
+      }catch(e){ /* ignore per-item parse errors */ }
     });
-  });
-  return Array.from(models).sort();
+    return Array.from(models).sort();
+  }catch(e){
+    console.error('extract_models error:', e && e.message ? e.message : e);
+    return [];
+  }
 }
 
 function extract_years(){
-  const years = new Set();
-  const re = /\d{4}/g;
-  PARTS_DB.forEach(part => {
-    (part.applications||[]).forEach(app => {
-      if(typeof app === 'string'){
-        let m; while((m = re.exec(app))){ years.add(m[0]); }
-      } else if(typeof app === 'object' && app.years){
-        (app.years||[]).forEach(y => years.add(String(y)));
-      }
+  try{
+    const years = new Set();
+    const re = /\d{4}/g;
+    (PARTS_DB||[]).forEach(part => {
+      try{
+        (part.applications||[]).forEach(app => {
+          if(typeof app === 'string'){
+            let m; while((m = re.exec(app))){ years.add(m[0]); }
+          } else if(typeof app === 'object' && app.years){
+            (app.years||[]).forEach(y => years.add(String(y)));
+          }
+        });
+      }catch(e){ /* ignore per-item parse errors */ }
     });
-  });
-  return Array.from(years).sort();
+    return Array.from(years).sort();
+  }catch(e){
+    console.error('extract_years error:', e && e.message ? e.message : e);
+    return [];
+  }
 }
 
 // Compatibility logic copied from original Flask service
