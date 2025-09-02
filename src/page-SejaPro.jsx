@@ -19,11 +19,11 @@ export default function SejaPro() {
               <p className="SejaPro-card-lead">Todos os benefícios da versão gratuita.</p>
               <div className="SejaPro-card-body">
                 <ul className="SejaPro-features">
-                  <li>✓ Acesso ao buscador de peças.</li>
-                  <li>✕ Acesso ao endereço das lojas que vendem as peças.</li>
-                  <li>✓ Suporte via email.</li>
-                  <li>✕ Suporte via whatsapp.</li>
-                  <li>✕ Comunidade no discord.</li>
+                  <li>Acesso ao buscador de peças.</li>
+                  <li className="SejaPro-feature-unavailable">Acesso ao endereço das lojas que vendem as peças.</li>
+                  <li>Suporte via email.</li>
+                  <li className="SejaPro-feature-unavailable">Suporte via whatsapp.</li>
+                  <li className="SejaPro-feature-unavailable">Comunidade no discord.</li>
                 </ul>
               </div>
             </div>
@@ -33,11 +33,11 @@ export default function SejaPro() {
               <p className="SejaPro-card-lead">Todos os benefícios da versão Pro.</p>
               <div className="SejaPro-card-body">
                 <ul className="SejaPro-features">
-                  <li>✓ Acesso ao buscador de peças.</li>
-                  <li>✓ Acesso ao endereço das lojas que vendem as peças.</li>
-                  <li>✓ Suporte via email.</li>
-                  <li>✓ Suporte via whatsapp.</li>
-                  <li>✓ Comunidade no discord.</li>
+                  <li> Acesso ao buscador de peças.</li>
+                  <li> Acesso ao endereço das lojas que vendem as peças.</li>
+                  <li> Suporte via email.</li>
+                  <li> Suporte via whatsapp.</li>
+                  <li> Comunidade no discord.</li>
                 </ul>
               </div>
             </div>
