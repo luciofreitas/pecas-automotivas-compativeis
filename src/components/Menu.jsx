@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../App';
+import { AuthContext } from '../page-App';
 import './MenuLogin.css';
 
 function Menu() {
@@ -26,40 +26,44 @@ function Menu() {
 
   return (
     <header className="site-header">
-      <div className="menu-root-left">
-        <img src="/logo.svg" alt="Logo" className="menu-logo-image" onClick={() => navigate('/')} />
-      </div>
+      <div className="menu-login-root menu-responsive">
+        <div className="menu-login-logo">
+          <img src="/logo.svg" alt="Logo Peça Fácil" className="menu-logo-image" onClick={() => navigate('/')} />
+        </div>
 
-      <nav className="menu-nav">
-        <ul className="menu-list">
-          <li>
-            <a href="#buscar" className="menu-login-item menu-link" onClick={e => { e.preventDefault(); if (window.location.pathname === '/') { window.location.reload(); } else { navigate('/'); } }}>Buscar Peças</a>
-          </li>
-          <li>
-            <a href="#parceiros" className="menu-login-item menu-link" onClick={e => { e.preventDefault(); navigate('/parceiros'); }}>Parceiros</a>
-          </li>
-          <li>
-            <a href="#contato-logado" className="menu-login-item menu-link" onClick={e => { e.preventDefault(); navigate('/contato-logado'); }}>Contato</a>
-          </li>
-        </ul>
-      </nav>
+        <div className="menu-login-center">
+          <nav className="menu-nav">
+            <ul className="menu-list">
+              <li>
+                <a href="#buscar" className="menu-login-item" onClick={e => { e.preventDefault(); if (window.location.pathname === '/') { window.location.reload(); } else { navigate('/'); } }}>Buscar Peças</a>
+              </li>
+              <li>
+                <a href="#parceiros" className="menu-login-item" onClick={e => { e.preventDefault(); navigate('/parceiros'); }}>Parceiros</a>
+              </li>
+              <li>
+                <a href="#contato-logado" className="menu-login-item" onClick={e => { e.preventDefault(); navigate('/contato-logado'); }}>Contato</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
 
-      <div className="menu-root-right">
-        {!usuarioLogado ? (
-          <a href="#entrar/registrar" className="menu-login-item menu-link" onClick={e => { e.preventDefault(); navigate('/login'); }}>Entrar/Registrar</a>
-        ) : (
-          <UserMenu
-            nome={usuarioLogado.nome}
-            isPro={proActive}
-            onPerfil={() => navigate('/perfil')}
-            onPro={() => navigate(proActive ? '/versao-pro-assinado' : '/versao-pro')}
-            onConfiguracoes={() => navigate('/configuracoes')}
-            onLogout={() => {
-              setUsuarioLogado(null);
-              localStorage.removeItem('usuarioLogado');
-            }}
-          />
-        )}
+        <div className="menu-login-right">
+          {!usuarioLogado ? (
+            <a href="#entrar/registrar" className="menu-login-item text-lg md:text-xl" onClick={e => { e.preventDefault(); navigate('/login'); }}>Entrar/Registrar</a>
+          ) : (
+            <UserMenu
+              nome={usuarioLogado.nome}
+              isPro={proActive}
+              onPerfil={() => navigate('/perfil')}
+              onPro={() => navigate(proActive ? '/versao-pro-assinado' : '/versao-pro')}
+              onConfiguracoes={() => navigate('/configuracoes')}
+              onLogout={() => {
+                setUsuarioLogado(null);
+                localStorage.removeItem('usuarioLogado');
+              }}
+            />
+          )}
+        </div>
       </div>
     </header>
   );
@@ -69,20 +73,51 @@ export default Menu;
 
 function UserMenu({ nome, isPro = false, onPerfil, onPro, onConfiguracoes, onLogout }) {
   const [open, setOpen] = useState(false);
-  const ref = useRef(null);
+  const buttonRef = useRef(null);
+  const dropdownRef = useRef(null);
+  const [dropdownPosition, setDropdownPosition] = useState({ top: 0, right: 0 });
 
+  // Função para calcular a posição do dropdown
+  const calculatePosition = () => {
+    if (buttonRef.current) {
+      const rect = buttonRef.current.getBoundingClientRect();
+      setDropdownPosition({
+        top: rect.bottom, // Posiciona abaixo do botão
+        right: window.innerWidth - rect.right // Alinha à direita do botão
+      });
+    }
+  };
+
+  // Atualiza posição quando abre
+  useEffect(() => {
+    if (open) {
+      calculatePosition();
+    }
+  }, [open]);
+
+  // Fecha ao clicar fora
   useEffect(() => {
     function handleOutside(e) {
-      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+      if (open && 
+          buttonRef.current && !buttonRef.current.contains(e.target) && 
+          dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setOpen(false);
+      }
     }
+    
     window.addEventListener('mousedown', handleOutside);
-    return () => window.removeEventListener('mousedown', handleOutside);
-  }, []);
+    window.addEventListener('resize', calculatePosition);
+    return () => {
+      window.removeEventListener('mousedown', handleOutside);
+      window.removeEventListener('resize', calculatePosition);
+    };
+  }, [open]);
 
   return (
-    <div ref={ref} className="user-menu-root">
+    <div className="user-menu-root">
       <button
-        className="user-button user-button-inline"
+        ref={buttonRef}
+        className="user-button"
         onClick={() => setOpen(v => !v)}
         aria-haspopup="true"
         aria-expanded={open}
@@ -93,13 +128,19 @@ function UserMenu({ nome, isPro = false, onPerfil, onPro, onConfiguracoes, onLog
         )}
       </button>
 
-      <button className="user-logout-button">Sair</button>
-
       {open && (
-        <div className="user-dropdown">
-          <button className="menu-login-item dropdown-item" onClick={() => { setOpen(false); onPerfil(); }}>Perfil</button>
-          <button className="menu-login-item dropdown-item" onClick={() => { setOpen(false); onPro(); }}>Versão Pro</button>
-          <button className="menu-login-item dropdown-item" onClick={() => { setOpen(false); onConfiguracoes(); }}>Configurações</button>
+        <div 
+          ref={dropdownRef}
+          className="user-dropdown"
+          style={{ 
+            top: `${dropdownPosition.top}px`, 
+            right: `${dropdownPosition.right}px` 
+          }}
+        >
+          <button className="dropdown-item" onClick={() => { setOpen(false); onPerfil(); }}>Perfil</button>
+          <button className="dropdown-item" onClick={() => { setOpen(false); onPro(); }}>Versão Pro</button>
+          <button className="dropdown-item" onClick={() => { setOpen(false); onConfiguracoes(); }}>Configurações</button>
+          <button className="dropdown-item dropdown-item-logout" onClick={() => { setOpen(false); onLogout(); }}>Sair</button>
         </div>
       )}
     </div>

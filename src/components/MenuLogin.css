@@ -454,3 +454,92 @@
     padding: 0.25em 0.5em;
   }
 }
+
+/* ===== MENU DO USUÁRIO ===== */
+
+/* Container raiz do menu do usuário */
+.user-menu-root {
+  position: relative;
+  display: inline-block;
+}
+
+/* Botão principal com o nome do usuário */
+.user-button {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  color: #374151;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0.35em 0.9em;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  gap: 8px;
+  transition: background-color 0.2s;
+}
+
+.user-button:hover {
+  background-color: #f3f4f6;
+}
+
+/* Indicador de versão Pro */
+.pro-badge {
+  background-color: #2563eb;
+  color: white;
+  font-size: 0.7em;
+  padding: 0.15em 0.5em;
+  border-radius: 4px;
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+/* Dropdown do menu do usuário */
+.user-dropdown {
+  position: fixed; /* Alterado de absolute para fixed para escapar de qualquer container limitante */
+  top: auto; /* Removido o cálculo para usar posição fixa */
+  right: auto; /* Será posicionado com JS */
+  margin-top: 4px; /* Espaçamento do botão */
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* Sombra mais forte para destacar */
+  padding: 8px;
+  min-width: 180px;
+  z-index: 9999; /* Z-index muito alto para garantir que fique acima de tudo */
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Itens do dropdown */
+.dropdown-item {
+  text-align: left;
+  padding: 8px 12px;
+  border: none;
+  background-color: transparent;
+  color: #374151;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.dropdown-item:hover {
+  background-color: #f3f4f6;
+}
+
+.dropdown-item-logout {
+  border-top: 1px solid #e5e7eb;
+  margin-top: 4px;
+  padding-top: 8px;
+  color: #dc2626;
+}
+
+/* Versão responsiva para resolução 1366x768 e similares */
+@media screen and (max-width: 1366px) {
+  .menu-responsive .user-button {
+    font-size: 13px;
+    padding: 0.25em 0.5em;
+  }
+}
