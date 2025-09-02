@@ -21,19 +21,17 @@ body {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  gap: 2.5em !important;
+  /* gap: 2.5em !important; REMOVIDO - permite gap customizado */
   list-style: none !important;
-  padding: 1em 1.5em !important;
+  /* padding: 1em 1.5em !important; REMOVIDO - permite padding customizado */
   margin: 0 auto !important;
   background: transparent !important;
   box-shadow: none !important;
   border-radius: 0 !important;
-  min-width: 320px !important;
+  /* min-width: 320px !important; REMOVIDO - estava forçando largura mínima */
 }
 
-.menu.menu-horizontal .menu-login-item {
-  font-size: 1.15em !important;
-}
+/* Removida regra conflitante de tamanho de fonte */
 
 
 /* Full HD - 1920x1080 */

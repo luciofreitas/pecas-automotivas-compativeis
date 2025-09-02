@@ -1,20 +1,76 @@
 /* MenuLogin.css - Estilos para o componente de menu de login */
 
-/* Remove border, shadow, and background from menu container */
-.menu.menu-horizontal {
-  border: none !important;
-  box-shadow: none !important;
-  background: none !important;
+/* ===== ESTRUTURA BÁSICA DO MENU ===== */
+
+/* Header do site */
+.site-header {
+  width: 100%;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+/* Container principal do menu */
+.menu-login-root {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+  box-sizing: border-box;
+}
+
+/* Área da logo */
+.menu-login-logo {
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+}
+
+.menu-login-logo img {
+  height: 70px;
+  cursor: pointer;
+  vertical-align: middle;
+  transition: transform 0.2s ease;
+}
+
+.menu-login-logo img:hover {
+  transform: scale(1.05);
+}
+
+/* Área central do menu */
+.menu-login-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+}
+
+/* Navegação do menu */
+.menu-nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Lista de itens do menu */
+.menu-list {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  flex-wrap: nowrap;
 }
 
 /* Estilo para indicador acima do item do menu ao hover */
 .menu-login-item {
   color: #374151;
   font-weight: 500;
-  font-size: 16px !important;
+  font-size: 16px;
   padding: 0.35em 0.9em;
   border-radius: 8px;
-  margin-right: 0;
   position: relative;
   text-decoration: none;
   display: inline-block;
@@ -22,10 +78,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   transition: background 0.2s;
-}
-
-.menu-login-item:last-child {
-  margin-right: 0;
 }
 
 .menu-login-item:hover {
@@ -47,6 +99,79 @@
 
 .menu-login-item:hover::before {
   transform: translateX(-50%) scaleX(1);
+}
+
+/* Ajuste para itens específicos que podem ser mais longos */
+.menu-login-item.nosso-projeto,
+.menu-login-item.entrar-registrar {
+  max-width: 130px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* ===== RESPONSIVIDADE DO MENU ===== */
+
+/* Versão responsiva para resolução 1366x768 e similares */
+@media screen and (max-width: 1366px) {
+  /* Menu responsivo */
+  .menu-responsive {
+    padding: 0 8px;
+  }
+  
+  .menu-responsive .menu-login-logo {
+    margin-left: 0;
+    margin-right: 8px;
+  }
+  
+  .menu-responsive .menu-login-logo img {
+    height: 45px;
+  }
+  
+  .menu-responsive .menu-list {
+    gap: 0.5rem;
+  }
+  
+  .menu-responsive .menu-login-item {
+    font-size: 13px;
+    padding: 0.25em 0.5em;
+  }
+  
+  /* Ajuste para itens mais longos em telas pequenas */
+  .menu-responsive .menu-login-item.nosso-projeto {
+    max-width: 80px;
+  }
+  
+  .menu-responsive .menu-login-item.entrar-registrar {
+    max-width: 90px;
+  }
+}
+
+/* Dispositivos móveis */
+@media screen and (max-width: 768px) {
+  .menu-login-root {
+    padding: 0 16px;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .menu-login-logo {
+    margin-left: 0;
+  }
+  
+  .menu-login-logo img {
+    height: 50px;
+  }
+  
+  .menu-list {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .menu-login-item {
+    font-size: 14px;
+    padding: 0.25em 0.5em;
+  }
 }
 
 /* Remove default focus outline / black border on user buttons */
@@ -157,6 +282,88 @@
   align-items: center; 
 }
 
+.menu-login-right {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem; /* Reduzido de auto para 1rem para diminuir espaçamento */
+}
+
+/* Menu list styles - classes customizadas para evitar conflito com DaisyUI */
+.custom-menu-list {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.custom-nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Classe específica para layout compacto - SEMPRE ATIVA */
+.menu-compact {
+  padding: 0 8px !important;
+}
+
+.menu-compact .menu-login-logo {
+  margin-left: 0 !important;
+}
+
+.menu-compact .menu-login-logo img {
+  height: 45px !important;
+}
+
+.menu-compact .custom-menu-list {
+  gap: 0.5rem !important;
+}
+
+.menu-compact .menu-login-item {
+  font-size: 13px !important;
+  padding: 0.25em 0.5em !important;
+  white-space: nowrap !important;
+}
+
+/* Regras específicas para resolução pequena - SEMPRE APLICADAS em 1366px */
+@media (max-width: 1366px) {
+  .menu-login-root { 
+    padding: 0 8px !important;
+  }
+  
+  .menu-login-logo { 
+    margin-left: 0 !important;
+  }
+  
+  .menu-login-logo img { 
+    height: 45px !important;
+  }
+  
+  .menu-list {
+    gap: 0.5rem !important;
+  }
+  
+  .menu-login-item {
+    font-size: 13px !important;
+    padding: 0.25em 0.5em !important;
+  }
+}
+
+.menu-login-center { 
+  flex: 1; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+}
+
+.menu-login-right {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem; /* Reduzido de auto para 1rem para diminuir espaçamento */
+}
+
 /* Menu list styles */
 .menu-list {
   display: flex;
@@ -176,6 +383,49 @@
   .menu-login-logo img { 
     height: 80px; 
   }
+}
+
+/* OVERRIDE FINAL - Força aplicação dos estilos independente de qualquer framework */
+.menu-compact,
+.menu-compact * {
+  box-sizing: border-box !important;
+}
+
+.menu-compact {
+  padding: 0 8px !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+.menu-compact .menu-login-logo {
+  margin-left: 0 !important;
+  margin-right: 8px !important;
+}
+
+.menu-compact .menu-login-logo img {
+  height: 45px !important;
+  width: auto !important;
+}
+
+.menu-compact .custom-menu-list {
+  gap: 0.5rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.menu-compact .menu-login-item {
+  font-size: 13px !important;
+  padding: 0.25em 0.5em !important;
+  white-space: nowrap !important;
+  margin: 0 !important;
+  border: none !important;
+  background: none !important;
+  text-decoration: none !important;
+  color: #374151 !important;
 }
 
 @media (max-width: 768px) {
