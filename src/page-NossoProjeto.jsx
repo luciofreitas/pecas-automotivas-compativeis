@@ -7,9 +7,9 @@ export default function NossoProjeto() {
     <>
   <MenuLogin />
   <div className="page-offset">
-    <section id="nosso-projeto" className="NossoProjeto-section">
-  <div className="NossoProjeto-container">
-          <h2 className="nosso-projeto__title page-heading">Nosso Projeto</h2>
+    <section id="nosso-projeto" className="nosso-projeto-section">
+  <div className="nosso-projeto-container">
+          <h2 className="nosso-projeto__title">Nosso Projeto</h2>
 
           <div className="nosso-projeto__content">
             <p className="nosso-projeto__lead">
@@ -23,19 +23,19 @@ export default function NossoProjeto() {
               e em menor capital parado para o comércio de peças.
             </p>
 
-        <p className="nosso-projeto__body NossoProjeto-paragraph">
+        <p className="nosso-projeto__body nosso-projeto-paragraph">
               Em termos de tempo, oferecemos uma busca mais rápida e precisa. Técnicos e consumidores não precisam mais pesquisar múltiplas
               fontes ou consultar catálogos confusos: a plataforma centraliza as opções compatíveis, encurtando o ciclo de identificação
               e aquisição da peça necessária.
             </p>
 
-        <p className="nosso-projeto__body NossoProjeto-paragraph">
+        <p className="nosso-projeto__body nosso-projeto-paragraph">
               Quanto à confiabilidade das informações, o sistema combina dados técnicos e referências de mercado para apresentar resultados
               transparentes e verificáveis. Mantemos rastreabilidade das fontes e atualizações constantes para reduzir dúvidas e aumentar a
               segurança nas escolhas.
             </p>
 
-        <p className="nosso-projeto__body NossoProjeto-paragraph">
+        <p className="nosso-projeto__body nosso-projeto-paragraph">
               Nosso compromisso é entregar uma ferramenta prática, confiável e acessível, que gere economia de tempo e dinheiro e ajude
               a profissionalizar a tomada de decisão no setor automotivo.
             </p>

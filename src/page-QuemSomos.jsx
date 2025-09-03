@@ -9,7 +9,7 @@ export default function QuemSomos() {
     <div className="page-offset">
   <section id="quem-somos">
         <div className="page-section">
-          <h2 className="quem-somos__title page-heading">Quem Somos</h2>
+          <h2 className="quem-somos__title">Quem Somos</h2>
 
           <div className="quem-somos__content">
             <p className="quem-somos__lead">

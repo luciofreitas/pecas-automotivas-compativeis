@@ -1,22 +1,28 @@
 /* page-NossoProjeto.css - Estilos específicos da página Nosso Projeto */
 
-.NossoProjeto-section {
-  padding: 2rem 1rem;
+.nosso-projeto-section {
+  padding: 120px 1rem 2rem 1rem; /* increased top padding for MenuLogin spacing */
   background: #fff;
 }
 
-.NossoProjeto-container {
+.nosso-projeto-container {
   max-width: 1000px;
   margin: 0 auto;
   text-align: center;
 }
 
-.NossoProjeto-title {
+.nosso-projeto__title {
   color: #2563eb;
+  text-align: center;
   margin-bottom: 1.5rem;
+  margin-top: 0; /* clean reset */
+  font-weight: 600;
+  font-size: 2rem;
+  display: block;
+  padding: 0; /* clean padding */
 }
 
-.NossoProjeto-paragraph {
+.nosso-projeto-paragraph {
   margin-top: 0.75rem;
   color: #374151;
   line-height: 1.6;
@@ -24,11 +30,11 @@
 
 /* Responsividade */
 @media (max-width: 768px) {
-  .NossoProjeto-section {
+  .nosso-projeto-section {
     padding: 1rem 0.5rem;
   }
   
-  .NossoProjeto-title {
+  .nosso-projeto-title {
     font-size: 1.8rem;
   }
 }

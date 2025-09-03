@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import Button from '@mui/material/Button';
 import MenuLogin from './components/MenuLogin';
 import './components/Menu.css';
-import './page-Login.css';
+import './page-Login-new.css';
 import usuariosData from './usuarios.json';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from './page-App';
@@ -149,22 +149,22 @@ function Login() {
 
   // Formulário de login/registro
   return (
-    <div className="relative min-h-screen w-full bg-gray-50">
-    <div className="flex flex-col items-center justify-start min-h-screen w-full">
-    <MenuLogin />
-  <div className="page-offset">
-    <h2 className="text-3xl md:text-4xl font-bold mb-2 text-center page-heading Login-heading">Bem Vindo ao Peça Fácil</h2>
-          <p className="text-gray-500 text-center mb-4 Login-intro">
-          Aqui facilitamos sua vida! Alguma peça do seu carro deu defeito e ela é cara?<br/>
-          Calma, pode ser que de um outro carro possa ser mais barata e tenha compatibilidade com seu veículo.
-        </p>
-  <div className="form-containers flex flex-row justify-center items-stretch gap-10 w-full max-w-3xl flex-wrap mt-8">
-          {/* Entrar Container */}
-          <div className="bg-white rounded-2xl shadow-lg p-8 flex-1 min-w-[300px] max-w-[400px] flex flex-col justify-between items-start border border-gray-200">
-            <div>
-                <h2 className="text-left font-bold text-2xl w-full p-0 page-heading Login-section-title">Entrar</h2>
-            </div>
-                <form onSubmit={handleLogin} className="flex flex-col gap-6 w-full">
+    <>
+      <MenuLogin />
+      <div className="login-page-wrapper">
+        <div className="login-content-container">
+          <h2 className="Login-heading">Bem Vindo ao Peça Fácil</h2>
+          <p className="Login-intro">
+            Aqui facilitamos sua vida! Alguma peça do seu carro deu defeito e ela é cara?<br/>
+            Calma, pode ser que de um outro carro possa ser mais barata e tenha compatibilidade com seu veículo.
+          </p>
+          <div className="form-containers">
+            {/* Entrar Container */}
+            <div className="login-form-card">
+              <div>
+                <h2 className="Login-section-title">Entrar</h2>
+              </div>
+              <form onSubmit={handleLogin} className="login-form">
               <div className="form-control w-full Login-form-control">
                 <input
                   type="email"
@@ -190,11 +190,11 @@ function Login() {
             </form>
           </div>
           {/* Registrar Container */}
-          <div className="bg-white rounded-2xl shadow-lg p-8 flex-1 min-w-[300px] max-w-[400px] flex flex-col justify-between items-start border border-gray-200">
+          <div className="login-form-card">
             <div>
-              <h2 className="text-left font-bold text-2xl w-full p-0 page-heading Login-section-title">Registrar</h2>
+              <h2 className="Login-section-title">Registrar</h2>
             </div>
-                <form onSubmit={handleRegister} className="flex flex-col gap-6 w-full Login-form" >
+                <form onSubmit={handleRegister} className="login-form" >
               <div className="form-control w-full Login-form-control">
                 <input
                   type="text"
@@ -250,10 +250,9 @@ function Login() {
             </form>
           </div>
         </div>
-          
-        </div>
       </div>
     </div>
+    </>
   );
 }
 

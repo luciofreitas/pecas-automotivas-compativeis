@@ -12,19 +12,21 @@
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 40px 16px;
+  padding: 120px 16px 40px 16px; /* increased top padding for MenuLogin spacing */
   box-sizing: border-box;
 }
 
 .inicio-hero {
-  padding: 40px 0;
+  padding: 0 0 40px 0; /* removed top padding since main already has it */
   text-align: center;
 }
 
 .inicio-title {
-  font-size: 28px;
-  margin: 0 0 8px 0;
-  color: #0f172a;
+  font-size: 2rem; /* match h2 size */
+  line-height: 1.15;
+  margin: 0 0 1.5rem 0;
+  color: #2563eb;
+  font-weight: 600; /* consistent with other titles */
 }
 
 .inicio-subtitle {

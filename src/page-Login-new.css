@@ -1,0 +1,97 @@
+/* page-Login-new.css - alinhado ao padrão das páginas com MenuLogin */
+
+/* Container principal com mesmo offset que .nosso-projeto-section (120px) */
+.login-page-wrapper {
+	padding: 240px 1rem 2rem 1rem; /* ajustado para 240px para um espaçamento mais equilibrado */
+	background: #f9fafb;
+	min-height: 100vh;
+	box-sizing: border-box;
+}
+
+.login-content-container {
+	max-width: 1100px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+/* Título principal alinhado com demais páginas */
+.Login-heading, .login-main-title {
+	color: #2563eb;
+	font-weight: 600;
+	font-size: 2rem;
+	margin: 0 0 1.5rem 0; /* removido margin-top para evitar duplo espaçamento */
+	padding: 0;
+	display: block;
+	text-align: center; /* garantir centralização */
+}
+
+.Login-intro {
+	color: #374151;
+	line-height: 1.6;
+	margin: 0 0 2rem 0;
+	font-size: 1rem;
+}
+
+/* Contêiner de formulários */
+.form-containers {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 2.5rem;
+	flex-wrap: wrap;
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+.login-form-card {
+	background: #fff;
+	border: 1px solid #e5e7eb;
+	border-radius: 16px;
+	padding: 2rem;
+	flex: 1;
+	min-width: 300px;
+	max-width: 400px;
+	box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+	text-align: left;
+	box-sizing: border-box;
+}
+
+.Login-section-title {
+	margin: 0 0 1.5rem 0;
+	font-size: 1.5rem;
+	font-weight: 600;
+	color: #2563eb;
+	padding: 0;
+}
+
+.login-form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+}
+
+/* Inputs (preserva estilo anterior) */
+.form-containers input.input {
+	background-color: #fff !important;
+	color: #111 !important;
+	border: 1px solid #d1d5db !important;
+	border-radius: 10px !important;
+	box-shadow: none !important;
+	font-size: 1em;
+	padding: 8px 12px;
+}
+.form-containers input.input:focus {
+	outline: none;
+	border-color: #1d4ed8 !important;
+	box-shadow: 0 0 0 4px rgba(37,99,235,0.08) !important;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+	.login-page-wrapper { padding: 120px 0.75rem 2rem 0.75rem; }
+	.form-containers { flex-direction: column; gap: 2rem; }
+	.login-form-card { max-width: 100%; }
+	.Login-heading { font-size: 1.75rem; }
+}
+

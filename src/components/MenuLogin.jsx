@@ -7,7 +7,7 @@ const MenuLogin = () => {
 
   return (
     <>
-      <header className="site-header">
+  <header className="site-header">
         <div className="menu-login-root menu-responsive">
           <div className="menu-login-logo">
             <img src="/logo.svg" alt="Logo Peça Fácil" onClick={() => navigate('/')} />
@@ -27,6 +27,8 @@ const MenuLogin = () => {
           </div>
         </div>
       </header>
+  {/* Spacer to reserve space in the flow for the fixed header */}
+  <div className="site-header-spacer" aria-hidden="true" />
     </>
   );
 };

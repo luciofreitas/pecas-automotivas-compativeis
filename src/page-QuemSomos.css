@@ -1,14 +1,20 @@
 /* page-QuemSomos.css - Estilos específicos da página Quem Somos */
 
 #quem-somos {
-  padding: 2rem 1rem;
+  padding: 120px 1rem 2rem 1rem; /* clean, increased top padding */
   background: #fff;
+  margin-top: 0;
 }
 
 .quem-somos__title {
   color: #2563eb;
   text-align: center;
   margin-bottom: 1.5rem;
+  margin-top: 0; /* clean reset */
+  font-weight: 600;
+  font-size: 2rem;
+  display: block;
+  padding: 0; /* clean padding */
 }
 
 .quem-somos__content {

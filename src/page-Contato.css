@@ -1,7 +1,7 @@
 /* page-Contato.css - Estilos específicos da página Contato */
 
 #contato {
-  padding: 2rem 1rem;
+  padding: 180px 1rem 2rem 1rem; /* increased spacing between MenuLogin and title */
   background: #fff;
 }
 
@@ -11,12 +11,15 @@
   text-align: center;
 }
 
-#contato .page-heading {
-  color: #2563eb !important; /* same blue used elsewhere */
-  text-align: center !important;
-  margin: 0.6rem 0 0.8rem 0 !important;
-  width: 100%;
+.contato__title {
+  color: #2563eb;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  margin-top: 0; /* clean reset */
+  font-weight: 600;
+  font-size: 2rem;
   display: block;
+  padding: 0; /* clean padding */
 }
 
 .contato-intro {

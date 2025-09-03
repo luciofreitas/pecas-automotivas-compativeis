@@ -158,17 +158,19 @@ export default function App() {
     <AuthContext.Provider value={{ usuarioLogado, setUsuarioLogado, authLoaded, setAuthLoaded }}>
       <BrowserRouter>
         <div className="App page-offset">
-          {/* Removed duplicate Menu component - individual pages have their own menus */}
+          {/* Restored Menu component for the catalog page */}
           
           <main className="app-main">
             <Routes>
               <Route path="/" element={
                 <ProtectedRoute>
-                  <section className="home-section">
-                    <h2 className="page-heading">Bem-vindo ao catálogo de peças</h2>
-                    <p className="welcome-text">Use o menu para navegar pelo site.</p>
+                  <>
+                    <Menu />
+                    <section className="home-section">
+                      <h2 className="page-heading">Bem-vindo ao catálogo de peças</h2>
+                      <p className="welcome-text">Use o menu para navegar pelo site.</p>
 
-                    <SearchForm
+                      <SearchForm
                       selectedGrupo={selectedGrupo}
                       setSelectedGrupo={setSelectedGrupo}
                       selectedCategoria={selectedCategoria}
@@ -192,7 +194,8 @@ export default function App() {
                       loading={loading}
                       error={error}
                     />
-                  </section>
+                    </section>
+                  </>
                 </ProtectedRoute>
               } />
 

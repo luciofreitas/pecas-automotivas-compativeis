@@ -7,7 +7,67 @@ body {
 
 /* CSS variable controlling the top padding for main (keeps gap proportional per breakpoint) */
 :root {
-  --app-main-padding-top: 10px; /* default fallback - reduced to prevent excess space */
+  --app-main-padding-top: 1rem; /* legacy fallback */
+  /* Use rem units so spacing scales with root font-size and rem/em math works reliably */
+  --site-header-height: 90px; /* increased header height for even more space */
+  --page-heading-gap: calc(var(--site-header-height) * 0.6); /* increased gap: ~60% for maximum space */
+  /*
+    GLOBAL CONTROL:
+    To change the distance between the fixed header (MenuLogin) and
+    all page content, edit only `--site-header-height` above. Examples:
+      --site-header-height: 4rem;   // smaller gap
+      --site-header-height: 5.5rem; // larger gap
+
+    Notes:
+    - `.site-header-spacer` and `.site-header` use this variable to reserve
+      space for the fixed header.
+    - `.page-offset` and normalized page headings use calc(var(--site-header-height) + <extra-gap>)
+      to keep a consistent gap across pages.
+  */
+}
+
+/* Global page offset: always push page content below the fixed header.
+   Uses rem so developers can tune spacing with em/rem units. */
+.page-offset {
+  /* `site-header-spacer` reserves header height; page-offset provides an
+     additional tuned gap. Use calc(var(--site-header-height) + X) where X is
+     the extra spacing you want between header and content. */
+  padding-top: calc(var(--site-header-height) + var(--page-heading-gap)) !important;
+  box-sizing: border-box;
+}
+
+/* Spacer element that matches the header height so fixed header doesn't overlap content */
+.site-header-spacer {
+  height: var(--site-header-height);
+  width: 100%;
+  display: block;
+}
+
+/* Normalize all page headings (h2 and .page-heading) to have the same distance
+   from the fixed header. This overrides page-specific paddings/margins. */
+.page-offset h2:not(.quem-somos__title):not(.nosso-projeto__title):not(.seja-pro__title):not(.contato__title):not(.inicio-title):not(.Login-heading):not(.Login-section-title),
+.page-offset .page-heading:not(.quem-somos__title):not(.nosso-projeto__title):not(.seja-pro__title):not(.contato__title):not(.inicio-title):not(.Login-heading):not(.Login-section-title) {
+  /* remove any top padding coming from page rules and use a consistent margin */
+  padding-top: 0 !important;
+  margin-top: calc(var(--page-heading-gap) + 1rem) !important; /* reduced extra space */
+  font-size: 2rem !important; /* normalize to Quem Somos size */
+  color: #2563eb !important; /* ensure color is visible */
+  display: block !important; /* ensure it's displayed */
+  text-align: center !important; /* center the heading */
+  scroll-margin-top: calc(var(--site-header-height) + 0.5rem) !important; /* anchors land below header */
+}
+
+/* Let page-specific titles control their own styling */
+.quem-somos__title,
+.nosso-projeto__title, 
+.seja-pro__title,
+.contato__title,
+.inicio-title,
+.Login-heading,
+.Login-section-title {
+  /* Override any global rules that might interfere */
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
 
 /* Hide any duplicate logos across all resolutions */
@@ -60,12 +120,13 @@ body {
   }
   /* Removed menu-items-center positioning to allow natural centering */
   /* Reduced top padding to prevent excessive space */
-  :root { --app-main-padding-top: 20px; }
-  /* Ensure app and pages that use .page-offset follow this value (override other rules) */
-  .App { padding-top: var(--app-main-padding-top) !important; margin-top: 0 !important; }
-  .page-offset { padding-top: var(--app-main-padding-top) !important; box-sizing: border-box; }
+  /* local --app-main-padding-top override removed; global spacing is
+     controlled by --site-header-height at the top of this file */
+  /* Ensure app and pages that use .page-offset follow header height */
+  .App { padding-top: calc(var(--site-header-height) + var(--page-heading-gap)) !important; margin-top: 0 !important; }
+  .page-offset { padding-top: calc(var(--site-header-height) + var(--page-heading-gap)) !important; box-sizing: border-box; }
   #seja-pro{
-    padding: 32px 16px;
+    padding: 2rem 1rem;
   }
 }
 
@@ -73,10 +134,11 @@ body {
 @media (min-width: 1900px) and (max-width: 1940px) {
   /* general containers */
   .container, .main-content, .results-container, .filters { max-width: 1100px; margin: 0 auto; }
-  .page-offset { padding-top: var(--app-main-padding-top) !important; }
+  .page-offset { padding-top: calc(var(--site-header-height) + var(--page-heading-gap)) !important; }
 
   /* menu / header spacing */
-  .site-root-header, .site-header { height: 80px; padding: 1em 1.5em; }
+  /* Use the CSS variable to keep header height consistent across breakpoints */
+  .site-root-header, .site-header { height: var(--site-header-height); padding: 1em 1.5em; }
   .menu-login-logo img { height: 70px !important; }
   /* Remove any additional logos */
   .logo-container { display: none !important; }
@@ -84,7 +146,7 @@ body {
   /* page headings and sections (QuemSomos / Login wrappers) */
   section[id], .page-section { padding: 0 1rem; }
   .page-offset > section, .page-offset > div { max-width: 1000px; margin: 0 auto; text-align: center; }
-  .page-offset .page-heading { padding: 40px 16px !important; }
+  .page-offset .page-heading { padding: var(--page-heading-gap) 1rem !important; }
 
   /* Login specific */
   .form-containers { margin-top: 7em !important; }
@@ -229,7 +291,7 @@ body {
   }
   /* Removed menu-items-center positioning to allow natural centering */
   /* Removed custom-margin-top that was causing duplicate logo/spacing issues */
-  :root { --app-main-padding-top: 20px; }
+  /* local --app-main-padding-top override removed; use --site-header-height */
 }
 
 /* 4K UHD - 3840x2160 */
@@ -241,7 +303,7 @@ body {
   }
   /* Removed menu-items-center positioning to allow natural centering */
   /* Removed custom-margin-top that was causing duplicate logo/spacing issues */
-  :root { --app-main-padding-top: 20px; }
+  /* local --app-main-padding-top override removed; use --site-header-height */
 }
 
 /* HD - 1366x768 */
@@ -263,28 +325,22 @@ body {
   /* Reduce welcome title slightly on 1366x768 */
   .welcome-title { font-size: 32px !important; }
   /* Keep small gap for HD screens */
-  :root { --app-main-padding-top: 20px; }
-  /* Make MenuLogin behave like Menu.jsx on 1366x768 (fixed header, centered items) */
-  .menu.menu-horizontal {
+  /* local --app-main-padding-top override removed; use --site-header-height */
+  /* Make MenuLogin fixed like Menu.jsx on 1366x768 */
+  .site-header {
     position: fixed !important;
     top: 0;
     left: 0;
     width: 100% !important;
     z-index: 1000;
-    padding: 1em 1.5em !important;
-    background: #fafafa !important;
-    box-shadow: none !important;
-    border-radius: 0 !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    min-width: 320px !important;
+    background: #ffffff !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
   }
-  /* Remove extra inline margins so it sits flush like Menu.jsx */
-  .menu.menu-horizontal[style] {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
+  
+  .menu-login-root {
+    padding: 0.75em 1.5em !important;
   }
+  
   .quem-somos__title {
     font-size: 2rem !important;
     margin-bottom: 1rem !important;
@@ -295,11 +351,7 @@ body {
     margin-bottom: 1rem !important;
     padding: 40px 16px !important;
   }
-  /* page-offset: ensure gap from fixed header on 1366x768 - stronger selector and padding to avoid margin collapse */
-  body .page-offset {
-    margin-top: 240px !important;
-    padding-top: 1px !important; /* prevents margin collapse with parent */
-  }
+  /* page-offset spacing handled globally via --site-header-height */
 }
 /* Default welcome title size */
 .welcome-title { font-size: 40px; }
@@ -314,7 +366,7 @@ body {
   /* Removed menu-items-center positioning to allow natural centering */
   .logo-container { display: none !important; } /* Hide duplicate logo */
   /* Removed custom-margin-top that was causing spacing issues */
-  :root { --app-main-padding-top: 10px; }
+  /* local --app-main-padding-top override removed; use --site-header-height */
 }
 
 /* Tablets - 768x1024 */
@@ -327,7 +379,7 @@ body {
   /* Removed menu-items-center positioning to allow natural centering */
   .logo-container { display: none !important; } /* Hide duplicate logo */
   /* Removed custom-margin-top that was causing spacing issues */
-  :root { --app-main-padding-top: 10px; }
+  /* local --app-main-padding-top override removed; use --site-header-height */
 }
 
 /* Mobile - 414x896 */
@@ -340,7 +392,7 @@ body {
   }
   .menu-items-center { left: 50%; gap: 1em; }
   .logo-container img { height: 40px; }
-  :root { --app-main-padding-top: 20px; }
+  /* local --app-main-padding-top override removed; use --site-header-height */
 }
 
 /* Mobile - 375x667 */
@@ -353,7 +405,7 @@ body {
   }
   .menu-items-center { left: 50%; gap: 1em; }
   .logo-container img { height: 40px; }
-  :root { --app-main-padding-top: 20px; }
+  /* local --app-main-padding-top override removed; use --site-header-height */
 }
 
 /* Mobile - 360x640 */
@@ -366,7 +418,7 @@ body {
   }
   .menu-items-center { left: 50%; gap: 1em; }
   .logo-container img { height: 40px; }
-  :root { --app-main-padding-top: 20px; }
+  /* local --app-main-padding-top override removed; use --site-header-height */
 }
 
 /* ==========================

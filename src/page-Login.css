@@ -127,3 +127,29 @@
     margin-right: 0 !important;
   }
 }
+
+/* Login page spacing consistency with MenuLogin */
+.page-offset {
+  padding-top: 120px; /* consistent spacing below MenuLogin */
+}
+
+/* Login page title styling */
+.Login-heading {
+  color: #2563eb;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+  font-weight: 600;
+  font-size: 2rem;
+  display: block;
+  padding: 0;
+}
+
+.Login-intro {
+  margin-bottom: 2rem;
+}
+
+.Login-section-title {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}

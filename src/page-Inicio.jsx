@@ -13,7 +13,7 @@ export default function PageInicio() {
       <main className="inicio-main">
         <section className="inicio-hero">
           <div className="inicio-hero-inner">
-            <h1 className="inicio-title">Bem Vindo ao Peça Fácil</h1>
+                    <h2 className="inicio-title">Bem Vindo ao Peça Fácil</h2>
             <p className="inicio-subtitle">Encontre peças compatíveis com economia e confiança.</p>
 
             <div className="inicio-actions">
