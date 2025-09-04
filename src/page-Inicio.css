@@ -12,7 +12,6 @@
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 120px 16px 40px 16px; /* increased top padding for MenuLogin spacing */
   box-sizing: border-box;
 }
 
@@ -79,7 +78,7 @@
 @media (min-width: 1900px) and (max-width: 1940px) {
   /* Inicio */
   .page-inicio { min-height: 100vh; display: flex; flex-direction: column; background: #ffffff; }
-  .inicio-main { flex: 1; width: 100%; max-width: 1100px; margin: 0 auto; padding: 120px 16px 40px 16px; box-sizing: border-box; }
+  .inicio-main { flex: 1; width: 100%; max-width: 1100px; margin: 0 auto; box-sizing: border-box; }
   .inicio-hero { padding: 0 0 40px 0; text-align: center; }
   .inicio-title { font-size: 2rem; line-height: 1.15; margin: 0 0 12px 0; color: #2563eb; font-weight: 600; }
   .inicio-subtitle { color: #475569; margin: 0 0 16px 0; }
@@ -88,4 +87,10 @@
   .btn-secondary { background: transparent; color: #2563eb; border: 1px solid #c7d2fe; padding: 10px 18px; border-radius: 8px; cursor: pointer; }
   .inicio-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 30px; }
   .card { background: #f8fafc; border-radius: 8px; padding: 18px; box-shadow: 0 6px 18px rgba(2,6,23,0.04); color: #0f172a; text-align: center; }
+}
+
+/* HD - 1366x768 specific: ensure MenuLogin spacing for inicio content */
+@media (min-width: 1365px) and (max-width: 1366px) {
+  /* when using MenuLogin the main content should be pushed down by 4rem */
+  .inicio-main { margin-top: 4rem !important; }
 }
