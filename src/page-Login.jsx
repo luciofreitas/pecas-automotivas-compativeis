@@ -152,7 +152,7 @@ function Login() {
     <>
       <MenuLogin />
       <div className="page-offset">
-        <div className="login-page-wrapper">
+        <section id="login" className="login-page-wrapper">
           <div className="login-content-container">
             <h2 className="Login-heading">Bem Vindo ao Peça Fácil</h2>
             <p className="Login-intro">
@@ -256,7 +256,7 @@ function Login() {
             </div>
 
           </div>
-        </div>
+  </section>
       </div>
     </>
   );

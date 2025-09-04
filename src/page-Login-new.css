@@ -3,10 +3,33 @@
 /* Container principal com mesmo offset que .nosso-projeto-section (120px) */
 .login-page-wrapper {
 	/* match QuemSomos/Contato spacing so the H2 aligns with other pages */
-	padding: 120px 1rem 2rem 1rem; /* reduced from 240px to 120px to match reference */
+	padding: 0 1rem 2rem 1rem; /* reduced from 240px to 120px to match reference */
 	background: #ffffff;
 	min-height: 100vh;
 	box-sizing: border-box;
+}
+
+/* Make the login section align with other pages where the page-offset controls spacing
+	(same approach used for #contato). This removes additional top offset added by
+	the global .page-offset so the h2 lines up consistently. */
+.page-offset > #login { padding-top: 0 !important; }
+
+/* Stronger, page-specific overrides to avoid conflicts with global selectors
+	 and ensure the Login H2 aligns with other pages (Contato/QuemSomos). */
+.page-offset > #login.login-page-wrapper,
+.page-offset > #login .login-page-wrapper,
+#login.login-page-wrapper,
+#login {
+	padding-top: 0 !important;
+	box-sizing: border-box;
+}
+
+/* Force the same h2 spacing used by the global .page-offset h2 rule but
+	 applied specifically to the login heading so it cannot be overridden. */
+.page-offset > #login h2.Login-heading {
+	margin-top: calc(var(--page-heading-gap) + 1rem) !important;
+	padding-top: 0 !important;
+	scroll-margin-top: calc(var(--site-header-height) + 0.5rem) !important;
 }
 
 .login-content-container {
