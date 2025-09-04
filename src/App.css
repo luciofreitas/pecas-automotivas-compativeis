@@ -63,12 +63,8 @@ body { scrollbar-gutter: stable; }
   box-sizing: border-box;
 }
 
-/* Spacer element that matches the header height so fixed header doesn't overlap content */
-.site-header-spacer {
-  height: var(--site-header-height);
-  width: 100%;
-  display: block;
-}
+/* spacer removed: site-header-spacer element was removed from markup - spacing is handled
+  with the CSS variables and `.page-offset` class so this rule is no longer required */
 
 /* Normalize all page headings (h2 and .page-heading) to have the same distance
    from the fixed header. This overrides page-specific paddings/margins. */
