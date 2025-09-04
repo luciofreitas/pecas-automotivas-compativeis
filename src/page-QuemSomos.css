@@ -14,7 +14,7 @@
   font-weight: 600;
   font-size: 2rem;
   display: block;
-  padding: 0; /* clean padding */
+  padding-top: 0; /* removed padding-top per request */
 }
 
 .quem-somos__content {
