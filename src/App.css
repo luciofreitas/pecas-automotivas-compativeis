@@ -2,8 +2,8 @@
 :root {
   --app-main-padding-top: 1rem; /* legacy fallback */
   /* Use rem units so spacing scales with root font-size and rem/em math works reliably */
-  --site-header-height: 90px; /* increased header height for even more space */
-  --page-heading-gap: calc(var(--site-header-height) * 0.6); /* increased gap: ~60% for maximum space */
+  --site-header-height: 5rem; /* increased header height for even more space */
+  --page-heading-gap: calc(var(--site-header-height) * 0.1); /* increased gap: ~60% for maximum space */
   /*
     GLOBAL CONTROL:
     To change the distance between the fixed header (MenuLogin) and

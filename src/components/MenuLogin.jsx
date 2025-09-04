@@ -10,7 +10,7 @@ const MenuLogin = () => {
   <header className="site-header">
         <div className="menu-login-root menu-responsive">
           <div className="menu-login-logo">
-            <img src="/logo.svg" alt="Logo Peça Fácil" onClick={() => navigate('/')} />
+            <img src="/public/logo.svg" alt="Logo Peça Fácil" onClick={() => navigate('/')} />
           </div>
 
           <div className="menu-login-center">
@@ -27,7 +27,8 @@ const MenuLogin = () => {
           </div>
         </div>
       </header>
-  {/* spacer removed - spacing now controlled by CSS variables and `.page-offset` */}
+  {/* Spacer to reserve space in the flow for the fixed header */}
+  <div className="site-header-spacer" aria-hidden="true" />
     </>
   );
 };
