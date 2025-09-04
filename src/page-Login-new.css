@@ -26,7 +26,7 @@
 
 /* Force the same h2 spacing used by the global .page-offset h2 rule but
 	 applied specifically to the login heading so it cannot be overridden. */
-.page-offset > #login h2.Login-heading {
+.page-offset > #login h2.login-heading {
 	margin-top: calc(var(--page-heading-gap) + 1rem) !important;
 	padding-top: 0 !important;
 	scroll-margin-top: calc(var(--site-header-height) + 0.5rem) !important;
@@ -39,7 +39,7 @@
 }
 
 /* Título principal alinhado com demais páginas */
-.Login-heading, .login-main-title {
+.login-heading, .login-main-title {
 	color: #2563eb;
 	font-weight: 600;
 	font-size: 2rem;
@@ -49,7 +49,7 @@
 	text-align: center; /* garantir centralização */
 }
 
-.Login-intro {
+.login-intro {
 	color: #374151;
 	line-height: 1.6;
 	margin: 0 0 2rem 0;
@@ -81,7 +81,7 @@
 	box-sizing: border-box;
 }
 
-.Login-section-title {
+.login-section-title {
 	margin: 0 0 1.5rem 0;
 	font-size: 1.5rem;
 	font-weight: 600;
@@ -116,7 +116,7 @@
 	.login-page-wrapper { padding: 120px 0.75rem 2rem 0.75rem; }
 	.form-containers { flex-direction: column; gap: 2rem; }
 	.login-form-card { max-width: 100%; }
-	.Login-heading { font-size: 1.75rem; }
+	.login-heading { font-size: 1.75rem; }
 }
 
 /* Specific fix for 1366x768: match QuemSomos spacing under the fixed MenuLogin
@@ -130,7 +130,7 @@
     margin-top: calc(0px - (var(--site-header-height) + var(--page-heading-gap)));
   }
 
-  .page-offset .login-page-wrapper .Login-heading,
+  .page-offset .login-page-wrapper .login-heading,
   .page-offset .login-page-wrapper .login-main-title {
     margin-top: 0 !important;
     padding-top: 0 !important;
@@ -139,17 +139,17 @@
 
 /* Full HD - 1920x1080 */
 @media (min-width: 1900px) and (max-width: 1940px) {
-  /* Login specific */
-  .form-containers { margin-top: 7em !important; }
+  /* Login specific - reduzir margin-top para manter alinhamento com MenuLogin */
+  .form-containers { margin-top: 2rem !important; }
   .bg-white.bordered-card { padding: 1em !important; border: 1px solid #d1d5db; border-radius: 1em; background: white; }
 
   /* Login component spacing */
-  .Login-form-control { margin-bottom: 1.2em !important; }
-  .Login-submit { background-color: #2563eb !important; color: white !important; border: none !important; margin-top: 1.5em !important; }
-  .Login-form { background: white !important; }
+  .login-form-control { margin-bottom: 1.2em !important; }
+  .login-submit { background-color: #2563eb !important; color: white !important; border: none !important; margin-top: 1.5em !important; }
+  .login-form { background: white !important; }
 
   /* Login migrated styles */
-  .Login-heading { color: #2563eb; }
-  .Login-intro { font-size: 1.05em; }
-  .Login-section-title { margin: 0; padding: 0; color: #2563eb; }
+  .login-heading { color: #2563eb; }
+  .login-intro { font-size: 1.05em; }
+  .login-section-title { margin: 0; padding: 0; color: #2563eb; }
 }

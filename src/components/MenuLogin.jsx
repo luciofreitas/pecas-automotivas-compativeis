@@ -10,7 +10,7 @@ const MenuLogin = () => {
   <header className="site-header">
         <div className="menu-login-root menu-responsive">
           <div className="menu-login-logo">
-            <img src="/public/logo.svg" alt="Logo Peça Fácil" onClick={() => navigate('/')} />
+            <img src="/logo.svg" alt="Logo Peça Fácil" onClick={() => navigate('/')} />
           </div>
 
           <div className="menu-login-center">

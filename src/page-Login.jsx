@@ -153,9 +153,10 @@ function Login() {
       <MenuLogin />
       <div className="page-offset">
         <section id="login" className="login-page-wrapper">
-          <div className="login-content-container">
-            <h2 className="Login-heading">Bem Vindo ao Peça Fácil</h2>
-            <p className="Login-intro">
+          <div className="page-section login">
+            <div className="login-content-container">
+            <h2 className="login-heading">Bem Vindo ao Peça Fácil</h2>
+            <p className="login-intro">
               Aqui facilitamos sua vida! Alguma peça do seu carro deu defeito e ela é cara?
               <br />
               Calma, pode ser que de um outro carro possa ser mais barata e tenha compatibilidade com seu veículo.
@@ -165,10 +166,10 @@ function Login() {
               {/* Entrar Container */}
               <div className="login-form-card">
                 <div>
-                  <h2 className="Login-section-title">Entrar</h2>
+                  <h2 className="login-section-title">Entrar</h2>
                 </div>
                 <form onSubmit={handleLogin} className="login-form">
-                  <div className="form-control w-full Login-form-control">
+                  <div className="form-control w-full login-form-control">
                     <input
                       type="email"
                       placeholder="E-mail"
@@ -178,7 +179,7 @@ function Login() {
                       autoComplete="username"
                     />
                   </div>
-                  <div className="form-control w-full Login-form-control">
+                  <div className="form-control w-full login-form-control">
                     <input
                       type="password"
                       placeholder="Senha"
@@ -189,17 +190,17 @@ function Login() {
                     />
                   </div>
                   {error && <div className="text-red-600 text-center text-sm">{error}</div>}
-                  <button type="submit" className="btn w-full Login-submit">Entrar</button>
+                  <button type="submit" className="btn w-full login-submit">Entrar</button>
                 </form>
               </div>
 
               {/* Registrar Container */}
               <div className="login-form-card">
                 <div>
-                  <h2 className="Login-section-title">Registrar</h2>
+                  <h2 className="login-section-title">Registrar</h2>
                 </div>
                 <form onSubmit={handleRegister} className="login-form">
-                  <div className="form-control w-full Login-form-control">
+                  <div className="form-control w-full login-form-control">
                     <input
                       type="text"
                       placeholder="Nome Completo"
@@ -209,7 +210,7 @@ function Login() {
                       autoComplete="name"
                     />
                   </div>
-                  <div className="form-control w-full Login-form-control">
+                  <div className="form-control w-full login-form-control">
                     <input
                       type="tel"
                       placeholder="Celular"
@@ -219,7 +220,7 @@ function Login() {
                       autoComplete="tel"
                     />
                   </div>
-                  <div className="form-control w-full Login-form-control">
+                  <div className="form-control w-full login-form-control">
                     <input
                       type="email"
                       placeholder="E-mail"
@@ -229,7 +230,7 @@ function Login() {
                       autoComplete="email"
                     />
                   </div>
-                  <div className="form-control w-full Login-form-control">
+                  <div className="form-control w-full login-form-control">
                     <input
                       type="password"
                       placeholder="Senha"
@@ -239,7 +240,7 @@ function Login() {
                       autoComplete="new-password"
                     />
                   </div>
-                  <div className="form-control w-full Login-form-control">
+                  <div className="form-control w-full login-form-control">
                     <input
                       type="password"
                       placeholder="Confirmar Senha"
@@ -250,13 +251,14 @@ function Login() {
                     />
                   </div>
                   {regError && <div className="text-red-600 text-center text-sm">{regError}</div>}
-                  <button type="submit" className="btn w-full Login-submit">Registrar</button>
+                  <button type="submit" className="btn w-full login-submit">Registrar</button>
                 </form>
               </div>
             </div>
 
+            </div>
           </div>
-  </section>
+        </section>
       </div>
     </>
   );

@@ -94,8 +94,8 @@ body { scrollbar-gutter: stable; }
 .seja-pro__title,
 .contato__title,
 .inicio-title,
-.Login-heading,
-.Login-section-title {
+.login-heading,
+.login-section-title {
   /* Override any global rules that might interfere */
   margin-top: 0 !important;
   padding-top: 0 !important;
@@ -250,7 +250,7 @@ textarea:focus,
 
 /* Primary buttons (search, submit, login/register) */
 .btn,
-.Login-submit,
+.login-submit,
 .Checkin-btnPrimary,
 .search-btn,
 .results-container .btn {

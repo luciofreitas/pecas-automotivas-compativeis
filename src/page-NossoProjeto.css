@@ -1,7 +1,7 @@
 /* page-NossoProjeto.css - Estilos específicos da página Nosso Projeto */
 
 .nosso-projeto-section {
-  padding: 120px 1rem 2rem 1rem; /* increased top padding for MenuLogin spacing */
+  padding: 0 1rem 2rem 1rem; /* top padding removed per user request */
   background: #fff;
 }
 
@@ -41,8 +41,9 @@
 
 /* Full HD - 1920x1080 */
 @media (min-width: 1900px) and (max-width: 1940px) {
-  /* NossoProjeto spacing */
-  .NossoProjeto-section { padding: 0 1rem; background: #fff; }
+  /* NossoProjeto spacing - remove padding-top conflitante para manter alinhamento com MenuLogin */
+  .NossoProjeto-section { padding: 0 1rem 2rem 1rem; background: #fff; }
+  .page-offset > .nosso-projeto-section { padding-top: 0 !important; }
   .NossoProjeto-container { max-width: 1000px; margin: 0 auto; text-align: center; }
   .NossoProjeto-paragraph { margin-top: 0.75rem; }
 }
