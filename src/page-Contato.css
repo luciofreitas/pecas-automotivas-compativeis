@@ -2,7 +2,7 @@
 
 #contato {
   /* match QuemSomos spacing so title distance is identical */
-  padding: 120px 1rem 2rem 1rem;
+  padding: 0 1rem 2rem 1rem; /* top padding removed per user request */
   background: #fff;
 }
 
