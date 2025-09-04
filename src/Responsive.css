@@ -189,6 +189,19 @@ body {
     margin-top: 0 !important;
   }
 
+  /* Ensure BuscarPeca section heading is also pushed below the fixed Menu
+     (this page uses a different section class name). */
+  .menu-page .buscarpeca-section {
+    padding-top: calc(var(--site-header-height) * 0.45) !important;
+    margin-top: 0 !important;
+  }
+
+  .menu-page .buscarpeca-section .page-heading {
+    margin-top: calc(var(--site-header-height) + 1rem) !important;
+    padding-top: 0 !important;
+    scroll-margin-top: calc(var(--site-header-height) + 0.5rem) !important;
+  }
+
   /* Stronger safeguard: force the home-section heading to sit below the fixed Menu
      for pages using the regular Menu. This ensures the H2 will not be hidden behind
      the header regardless of small header size mismatches or logo scaling. */

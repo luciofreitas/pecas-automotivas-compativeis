@@ -5,7 +5,7 @@ import './components/Menu.css';
 import './page-Login-new.css';
 import usuariosData from './usuarios.json';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from './page-App';
+import { AuthContext } from './App';
 function Login() {
   // Estados para login
   const [email, setEmail] = useState('');

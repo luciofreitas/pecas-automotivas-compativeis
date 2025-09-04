@@ -1,0 +1,71 @@
+/* page-BuscarPeca.css */
+
+.buscarpeca-section {
+  padding: 0 1rem;
+  background: #fff;
+}
+
+.buscarpeca-intro {
+  color: #374151;
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Modal styles specific to BuscarPeca */
+.buscarpeca-modal-pecas {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.buscarpeca-compat-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0.1em;
+}
+
+.buscarpeca-compat-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin-bottom: 1.5em;
+  margin-top: 6px;
+  min-height: 40px;
+  gap: 12px;
+  padding-left: 8px;
+}
+
+.buscarpeca-compat-checkimg {
+  width: 36px;
+  display: inline-block;
+  flex: 0 0 auto;
+}
+
+.buscarpeca-compat-title {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #222;
+  text-align: left;
+  display: block;
+}
+
+/* Responsive adjustments */
+@media (min-width: 1900px) and (max-width: 1940px) {
+  .buscarpeca-section {
+    padding: 0 1rem;
+  }
+  
+  .page-section {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .buscarpeca-intro {
+    color: #374151;
+    line-height: 1.6;
+  }
+}

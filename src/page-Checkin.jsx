@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import Menu from './components/Menu';
-import { AuthContext } from './page-App';
+import { AuthContext } from './App';
 import './page-Checkin.css';
 
 export default function Checkin() {
