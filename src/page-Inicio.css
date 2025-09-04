@@ -91,6 +91,6 @@
 
 /* HD - 1366x768 specific: ensure MenuLogin spacing for inicio content */
 @media (min-width: 1365px) and (max-width: 1366px) {
-  /* when using MenuLogin the main content should be pushed down by 4rem */
-  .inicio-main { margin-top: 4rem !important; }
+  /* temporarily reset margin-top to zero for this resolution */
+  .inicio-main { margin-top: 0 !important; }
 }
