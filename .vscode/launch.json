@@ -1,0 +1,36 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Launch Chrome with Vite",
+      "url": "http://localhost:5174",
+      "webRoot": "${workspaceFolder}",
+      "runtimeExecutable": "chrome",
+      "runtimeArgs": [
+        "--new-window",
+        "--disable-web-security",
+        "--disable-features=VizDisplayCompositor"
+      ],
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "preLaunchTask": "start-vite-dev"
+    },
+    {
+      "type": "chrome",
+      "request": "launch", 
+      "name": "Launch Chrome (5174)",
+      "url": "http://localhost:5174",
+      "webRoot": "${workspaceFolder}",
+      "runtimeExecutable": "chrome",
+      "runtimeArgs": [
+        "--new-window"
+      ],
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    }
+  ]
+}
