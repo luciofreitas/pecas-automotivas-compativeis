@@ -6,7 +6,7 @@
   background: #fff;
 }
 
-.Contato-container {
+.contato-container {
   max-width: 640px; /* reduced from 800px to make the form area more compact */
   margin: 0 auto;
   text-align: center;
@@ -30,14 +30,14 @@
   margin-bottom: 2rem;
 }
 
-.Contato-info {
+.contato-info {
   margin-top: 3rem;
   color: #6b7280;
   text-align: center !important;
   line-height: 1.6;
 }
 
-.Contato-info h3 {
+.contato-info h3 {
   color: #111827;
   margin-bottom: 0.5rem;
 }

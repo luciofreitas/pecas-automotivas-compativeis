@@ -157,19 +157,17 @@ export default function App() {
   return (
     <AuthContext.Provider value={{ usuarioLogado, setUsuarioLogado, authLoaded, setAuthLoaded }}>
       <BrowserRouter>
-        <div className="App page-offset">
-          {/* Restored Menu component for the catalog page */}
+        <>
+          <Menu />
+          <div className="page-offset menu-page">
           
           <main className="app-main">
             <Routes>
               <Route path="/" element={
                 <ProtectedRoute>
                   <>
-                    <Menu />
                     <section className="home-section">
                       <h2 className="page-heading">Bem-vindo ao catálogo de peças</h2>
-                      <p className="welcome-text">Use o menu para navegar pelo site.</p>
-
                       <SearchForm
                       selectedGrupo={selectedGrupo}
                       setSelectedGrupo={setSelectedGrupo}
@@ -216,7 +214,8 @@ export default function App() {
           <CompatibilityModal show={showModal} onClose={() => setShowModal(false)} title={modalTitle}>
             {modalContent}
           </CompatibilityModal>
-        </div>
+    </div>
+    </>
       </BrowserRouter>
     </AuthContext.Provider>
   );

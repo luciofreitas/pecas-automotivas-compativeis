@@ -16,17 +16,17 @@ export default function ContatoLogado() {
   return (
     <>
       <Menu />
-      <div className="page-offset">
-        <section id="contato">
+  <div className="page-offset menu-page">
+        <section id="contato-logado">
           <div className="page-section">
             <h2 className="page-heading">Contato</h2>
-            <p className="ContatoLogado-intro">
+            <p className="contato-logado-intro">
               Entre em contato conosco pelo formulário abaixo ou pelos canais oficiais.
             </p>
 
             <ContatoForm requireAuth={true} user={usuarioLogado} onSubmit={handleSubmit} />
 
-            <div className="Contato-info">
+            <div className="contato-logado-info">
               <p>Telefone: (00) 0000-0000</p>
               <p>E-mail: suporte@pecafacil.com.br</p>
             </div>

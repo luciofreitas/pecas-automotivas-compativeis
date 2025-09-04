@@ -17,7 +17,7 @@ export default function Contato() {
 
           <ContatoForm />
 
-          <div className="Contato-info">
+          <div className="contato-info">
             <p>Telefone: (00) 0000-0000</p>
             <p>E-mail: suporte@pecafacil.com.br</p>
           </div>

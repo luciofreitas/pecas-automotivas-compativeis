@@ -45,16 +45,25 @@ body {
 
 /* Normalize all page headings (h2 and .page-heading) to have the same distance
    from the fixed header. This overrides page-specific paddings/margins. */
-.page-offset h2:not(.quem-somos__title):not(.nosso-projeto__title):not(.seja-pro__title):not(.inicio-title):not(.Login-heading):not(.Login-section-title),
-.page-offset .page-heading:not(.quem-somos__title):not(.nosso-projeto__title):not(.seja-pro__title):not(.inicio-title):not(.Login-heading):not(.Login-section-title) {
+
+.page-offset h2,
+.page-offset .page-heading {
   /* remove any top padding coming from page rules and use a consistent margin */
   padding-top: 0 !important;
-  margin-top: calc(var(--page-heading-gap) + 1rem) !important; /* reduced extra space */
-  font-size: 2rem !important; /* normalize to Quem Somos size */
-  color: #2563eb !important; /* ensure color is visible */
-  display: block !important; /* ensure it's displayed */
-  text-align: center !important; /* center the heading */
-  scroll-margin-top: calc(var(--site-header-height) + 0.5rem) !important; /* anchors land below header */
+  margin-top: calc(var(--page-heading-gap) + 1rem) !important;
+  font-size: 2rem !important;
+  color: #2563eb !important;
+  display: block !important;
+  text-align: center !important;
+  scroll-margin-top: calc(var(--site-header-height) + 0.5rem) !important;
+}
+
+/* For pages using the regular Menu (not MenuLogin) ensure same h2 distance
+   by targeting pages where we added the `menu-page` helper class */
+.menu-page h2,
+.menu-page .page-heading {
+  margin-top: calc(var(--page-heading-gap) + 1rem) !important;
+  padding-top: 0 !important;
 }
 
 /* Let page-specific titles control their own styling */
@@ -148,6 +157,15 @@ body {
   .page-offset > section, .page-offset > div { max-width: 1000px; margin: 0 auto; text-align: center; }
   .page-offset .page-heading { padding: var(--page-heading-gap) 1rem !important; }
 
+  /* Prevent FullHD block from adding extra top padding to pages that use the
+     regular Menu. `.menu-page` already enforces padding-top: 0 and a controlled
+     margin; make this selector specific so it wins over the generic .page-offset
+     rule above in this media query. This fixes the doubled gap observed on 1920x1080. */
+  .page-offset.menu-page .page-heading,
+  .menu-page .page-heading {
+    padding-top: 0 !important;
+  }
+
   /* Login specific */
   .form-containers { margin-top: 7em !important; }
   .bg-white.bordered-card { padding: 1em !important; border: 1px solid #d1d5db; border-radius: 1em; background: white; }
@@ -164,6 +182,22 @@ body {
   .contato__title { margin-top: 0 !important; padding-top: 0 !important; }
   .contato-title { color: #2563eb; }
   .contato-intro { color: #374151; line-height: 1.6; }
+  
+  /* Move home-section slightly lower on FullHD to match spacing expectations */
+  .menu-page .home-section {
+    padding-top: calc(var(--site-header-height) * 0.45) !important; /* adjustable */
+    margin-top: 0 !important;
+  }
+
+  /* Stronger safeguard: force the home-section heading to sit below the fixed Menu
+     for pages using the regular Menu. This ensures the H2 will not be hidden behind
+     the header regardless of small header size mismatches or logo scaling. */
+  .App.page-offset.menu-page .home-section .page-heading,
+  .menu-page .home-section .page-heading {
+    margin-top: calc(var(--site-header-height) + 1rem) !important;
+    padding-top: 0 !important;
+    scroll-margin-top: calc(var(--site-header-height) + 0.5rem) !important;
+  }
 
   /* Login component spacing */
   .Login-form-control { margin-bottom: 1.2em !important; }
