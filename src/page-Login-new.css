@@ -2,8 +2,9 @@
 
 /* Container principal com mesmo offset que .nosso-projeto-section (120px) */
 .login-page-wrapper {
-	padding: 240px 1rem 2rem 1rem; /* ajustado para 240px para um espaçamento mais equilibrado */
-	background: #f9fafb;
+	/* match QuemSomos/Contato spacing so the H2 aligns with other pages */
+	padding: 120px 1rem 2rem 1rem; /* reduced from 240px to 120px to match reference */
+	background: #ffffff;
 	min-height: 100vh;
 	box-sizing: border-box;
 }

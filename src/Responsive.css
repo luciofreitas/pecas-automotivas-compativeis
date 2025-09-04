@@ -45,8 +45,8 @@ body {
 
 /* Normalize all page headings (h2 and .page-heading) to have the same distance
    from the fixed header. This overrides page-specific paddings/margins. */
-.page-offset h2:not(.quem-somos__title):not(.nosso-projeto__title):not(.seja-pro__title):not(.contato__title):not(.inicio-title):not(.Login-heading):not(.Login-section-title),
-.page-offset .page-heading:not(.quem-somos__title):not(.nosso-projeto__title):not(.seja-pro__title):not(.contato__title):not(.inicio-title):not(.Login-heading):not(.Login-section-title) {
+.page-offset h2:not(.quem-somos__title):not(.nosso-projeto__title):not(.seja-pro__title):not(.inicio-title):not(.Login-heading):not(.Login-section-title),
+.page-offset .page-heading:not(.quem-somos__title):not(.nosso-projeto__title):not(.seja-pro__title):not(.inicio-title):not(.Login-heading):not(.Login-section-title) {
   /* remove any top padding coming from page rules and use a consistent margin */
   padding-top: 0 !important;
   margin-top: calc(var(--page-heading-gap) + 1rem) !important; /* reduced extra space */
@@ -158,6 +158,10 @@ body {
   .Contato-textarea { padding: 12px; }
   .Contato-submit { margin-top: 8px; min-width: 260px; width: auto; }
   .Contato-info { margin-top: 28px; color: #555; }
+  /* For Contato, remove section top padding so the global h2 normalization controls spacing
+    This keeps the Contato title aligned with other pages (Quem Somos) at FullHD */
+  .page-offset > #contato { padding-top: 0 !important; }
+  .contato__title { margin-top: 0 !important; padding-top: 0 !important; }
   .contato-title { color: #2563eb; }
   .contato-intro { color: #374151; line-height: 1.6; }
 

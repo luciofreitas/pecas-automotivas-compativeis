@@ -1,5 +1,6 @@
 import React from 'react';
 import MenuLogin from './components/MenuLogin';
+import ContatoForm from './components/ContatoForm';
 import './page-Contato.css';
 
 export default function Contato() {
@@ -14,12 +15,7 @@ export default function Contato() {
             Entre em contato conosco pelo formulário abaixo ou pelos canais oficiais.
           </p>
 
-          <div className="Contato-form-wrapper">
-            <input className="Contato-input" placeholder="Seu nome" />
-            <input className="Contato-input" placeholder="Seu e-mail" />
-            <textarea className="Contato-textarea" placeholder="Mensagem" rows={6} />
-            <button className="search-btn Contato-submit">Enviar Mensagem</button>
-          </div>
+          <ContatoForm />
 
           <div className="Contato-info">
             <p>Telefone: (00) 0000-0000</p>

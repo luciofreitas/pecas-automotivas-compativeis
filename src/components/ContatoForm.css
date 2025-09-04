@@ -1,0 +1,69 @@
+/* ContatoForm.css - Estilos específicos do componente de formulário de contato */
+
+.contato-form-wrapper {
+  margin-top: 1.25rem; /* slightly tighter spacing */
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+  max-width: 560px; /* limit form wrapper so inputs don't span full container */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contato-input,
+.contato-textarea {
+  width: 100%;
+  max-width: 480px; /* reduced so inputs are visually more compact */
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  box-sizing: border-box;
+  font-size: 1rem;
+  background: #fff;
+  color: #111827;
+}
+
+.contato-textarea {
+  padding: 1rem;
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contato-input:focus,
+.contato-textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.08);
+}
+
+.contato-submit {
+  margin-top: 0.75rem;
+  min-width: 200px; /* smaller button width */
+  width: auto;
+  padding: 0.65rem 1.25rem;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.contato-submit:hover {
+  background: #1e40af;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .contato-input,
+  .contato-textarea {
+    max-width: 100%;
+  }
+  
+  .contato-submit {
+    width: 100%;
+    max-width: 300px;
+  }
+}

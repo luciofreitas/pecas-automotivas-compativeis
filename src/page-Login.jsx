@@ -151,107 +151,113 @@ function Login() {
   return (
     <>
       <MenuLogin />
-      <div className="login-page-wrapper">
-        <div className="login-content-container">
-          <h2 className="Login-heading">Bem Vindo ao Peça Fácil</h2>
-          <p className="Login-intro">
-            Aqui facilitamos sua vida! Alguma peça do seu carro deu defeito e ela é cara?<br/>
-            Calma, pode ser que de um outro carro possa ser mais barata e tenha compatibilidade com seu veículo.
-          </p>
-          <div className="form-containers">
-            {/* Entrar Container */}
-            <div className="login-form-card">
-              <div>
-                <h2 className="Login-section-title">Entrar</h2>
+      <div className="page-offset">
+        <div className="login-page-wrapper">
+          <div className="login-content-container">
+            <h2 className="Login-heading">Bem Vindo ao Peça Fácil</h2>
+            <p className="Login-intro">
+              Aqui facilitamos sua vida! Alguma peça do seu carro deu defeito e ela é cara?
+              <br />
+              Calma, pode ser que de um outro carro possa ser mais barata e tenha compatibilidade com seu veículo.
+            </p>
+
+            <div className="form-containers">
+              {/* Entrar Container */}
+              <div className="login-form-card">
+                <div>
+                  <h2 className="Login-section-title">Entrar</h2>
+                </div>
+                <form onSubmit={handleLogin} className="login-form">
+                  <div className="form-control w-full Login-form-control">
+                    <input
+                      type="email"
+                      placeholder="E-mail"
+                      value={email}
+                      onChange={e => setEmail(e.target.value)}
+                      className="input input-bordered w-full bg-white text-black"
+                      autoComplete="username"
+                    />
+                  </div>
+                  <div className="form-control w-full Login-form-control">
+                    <input
+                      type="password"
+                      placeholder="Senha"
+                      value={senha}
+                      onChange={e => setSenha(e.target.value)}
+                      className="input input-bordered w-full bg-white text-black"
+                      autoComplete="current-password"
+                    />
+                  </div>
+                  {error && <div className="text-red-600 text-center text-sm">{error}</div>}
+                  <button type="submit" className="btn w-full Login-submit">Entrar</button>
+                </form>
               </div>
-              <form onSubmit={handleLogin} className="login-form">
-              <div className="form-control w-full Login-form-control">
-                <input
-                  type="email"
-                  placeholder="E-mail"
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                  className="input input-bordered w-full bg-white text-black"
-                  autoComplete="username"
-                />
+
+              {/* Registrar Container */}
+              <div className="login-form-card">
+                <div>
+                  <h2 className="Login-section-title">Registrar</h2>
+                </div>
+                <form onSubmit={handleRegister} className="login-form">
+                  <div className="form-control w-full Login-form-control">
+                    <input
+                      type="text"
+                      placeholder="Nome Completo"
+                      value={regNome}
+                      onChange={e => setRegNome(e.target.value)}
+                      className="input input-bordered w-full bg-white text-black"
+                      autoComplete="name"
+                    />
+                  </div>
+                  <div className="form-control w-full Login-form-control">
+                    <input
+                      type="tel"
+                      placeholder="Celular"
+                      value={regCelular}
+                      onChange={e => setRegCelular(formatCelular(e.target.value))}
+                      className="input input-bordered w-full bg-white text-black"
+                      autoComplete="tel"
+                    />
+                  </div>
+                  <div className="form-control w-full Login-form-control">
+                    <input
+                      type="email"
+                      placeholder="E-mail"
+                      value={regEmail}
+                      onChange={e => setRegEmail(e.target.value)}
+                      className="input input-bordered w-full bg-white text-black"
+                      autoComplete="email"
+                    />
+                  </div>
+                  <div className="form-control w-full Login-form-control">
+                    <input
+                      type="password"
+                      placeholder="Senha"
+                      value={regSenha}
+                      onChange={e => setRegSenha(e.target.value)}
+                      className="input input-bordered w-full bg-white text-black"
+                      autoComplete="new-password"
+                    />
+                  </div>
+                  <div className="form-control w-full Login-form-control">
+                    <input
+                      type="password"
+                      placeholder="Confirmar Senha"
+                      value={regConfirmSenha}
+                      onChange={e => setRegConfirmSenha(e.target.value)}
+                      className="input input-bordered w-full bg-white text-black"
+                      autoComplete="new-password"
+                    />
+                  </div>
+                  {regError && <div className="text-red-600 text-center text-sm">{regError}</div>}
+                  <button type="submit" className="btn w-full Login-submit">Registrar</button>
+                </form>
               </div>
-              <div className="form-control w-full Login-form-control">
-                <input
-                  type="password"
-                  placeholder="Senha"
-                  value={senha}
-                  onChange={e => setSenha(e.target.value)}
-                  className="input input-bordered w-full bg-white text-black"
-                  autoComplete="current-password"
-                />
-              </div>
-              {error && <div className="text-red-600 text-center text-sm">{error}</div>}
-              <button type="submit" className="btn w-full Login-submit">Entrar</button>
-            </form>
-          </div>
-          {/* Registrar Container */}
-          <div className="login-form-card">
-            <div>
-              <h2 className="Login-section-title">Registrar</h2>
             </div>
-                <form onSubmit={handleRegister} className="login-form" >
-              <div className="form-control w-full Login-form-control">
-                <input
-                  type="text"
-                  placeholder="Nome Completo"
-                  value={regNome}
-                  onChange={e => setRegNome(e.target.value)}
-                  className="input input-bordered w-full bg-white text-black"
-                  autoComplete="name"
-                />
-              </div>
-              <div className="form-control w-full Login-form-control">
-                <input
-                  type="tel"
-                  placeholder="Celular"
-                  value={regCelular}
-                  onChange={e => setRegCelular(formatCelular(e.target.value))}
-                  className="input input-bordered w-full bg-white text-black"
-                  autoComplete="tel"
-                />
-              </div>
-              <div className="form-control w-full Login-form-control">
-                <input
-                  type="email"
-                  placeholder="E-mail"
-                  value={regEmail}
-                  onChange={e => setRegEmail(e.target.value)}
-                  className="input input-bordered w-full bg-white text-black"
-                  autoComplete="email"
-                />
-              </div>
-              <div className="form-control w-full Login-form-control">
-                <input
-                  type="password"
-                  placeholder="Senha"
-                  value={regSenha}
-                  onChange={e => setRegSenha(e.target.value)}
-                  className="input input-bordered w-full bg-white text-black"
-                  autoComplete="new-password"
-                />
-              </div>
-              <div className="form-control w-full Login-form-control">
-                <input
-                  type="password"
-                  placeholder="Confirmar Senha"
-                  value={regConfirmSenha}
-                  onChange={e => setRegConfirmSenha(e.target.value)}
-                  className="input input-bordered w-full bg-white text-black"
-                  autoComplete="new-password"
-                />
-              </div>
-              {regError && <div className="text-red-600 text-center text-sm">{regError}</div>}
-              <button type="submit" className="btn w-full Login-submit">Registrar</button>
-            </form>
+
           </div>
         </div>
       </div>
-    </div>
     </>
   );
 }

@@ -1,7 +1,8 @@
 /* page-Contato.css - Estilos específicos da página Contato */
 
 #contato {
-  padding: 180px 1rem 2rem 1rem; /* increased spacing between MenuLogin and title */
+  /* match QuemSomos spacing so title distance is identical */
+  padding: 120px 1rem 2rem 1rem;
   background: #fff;
 }
 
@@ -29,61 +30,6 @@
   margin-bottom: 2rem;
 }
 
-.Contato-form-wrapper {
-  margin-top: 1.25rem; /* slightly tighter spacing */
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  align-items: center;
-  max-width: 560px; /* limit form wrapper so inputs don't span full container */
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.Contato-input,
-.Contato-textarea {
-  width: 100%;
-  max-width: 480px; /* reduced so inputs are visually more compact */
-  padding: 0.75rem;
-  border-radius: 8px;
-  border: 1px solid #d1d5db;
-  box-sizing: border-box;
-  font-size: 1rem;
-  background: #fff;
-  color: #111827;
-}
-
-.Contato-textarea {
-  padding: 1rem;
-  min-height: 120px;
-  resize: vertical;
-}
-
-.Contato-input:focus,
-.Contato-textarea:focus {
-  outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 4px rgba(37,99,235,0.08);
-}
-
-.Contato-submit {
-  margin-top: 0.75rem;
-  min-width: 200px; /* smaller button width */
-  width: auto;
-  padding: 0.65rem 1.25rem;
-  background: #2563eb;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background 0.2s ease;
-}
-
-.Contato-submit:hover {
-  background: #1e40af;
-}
-
 .Contato-info {
   margin-top: 3rem;
   color: #6b7280;
@@ -100,15 +46,5 @@
 @media (max-width: 768px) {
   #contato {
     padding: 1rem 0.5rem;
-  }
-  
-  .Contato-input,
-  .Contato-textarea {
-    max-width: 100%;
-  }
-  
-  .Contato-submit {
-    width: 100%;
-    max-width: 300px;
   }
 }
