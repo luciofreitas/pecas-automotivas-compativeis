@@ -1,4 +1,4 @@
-# Peças Automotivas Compatíveis
+# Peças Automotivas Compatíveis — interface React (Vite). Use `npm run dev:chrome` para abrir no Google Chrome automaticamente.
 
 Repositório da interface React para catálogo de peças automotivas compatíveis.
 
