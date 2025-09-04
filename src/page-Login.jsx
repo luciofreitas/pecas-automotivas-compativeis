@@ -152,9 +152,8 @@ function Login() {
     <>
       <MenuLogin />
       <div className="page-offset">
-        <section id="login" className="login-page-wrapper">
+        <section id="login">
           <div className="page-section login">
-            <div className="login-content-container">
             <h2 className="login-heading">Bem Vindo ao Peça Fácil</h2>
             <p className="login-intro">
               Aqui facilitamos sua vida! Alguma peça do seu carro deu defeito e ela é cara?
@@ -254,8 +253,6 @@ function Login() {
                   <button type="submit" className="btn w-full login-submit">Registrar</button>
                 </form>
               </div>
-            </div>
-
             </div>
           </div>
         </section>

@@ -1,62 +1,32 @@
 /* page-Login-new.css - alinhado ao padrão das páginas com MenuLogin */
 
-/* Container principal com mesmo offset que .nosso-projeto-section (120px) */
-.login-page-wrapper {
-	/* match QuemSomos/Contato spacing so the H2 aligns with other pages */
-	padding: 0 1rem 2rem 1rem; /* reduced from 240px to 120px to match reference */
-	background: #ffffff;
-	min-height: 100vh;
-	box-sizing: border-box;
+#login {
+  /* match Contato spacing so title distance is identical */
+  padding: 0 1rem 2rem 1rem; /* top padding removed per user request */
+  background: #fff;
 }
 
-/* Make the login section align with other pages where the page-offset controls spacing
-	(same approach used for #contato). This removes additional top offset added by
-	the global .page-offset so the h2 lines up consistently. */
+/* Make the login section align with other pages where the page-offset controls spacing */
 .page-offset > #login { padding-top: 0 !important; }
 
-/* Stronger, page-specific overrides to avoid conflicts with global selectors
-	 and ensure the Login H2 aligns with other pages (Contato/QuemSomos). */
-.page-offset > #login.login-page-wrapper,
-.page-offset > #login .login-page-wrapper,
-#login.login-page-wrapper,
-#login {
-	padding-top: 0 !important;
-	box-sizing: border-box;
-}
-
-/* Force the same h2 spacing used by the global .page-offset h2 rule but
-	 applied specifically to the login heading so it cannot be overridden. */
-.page-offset > #login h2.login-heading {
-	margin-top: calc(var(--page-heading-gap) + 1rem) !important;
-	padding-top: 0 !important;
-	scroll-margin-top: calc(var(--site-header-height) + 0.5rem) !important;
-}
-
-.login-content-container {
-	max-width: 1100px;
-	margin: 0 auto;
-	text-align: center;
-}
-
 /* Título principal alinhado com demais páginas */
-.login-heading, .login-main-title {
-	color: #2563eb;
-	font-weight: 600;
-	font-size: 2rem;
-	margin: 0 0 1.5rem 0; /* removido margin-top para evitar duplo espaçamento */
-	padding: 0;
-	display: block;
-	text-align: center; /* garantir centralização */
+.login-heading {
+  color: #2563eb;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  margin-top: 0; /* clean reset */
+  font-weight: 600;
+  font-size: 2rem;
+  display: block;
+  padding: 0; /* clean padding */
 }
 
 .login-intro {
-	color: #374151;
-	line-height: 1.6;
-	margin: 0 0 2rem 0;
-	font-size: 1rem;
-}
-
-/* Contêiner de formulários */
+  color: #374151;
+  line-height: 1.6;
+  text-align: center !important;
+  margin-bottom: 2rem;
+}/* Contêiner de formulários */
 .form-containers {
 	display: flex;
 	flex-direction: row;
@@ -111,45 +81,18 @@
 	box-shadow: 0 0 0 4px rgba(37,99,235,0.08) !important;
 }
 
-/* Responsivo */
+/* Responsividade */
 @media (max-width: 768px) {
-	.login-page-wrapper { padding: 120px 0.75rem 2rem 0.75rem; }
-	.form-containers { flex-direction: column; gap: 2rem; }
-	.login-form-card { max-width: 100%; }
-	.login-heading { font-size: 1.75rem; }
-}
-
-/* Specific fix for 1366x768: match QuemSomos spacing under the fixed MenuLogin
-   The global .page-offset adds header-based padding; for this resolution we
-   cancel the parent's padding for the login wrapper so the visible gap equals
-   the intended 120px (same as #quem-somos). */
-@media screen and (width: 1366px) and (height: 768px) {
-  /* Pull the login wrapper up by the amount the .page-offset adds, keeping
-     the wrapper's internal 120px padding so the H2 lines up like QuemSomos */
-  .page-offset .login-page-wrapper {
-    margin-top: calc(0px - (var(--site-header-height) + var(--page-heading-gap)));
-  }
-
-  .page-offset .login-page-wrapper .login-heading,
-  .page-offset .login-page-wrapper .login-main-title {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
+  #login {
+    padding: 1rem 0.5rem;
   }
 }
 
 /* Full HD - 1920x1080 */
 @media (min-width: 1900px) and (max-width: 1940px) {
-  /* Login specific - reduzir margin-top para manter alinhamento com MenuLogin */
-  .form-containers { margin-top: 2rem !important; }
-  .bg-white.bordered-card { padding: 1em !important; border: 1px solid #d1d5db; border-radius: 1em; background: white; }
-
-  /* Login component spacing */
-  .login-form-control { margin-bottom: 1.2em !important; }
-  .login-submit { background-color: #2563eb !important; color: white !important; border: none !important; margin-top: 1.5em !important; }
-  .login-form { background: white !important; }
-
-  /* Login migrated styles */
-  .login-heading { color: #2563eb; }
-  .login-intro { font-size: 1.05em; }
-  .login-section-title { margin: 0; padding: 0; color: #2563eb; }
+  /* For Login, remove section top padding so the global h2 normalization controls spacing
+    This keeps the Login title aligned with other pages (Quem Somos) at FullHD */
+  .page-offset > #login { padding-top: 0 !important; }
+  .login-heading { margin-top: 0 !important; padding-top: 0 !important; }
+  .login-intro { color: #374151; line-height: 1.6; }
 }
