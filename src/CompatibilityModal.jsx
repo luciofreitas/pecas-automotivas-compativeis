@@ -1,5 +1,5 @@
 import React from 'react';
-import './page-App.css';
+import './App.css';
 
 export default function CompatibilityModal({ show, onClose, title, children }) {
 	if (!show) return null;

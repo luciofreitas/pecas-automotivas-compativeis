@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../page-App';
+import { AuthContext } from '../App';
 import './MenuLogin.css';
 
 function Menu() {
