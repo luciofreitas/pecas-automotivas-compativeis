@@ -145,3 +145,17 @@
   line-height: 1.6;
   }
 }
+
+/* Full HD - 1920x1080 */
+@media (min-width: 1900px) and (max-width: 1940px) {
+  /* ContatoLogado */
+  .contato-logado-section { padding: 2rem 1rem; background: #fff; }
+  .contato-logado-container { max-width: 720px; margin: 0 auto; text-align: center; }
+  .contato-logado-title { color: #2563eb; margin-bottom: 8px; }
+  .contato-logado-intro { color: #374151; line-height: 1.6; margin-bottom: 16px; }
+  .contato-logado-user-info { background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px; margin-bottom: 16px; text-align: left; }
+  .contato-logado-user-info h3 { color: #111827; margin-bottom: 8px; }
+  .contato-logado-user-info p { color: #374151; margin-bottom: 4px; }
+  .contato-logado-form-wrapper { margin-top: 16px; display: flex; flex-direction: column; gap: 8px; align-items: center; }
+  .contato-logado-info { margin-top: 24px; color: #6b7280; text-align: center !important; line-height: 1.6; }
+}

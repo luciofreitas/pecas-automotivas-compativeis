@@ -147,4 +147,4 @@ function UserMenu({ nome, isPro = false, onPerfil, onPro, onConfiguracoes, onLog
   );
 }
 
-// styles moved to Responsive.css under the Menu namespace
+// styles moved to App.css under the Menu namespace

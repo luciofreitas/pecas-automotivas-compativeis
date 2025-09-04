@@ -96,3 +96,37 @@
 	.Login-heading { font-size: 1.75rem; }
 }
 
+/* Specific fix for 1366x768: match QuemSomos spacing under the fixed MenuLogin
+   The global .page-offset adds header-based padding; for this resolution we
+   cancel the parent's padding for the login wrapper so the visible gap equals
+   the intended 120px (same as #quem-somos). */
+@media screen and (width: 1366px) and (height: 768px) {
+  /* Pull the login wrapper up by the amount the .page-offset adds, keeping
+     the wrapper's internal 120px padding so the H2 lines up like QuemSomos */
+  .page-offset .login-page-wrapper {
+    margin-top: calc(0px - (var(--site-header-height) + var(--page-heading-gap)));
+  }
+
+  .page-offset .login-page-wrapper .Login-heading,
+  .page-offset .login-page-wrapper .login-main-title {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
+
+/* Full HD - 1920x1080 */
+@media (min-width: 1900px) and (max-width: 1940px) {
+  /* Login specific */
+  .form-containers { margin-top: 7em !important; }
+  .bg-white.bordered-card { padding: 1em !important; border: 1px solid #d1d5db; border-radius: 1em; background: white; }
+
+  /* Login component spacing */
+  .Login-form-control { margin-bottom: 1.2em !important; }
+  .Login-submit { background-color: #2563eb !important; color: white !important; border: none !important; margin-top: 1.5em !important; }
+  .Login-form { background: white !important; }
+
+  /* Login migrated styles */
+  .Login-heading { color: #2563eb; }
+  .Login-intro { font-size: 1.05em; }
+  .Login-section-title { margin: 0; padding: 0; color: #2563eb; }
+}

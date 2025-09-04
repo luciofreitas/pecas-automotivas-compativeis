@@ -179,3 +179,27 @@
     width: 100%;
   }
 }
+
+/* Full HD - 1920x1080 */
+@media (min-width: 1900px) and (max-width: 1940px) {
+  /* Checkin */
+  .Checkin-section { padding: 2rem 1rem; background: #fff; }
+  .Checkin-container { max-width: 720px; margin: 0 auto; }
+  .Checkin-title { color: #2563eb; margin-bottom: 8px; }
+  .Checkin-intro { color: #374151; margin-top: 0; }
+  .Checkin-form { margin-top: 18px; display: grid; gap: 12px; }
+  .Checkin-label { display: block; }
+  .Checkin-input { width: 100%; padding: 10px; margin-top: 6px; border-radius: 8px; box-sizing: border-box; }
+  .Checkin-row { display: flex; gap: 12px; align-items: flex-start; }
+  .Checkin-row-item { flex: 1; }
+  .Checkin-row-item-small { width: 120px; }
+  .Checkin-error { color: #b91c1c; margin-top: 6px; }
+  .Checkin-error-global { color: #b91c1c; }
+  .Checkin-actions { display: flex; gap: 12px; align-items: center; }
+  .Checkin-btnPrimary { padding: 10px 16px; background: #2563eb; color: #fff; border: none; border-radius: 8px; cursor: pointer; }
+  .Checkin-btnSecondary { padding: 10px 16px; background: #f3f4f6; color: #111827; border: none; border-radius: 8px; cursor: pointer; }
+  .Checkin-note { margin-top: 6px; color: #6b7280; font-size: 13px; }
+
+  /* Checkin migrated success text */
+  .Checkin-success-text { color: #374151; }
+}

@@ -14,7 +14,6 @@ import ContatoLogado from './page-ContatoLogado';
 import BuscarPeca from './page-BuscarPeca';
 import './App.css';
 import './CustomDropdown.css';
-import './Responsive.css';
 
 export const AuthContext = createContext(null);
 

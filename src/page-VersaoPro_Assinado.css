@@ -119,3 +119,20 @@
     max-width: 300px;
   }
 }
+
+/* Full HD - 1920x1080 */
+@media (min-width: 1900px) and (max-width: 1940px) {
+  /* VersaoPro_Assinado */
+  .VersaoPro_Assinado-section { padding: 2rem 1rem; background: #fff; }
+  .VersaoPro_Assinado-container { max-width: 900px; margin: 0 auto; text-align: center; }
+  .VersaoPro_Assinado-title { color: #2563eb; margin-bottom: 8px; }
+  .VersaoPro_Assinado-intro { color: #374151; margin-top: 0; }
+  .VersaoPro_Assinado-actions { margin-top: 18px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .VersaoPro_Assinado-btnPrimary { padding: 10px 16px; background: #2563eb; color: #fff; border: none; border-radius: 8px; cursor: pointer; }
+  .VersaoPro_Assinado-btnSecondary { padding: 10px 16px; background: #f3f4f6; color: #111827; border: none; border-radius: 8px; cursor: pointer; }
+  .VersaoPro_Assinado-benefits { margin-top: 24px; text-align: left; max-width: 720px; margin-left: auto; margin-right: auto; }
+  .VersaoPro_Assinado-benefits-title { color: #111827; font-size: 1.1rem; }
+  .VersaoPro_Assinado-benefits-list { margin-top: 8px; line-height: 1.6; }
+  .VersaoPro_Assinado-empty { color: #6b7280; }
+  .VersaoPro_Assinado-note { margin-top: 12px; color: #6b7280; font-size: 13px; }
+}

@@ -48,3 +48,20 @@
     padding: 1rem 0.5rem;
   }
 }
+
+/* Full HD - 1920x1080 */
+@media (min-width: 1900px) and (max-width: 1940px) {
+  /* Contato component centralized spacing */
+  .Contato-form-wrapper { margin-top: 20px; display: flex; flex-direction: column; gap: 12px; align-items: center; }
+  .Contato-input, .Contato-textarea { width: 100%; max-width: 520px; padding: 10px 12px; border-radius: 6px; border: 1px solid #ddd; box-sizing: border-box; }
+  .Contato-textarea { padding: 12px; }
+  .Contato-submit { margin-top: 8px; min-width: 260px; width: auto; }
+  .Contato-info { margin-top: 28px; color: #555; }
+  
+  /* For Contato, remove section top padding so the global h2 normalization controls spacing
+    This keeps the Contato title aligned with other pages (Quem Somos) at FullHD */
+  .page-offset > #contato { padding-top: 0 !important; }
+  .contato__title { margin-top: 0 !important; padding-top: 0 !important; }
+  .contato-title { color: #2563eb; }
+  .contato-intro { color: #374151; line-height: 1.6; }
+}
