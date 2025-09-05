@@ -20,6 +20,13 @@
   color: #374151;
   line-height: 1.6;
   margin-bottom: 2rem;
+  text-align: center;
+}
+.contato-logado-info {
+  color: #374151;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
 .contato-logado-user-info {
@@ -152,7 +159,7 @@
   .contato-logado-section { padding: 2rem 1rem; background: #fff; }
   .contato-logado-container { max-width: 720px; margin: 0 auto; text-align: center; }
   .contato-logado-title { color: #2563eb; margin-bottom: 8px; }
-  .contato-logado-intro { color: #374151; line-height: 1.6; margin-bottom: 16px; }
+  .contato-logado-intro { color: #374151; line-height: 1.6; margin-bottom: 16px;}
   .contato-logado-user-info { background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px; margin-bottom: 16px; text-align: left; }
   .contato-logado-user-info h3 { color: #111827; margin-bottom: 8px; }
   .contato-logado-user-info p { color: #374151; margin-bottom: 4px; }

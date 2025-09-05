@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../App';
 import './MenuLogin.css';
+import Logo from './Logo';
 
 function Menu() {
   const [hideMenu, setHideMenu] = useState(false);
@@ -27,9 +28,7 @@ function Menu() {
   return (
     <header className="site-header">
       <div className="menu-login-root menu-responsive">
-        <div className="menu-login-logo">
-          <img src="/logo.svg" alt="Logo Peça Fácil" className="menu-logo-image" onClick={() => navigate('/')} />
-        </div>
+        <Logo />
 
         <div className="menu-login-center">
           <nav className="menu-nav">

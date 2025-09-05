@@ -60,14 +60,18 @@ export default function BuscarPeca() {
 
   const renderPecasModal = (lista) => (
     <div className="buscarpeca-modal-pecas">
-      <PecasGrid pecas={lista} onViewCompatibility={openModal} />
+      <div className="compat-results-grid">
+        <PecasGrid pecas={lista} onViewCompatibility={openModal} />
+      </div>
     </div>
   );
 
   const openModal = (pecaOrId) => {
     const peca = typeof pecaOrId === 'object' && pecaOrId ? pecaOrId : pecas.find(p => p.id === pecaOrId);
+    console.debug('[BuscarPeca] openModal called for', pecaOrId, 'resolved=', !!peca);
     setModalTitle('Compatibilidade');
     if (!peca || !peca.applications) {
+      console.debug('[BuscarPeca] no applications for peca', peca);
       setModalContent(<div>Nenhuma aplicação encontrada.</div>);
       setShowModal(true);
       return;
@@ -107,6 +111,7 @@ export default function BuscarPeca() {
       });
       const data = await res.json();
       const pecasFiltradas = data.pecas || [];
+  console.debug('[BuscarPeca] search result count=', pecasFiltradas.length, 'sample=', pecasFiltradas.slice(0,5));
       setPecas(pecasFiltradas);
       if (pecasFiltradas.length === 0) {
         setError(data.mensagem || 'Nenhuma peça encontrada para os filtros selecionados.');

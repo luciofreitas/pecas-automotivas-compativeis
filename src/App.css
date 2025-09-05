@@ -19,6 +19,128 @@
   */
 }
 
+/* ==========================
+   Enhanced compatibility modal presentation - appended at end to ensure overrides
+   ========================== */
+
+/* Make sure modal content appears as a centered card with a header and scrollable body */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 1rem;
+}
+
+.modal-content {
+  background: transparent;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.modal-content.compat-modal {
+  background: none;
+  padding: 0;
+}
+
+.compat-modal {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 12px;
+  overflow: visible;
+  box-shadow: 0 10px 30px rgba(16,24,40,0.12);
+  max-height: calc(100vh - 80px);
+}
+
+.App-compat-modal {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.App-compat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid #eef2f6;
+  background: linear-gradient(90deg, #ffffff, #fbfdff);
+}
+
+.App-compat-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #133d7a;
+}
+
+.App-compat-close {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  color: #556b86;
+  padding: 6px;
+  border-radius: 6px;
+}
+.App-compat-close:hover { background: rgba(0,0,0,0.04); }
+
+.App-compat-body {
+  padding: 16px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: calc(100vh - 160px);
+  position: relative;
+}
+
+/* Subtle scroll indicator shadow at the bottom when content overflows */
+.App-compat-body::after {
+  content: '';
+  position: sticky;
+  bottom: 0;
+  display: block;
+  height: 8px;
+  margin: 0 -16px -16px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.03));
+  pointer-events: none;
+}
+
+.compat-results-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: stretch;
+}
+
+/* Make sure internal cards span full width in the vertical stack */
+.compat-results-grid .peca-card { 
+  width: 100%; 
+  box-sizing: border-box;
+  padding: 1rem;
+}
+
+/* When PecasGrid (which renders .pecas-grid) is wrapped by .compat-results-grid,
+   make sure the inner .pecas-grid also lays out as a vertical stack. */
+.compat-results-grid .pecas-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Global logo styling - ensures logo.png is always circular */
+.menu-login-logo img, .menu-logo-image {
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  aspect-ratio: 1/1 !important;
+}
+
+
 body {
   background-color: #fff;
   margin: 0;
@@ -174,6 +296,53 @@ body { scrollbar-gutter: stable; }
   scrollbar-color: #d1d5db transparent;
 }
 
+/* Modal sizing: prevent full-width overlays from stretching to 100% width */
+.compat-modal .App-compat-modal,
+.App-compat-modal {
+  max-width: 920px; /* comfortable desktop width */
+  width: calc(100% - 2rem);
+  margin: 1.5rem auto !important; /* center and give vertical spacing */
+  box-sizing: border-box !important;
+}
+
+/* Generic overlay for custom modals */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 1rem;
+}
+
+/* modal-content should be centered and constrained */
+.modal-content {
+  background: transparent; /* content container lets inner .compat-modal style the card */
+  width: 100%;
+  max-width: 920px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+/* Specific rule when modal-content contains .compat-modal (compatibility content) */
+.modal-content.compat-modal {
+  background: none;
+  padding: 0;
+  display: block;
+}
+
+/* For very small screens allow full width but keep side padding */
+@media (max-width: 640px) {
+  .compat-modal .App-compat-modal,
+  .App-compat-modal {
+    width: calc(100% - 1.5rem) !important;
+    margin: 0.75rem auto !important;
+    max-width: none !important;
+  }
+}
+
 /* ==========================
    Forms visual baseline
    Restores the previous visual appearance for all forms site-wide
@@ -250,7 +419,7 @@ textarea:focus,
 
 /* Primary buttons (search, submit, login/register) */
 .btn,
-.login-submit,
+.Login-submit,
 .Checkin-btnPrimary,
 .search-btn,
 .results-container .btn {
@@ -327,7 +496,12 @@ select { -webkit-appearance: none; appearance: none; }
 
   /* menu / header spacing */
   .site-root-header, .site-header { height: var(--site-header-height); padding: 1em 1.5em; }
-  .menu-login-logo img { height: 70px !important; }
+  .menu-login-logo img { 
+    height: 102px !important; 
+    width: 102px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+  }
 
   /* page headings and sections */
   section[id], .page-section { padding: 0 1rem; }

@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import Button from '@mui/material/Button';
 import MenuLogin from './components/MenuLogin';
 import './components/Menu.css';
-import './page-Login-new.css';
+import './page-Login.css';
 import usuariosData from './usuarios.json';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from './App';
@@ -122,12 +122,15 @@ function Login() {
     };
     const saved = saveUsuario(novoUsuario);
     setRegError('');
-    // auto-login after register using the stored object
-    setUsuarioLogado(saved);
-    try { localStorage.setItem('usuarioLogado', JSON.stringify(saved)); } catch (e) { console.warn('Failed to persist usuarioLogado after register', e); }
-  alert('Registro realizado com sucesso! Você foi conectado.');
-  setRegNome(''); setRegCelular(''); setRegEmail(''); setRegSenha(''); setRegConfirmSenha('');
-  navigate('/');
+    // Limpar os campos do registro
+    setRegNome(''); 
+    setRegCelular(''); 
+    setRegEmail(''); 
+    setRegSenha(''); 
+    setRegConfirmSenha('');
+    // Mostrar mensagem de sucesso sem fazer login automático
+    alert('Registro realizado com sucesso! Agora faça login com suas credenciais.');
+    // Não redirecionar - usuario fica na mesma página para fazer login manual
   }
 
   // Função para formatar celular (ex: (11) 99999-9999)
@@ -152,15 +155,9 @@ function Login() {
     <>
       <MenuLogin />
       <div className="page-offset">
-        <section id="login">
-          <div className="page-section login">
-            <h2 className="login-heading">Bem Vindo ao Peça Fácil</h2>
-            <p className="login-intro">
-              Aqui facilitamos sua vida! Alguma peça do seu carro deu defeito e ela é cara?
-              <br />
-              Calma, pode ser que de um outro carro possa ser mais barata e tenha compatibilidade com seu veículo.
-            </p>
-
+        <div className="login-page-wrapper">
+          <div className="login-content-container">
+            <h2 className="page-heading login-heading">Faça o Login ou Cadastro</h2>
             <div className="form-containers">
               {/* Entrar Container */}
               <div className="login-form-card">
@@ -178,7 +175,7 @@ function Login() {
                       autoComplete="username"
                     />
                   </div>
-                  <div className="form-control w-full login-form-control">
+                  <div className="form-control w-full Login-form-control">
                     <input
                       type="password"
                       placeholder="Senha"
@@ -188,8 +185,14 @@ function Login() {
                       autoComplete="current-password"
                     />
                   </div>
+                  {/* Link de recuperação de senha */}
+                  <div className="login-forgot-wrapper">
+                    <a href="#" className="login-forgot-link" onClick={e => { e.preventDefault(); /* implementar recuperação se necessário */ }}>
+                      Esqueci minha senha
+                    </a>
+                  </div>
                   {error && <div className="text-red-600 text-center text-sm">{error}</div>}
-                  <button type="submit" className="btn w-full login-submit">Entrar</button>
+                  <button type="submit" className="btn w-full Login-submit">Entrar</button>
                 </form>
               </div>
 
@@ -209,7 +212,7 @@ function Login() {
                       autoComplete="name"
                     />
                   </div>
-                  <div className="form-control w-full login-form-control">
+                  <div className="form-control w-full Login-form-control">
                     <input
                       type="tel"
                       placeholder="Celular"
@@ -219,7 +222,7 @@ function Login() {
                       autoComplete="tel"
                     />
                   </div>
-                  <div className="form-control w-full login-form-control">
+                  <div className="form-control w-full Login-form-control">
                     <input
                       type="email"
                       placeholder="E-mail"
@@ -229,7 +232,7 @@ function Login() {
                       autoComplete="email"
                     />
                   </div>
-                  <div className="form-control w-full login-form-control">
+                  <div className="form-control w-full Login-form-control">
                     <input
                       type="password"
                       placeholder="Senha"
@@ -239,7 +242,7 @@ function Login() {
                       autoComplete="new-password"
                     />
                   </div>
-                  <div className="form-control w-full login-form-control">
+                  <div className="form-control w-full Login-form-control">
                     <input
                       type="password"
                       placeholder="Confirmar Senha"
@@ -250,12 +253,13 @@ function Login() {
                     />
                   </div>
                   {regError && <div className="text-red-600 text-center text-sm">{regError}</div>}
-                  <button type="submit" className="btn w-full login-submit">Registrar</button>
+                  <button type="submit" className="btn w-full Login-submit">Registrar</button>
                 </form>
               </div>
             </div>
+
           </div>
-        </section>
+        </div>
       </div>
     </>
   );

@@ -139,9 +139,8 @@
 /* Full HD - 1920x1080 */
 @media (min-width: 1900px) and (max-width: 1940px) {
   #seja-pro{
-    padding: 0 1rem 2rem 1rem;
+    padding: 2rem 1rem;
   }
-  .page-offset > #seja-pro { padding-top: 0 !important; }
 
   /* SejaPro */
   .SejaPro-intro { color: #374151; line-height: 1.6; }

@@ -1,17 +1,16 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './MenuLogin.css';
+import Logo from './Logo';
 
 const MenuLogin = () => {
   const navigate = useNavigate();
 
   return (
     <>
-  <header className="site-header">
+      <header className="site-header">
         <div className="menu-login-root menu-responsive">
-          <div className="menu-login-logo">
-            <img src="/logo.svg" alt="Logo Peça Fácil" onClick={() => navigate('/')} />
-          </div>
+          <Logo />
 
           <div className="menu-login-center">
             <nav className="menu-nav">
@@ -27,7 +26,8 @@ const MenuLogin = () => {
           </div>
         </div>
       </header>
-  {/* Spacer removed: spacing is now handled via `.page-offset` and CSS variables */}
+      {/* Spacer to reserve space in the flow for the fixed header */}
+      <div className="site-header-spacer" aria-hidden="true" />
     </>
   );
 };
