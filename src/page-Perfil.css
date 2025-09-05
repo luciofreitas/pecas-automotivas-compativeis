@@ -251,15 +251,160 @@
 /* Single-card and password toggle styles added to match design */
 .single-card { max-width: 640px; margin: 0 auto; border-radius: 12px; }
 
-.password-field { display: flex; align-items: center; gap: 0.5rem; }
-.password-field .form-input { flex: 1; }
+.password-field { 
+  position: relative; 
+  display: flex; 
+  align-items: center; 
+}
 
-.car-toggle { display: inline-flex; align-items: center; gap: 0.35rem; cursor: pointer; padding: 6px 8px; border-radius: 8px; }
-.car-body { font-size: 1.05rem; }
-.car-light { width: 10px; height: 10px; border-radius: 50%; background: rgba(0,0,0,0.12); transition: background 0.15s ease, box-shadow 0.15s ease; }
-.car-toggle.on { background: rgba(16, 185, 129, 0.08); }
-.car-toggle.on .car-light { background: #fde68a; box-shadow: 0 0 8px rgba(250, 204, 21, 0.6); }
-.car-toggle.off { background: transparent; }
+.password-field .form-input { 
+  flex: 1; 
+  padding-right: 2.5rem; /* space for the icon */
+}
+
+.password-input {
+  width: 100%;
+}
+
+.car-toggle { 
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center;
+  cursor: pointer; 
+  padding: 4px; 
+  border-radius: 6px; 
+  transition: all 0.2s ease;
+}
+
+.car-toggle:hover { 
+  background: transparent; /* removed hover background as requested */
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* Car color transitions */
+.car-toggle .car-body,
+.car-toggle .car-roof,
+.car-toggle .car-grille,
+.car-toggle .wheel-rim,
+.car-toggle .door-handle,
+.car-toggle .side-mirror {
+  transition: fill 0.4s ease;
+}
+
+/* Headlight animations */
+.car-toggle.headlight-on .headlight-main {
+  animation: headlight-pulse 1.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px #F59E0B);
+}
+
+.car-toggle.headlight-on .headlight-beam {
+  animation: beam-glow 2s ease-in-out infinite;
+}
+
+.car-toggle.headlight-on .headlight-glow-1 {
+  animation: inner-glow-1 1.8s ease-in-out infinite;
+}
+
+.car-toggle.headlight-on .headlight-glow-2 {
+  animation: inner-glow-2 1.6s ease-in-out infinite;
+}
+
+.car-toggle.headlight-on .headlight-bright {
+  animation: bright-center 1.2s ease-in-out infinite;
+}
+
+.car-toggle.headlight-off .headlight-main {
+  transition: fill 0.4s ease, filter 0.4s ease;
+}
+
+/* Keyframe animations for realistic headlight effect */
+@keyframes headlight-pulse {
+  0%, 100% { 
+    filter: drop-shadow(0 0 8px #F59E0B);
+  }
+  50% { 
+    filter: drop-shadow(0 0 15px #FBBF24) drop-shadow(0 0 25px #FED7AA);
+  }
+}
+
+@keyframes beam-glow {
+  0%, 100% { 
+    opacity: 0.15;
+  }
+  50% { 
+    opacity: 0.35;
+  }
+}
+
+@keyframes inner-glow-1 {
+  0%, 100% { 
+    opacity: 0.25;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.45;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes inner-glow-2 {
+  0%, 100% { 
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.7;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes bright-center {
+  0%, 100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+}
+
+/* Headlight rays (short strokes) animation */
+.headlight-rays .ray {
+  opacity: 0;
+  transform-origin: 5px 10px; /* pivot around headlight center */
+  transform: translateX(0) scale(0.9);
+}
+
+.car-toggle.headlight-on .headlight-rays .ray {
+  animation: ray-burst 700ms ease-out forwards;
+}
+
+/* Stagger for each ray to feel organic */
+.car-toggle.headlight-on .headlight-rays .ray-1 { animation-delay: 0ms; }
+.car-toggle.headlight-on .headlight-rays .ray-2 { animation-delay: 60ms; }
+.car-toggle.headlight-on .headlight-rays .ray-3 { animation-delay: 120ms; }
+.car-toggle.headlight-on .headlight-rays .ray-4 { animation-delay: 40ms; }
+.car-toggle.headlight-on .headlight-rays .ray-5 { animation-delay: 100ms; }
+
+@keyframes ray-burst {
+  0% {
+    opacity: 0;
+    transform: translateX(0) scale(0.9);
+  }
+  40% {
+    opacity: 1;
+    transform: translateX(6px) scale(1.05);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(12px) scale(1.1);
+  }
+}
 
 .form-actions { display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 0.5rem; }
 .btn-save { background: #2563eb; color: #fff; padding: 8px 14px; border-radius: 8px; border: none; }
@@ -267,5 +412,4 @@
 
 @media (max-width: 480px) {
   .single-card { padding: 1rem; }
-  .car-body { font-size: 0.95rem; }
 }
