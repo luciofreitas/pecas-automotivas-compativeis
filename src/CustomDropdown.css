@@ -120,5 +120,5 @@
 /* Full HD - 1920x1080 */
 @media (min-width: 1900px) and (max-width: 1940px) {
   /* CustomDropdown svg arrow */
-  .CustomDropdown-arrow-svg { display: inline; vertical-align: middle; }
+  .customDropdown-arrow-svg { display: inline; vertical-align: middle; }
 }

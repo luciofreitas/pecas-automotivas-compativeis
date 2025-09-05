@@ -1,35 +1,35 @@
 /* page-Parceiros.css - Estilos específicos da página Parceiros */
 
-.Parceiros-section {
+.parceiros-section {
   padding: 2rem 1rem;
   background: #fff;
 }
 
-.Parceiros-container {
+.parceiros-container {
   max-width: 1000px;
   margin: 0 auto;
   text-align: center;
 }
 
-.Parceiros-title {
+.parceiros-title {
   color: #2563eb;
   margin-bottom: 1rem;
 }
 
-.Parceiros-intro {
+.parceiros-intro {
   color: #374151;
   line-height: 1.6;
   margin-bottom: 2rem;
 }
 
-.Parceiros-grid {
+.parceiros-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
   margin: 3rem 0;
 }
 
-.Parceiros-card {
+.parceiros-card {
   background: white;
   border: 1px solid #e5e7eb;
   border-radius: 12px;
@@ -38,24 +38,24 @@
   transition: all 0.2s ease;
 }
 
-.Parceiros-card:hover {
+.parceiros-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(0,0,0,0.1);
 }
 
-.Parceiros-card-title {
+.parceiros-card-title {
   color: #111827;
   font-size: 1.25rem;
   margin-bottom: 1rem;
 }
 
-.Parceiros-card-description {
+.parceiros-card-description {
   color: #6b7280;
   line-height: 1.5;
   margin-bottom: 1.5rem;
 }
 
-.Parceiros-card-contact {
+.parceiros-card-contact {
   padding: 0.5rem 1rem;
   background: #2563eb;
   color: #fff;
@@ -68,17 +68,17 @@
   transition: background 0.2s ease;
 }
 
-.Parceiros-card-contact:hover {
+.parceiros-card-contact:hover {
   background: #1e40af;
 }
 
-.Parceiros-cta {
+.parceiros-cta {
   margin-top: 3rem;
   display: flex;
   justify-content: center;
 }
 
-.Parceiros-cta-btn {
+.parceiros-cta-btn {
   min-width: 200px;
   padding: 1rem 2rem;
   background: #10b981;
@@ -91,11 +91,11 @@
   transition: background 0.2s ease;
 }
 
-.Parceiros-cta-btn:hover {
+.parceiros-cta-btn:hover {
   background: #059669;
 }
 
-.Parceiros-benefits {
+.parceiros-benefits {
   margin-top: 3rem;
   text-align: left;
   max-width: 700px;
@@ -103,19 +103,19 @@
   margin-right: auto;
 }
 
-.Parceiros-benefits-title {
+.parceiros-benefits-title {
   color: #111827;
   text-align: center;
   margin-bottom: 1.5rem;
 }
 
-.Parceiros-benefits-list {
+.parceiros-benefits-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.Parceiros-benefits-list li {
+.parceiros-benefits-list li {
   color: #374151;
   padding: 0.75rem 0;
   padding-left: 2rem;
@@ -123,7 +123,7 @@
   border-bottom: 1px solid #f3f4f6;
 }
 
-.Parceiros-benefits-list li::before {
+.parceiros-benefits-list li::before {
   content: "✓";
   position: absolute;
   left: 0;
@@ -134,16 +134,16 @@
 
 /* Responsividade */
 @media (max-width: 768px) {
-  .Parceiros-section {
+  .parceiros-section {
     padding: 1rem 0.5rem;
   }
 
-  .Parceiros-grid {
+  .parceiros-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
 
-  .Parceiros-cta-btn {
+  .parceiros-cta-btn {
     width: 100%;
     max-width: 300px;
   }
@@ -152,23 +152,23 @@
 /* Full HD - 1920x1080 */
 @media (min-width: 1900px) and (max-width: 1940px) {
   /* Parceiros */
-  .Parceiros-section { padding: 2rem 1rem; background: #fff; }
-  .Parceiros-container { max-width: 840px; margin: 0 auto; text-align: center; }
-  .Parceiros-title { color: #2563eb; margin-bottom: 8px; }
-  .Parceiros-intro { color: #374151; line-height: 1.6; margin-bottom: 16px; }
-  .Parceiros-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin: 24px 0; }
-  .Parceiros-card { background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: all 0.2s ease; }
-  .Parceiros-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
-  .Parceiros-card-title { color: #111827; font-size: 1.25rem; margin-bottom: 8px; }
-  .Parceiros-card-description { color: #6b7280; line-height: 1.5; margin-bottom: 12px; }
-  .Parceiros-card-contact { padding: 8px 12px; background: #2563eb; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; text-decoration: none; display: inline-block; transition: background 0.2s ease; }
-  .Parceiros-card-contact:hover { background: #1e40af; }
-  .Parceiros-cta { margin-top: 24px; display: flex; justify-content: center; }
-  .Parceiros-cta-btn { min-width: 200px; padding: 12px 18px; background: #10b981; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 1.1rem; transition: background 0.2s ease; }
-  .Parceiros-cta-btn:hover { background: #059669; }
-  .Parceiros-benefits { margin-top: 24px; text-align: left; max-width: 700px; margin-left: auto; margin-right: auto; }
-  .Parceiros-benefits-title { color: #111827; text-align: center; margin-bottom: 12px; }
-  .Parceiros-benefits-list { list-style: none; padding: 0; margin: 0; }
-  .Parceiros-benefits-list li { color: #374151; padding: 6px 0; padding-left: 24px; position: relative; border-bottom: 1px solid #f3f4f6; }
-  .Parceiros-benefits-list li::before { content: "✓"; position: absolute; left: 0; color: #10b981; font-weight: bold; font-size: 1.2rem; }
+  .parceiros-section { padding: 2rem 1rem; background: #fff; }
+  .parceiros-container { max-width: 840px; margin: 0 auto; text-align: center; }
+  .parceiros-title { color: #2563eb; margin-bottom: 8px; }
+  .parceiros-intro { color: #374151; line-height: 1.6; margin-bottom: 16px; }
+  .parceiros-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin: 24px 0; }
+  .parceiros-card { background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: all 0.2s ease; }
+  .parceiros-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+  .parceiros-card-title { color: #111827; font-size: 1.25rem; margin-bottom: 8px; }
+  .parceiros-card-description { color: #6b7280; line-height: 1.5; margin-bottom: 12px; }
+  .parceiros-card-contact { padding: 8px 12px; background: #2563eb; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; text-decoration: none; display: inline-block; transition: background 0.2s ease; }
+  .parceiros-card-contact:hover { background: #1e40af; }
+  .parceiros-cta { margin-top: 24px; display: flex; justify-content: center; }
+  .parceiros-cta-btn { min-width: 200px; padding: 12px 18px; background: #10b981; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 1.1rem; transition: background 0.2s ease; }
+  .parceiros-cta-btn:hover { background: #059669; }
+  .parceiros-benefits { margin-top: 24px; text-align: left; max-width: 700px; margin-left: auto; margin-right: auto; }
+  .parceiros-benefits-title { color: #111827; text-align: center; margin-bottom: 12px; }
+  .parceiros-benefits-list { list-style: none; padding: 0; margin: 0; }
+  .parceiros-benefits-list li { color: #374151; padding: 6px 0; padding-left: 24px; position: relative; border-bottom: 1px solid #f3f4f6; }
+  .parceiros-benefits-list li::before { content: "✓"; position: absolute; left: 0; color: #10b981; font-weight: bold; font-size: 1.2rem; }
 }

@@ -58,13 +58,13 @@
   max-height: calc(100vh - 80px);
 }
 
-.App-compat-modal {
+.app-compat-modal {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-.App-compat-header {
+.app-compat-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -73,13 +73,13 @@
   background: linear-gradient(90deg, #ffffff, #fbfdff);
 }
 
-.App-compat-title {
+.app-compat-title {
   font-size: 18px;
   font-weight: 700;
   color: #133d7a;
 }
 
-.App-compat-close {
+.app-compat-close {
   background: transparent;
   border: none;
   font-size: 18px;
@@ -89,9 +89,9 @@
   padding: 6px;
   border-radius: 6px;
 }
-.App-compat-close:hover { background: rgba(0,0,0,0.04); }
+.app-compat-close:hover { background: rgba(0,0,0,0.04); }
 
-.App-compat-body {
+.app-compat-body {
   padding: 16px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -100,7 +100,7 @@
 }
 
 /* Subtle scroll indicator shadow at the bottom when content overflows */
-.App-compat-body::after {
+.app-compat-body::after {
   content: '';
   position: sticky;
   bottom: 0;
@@ -297,8 +297,8 @@ body { scrollbar-gutter: stable; }
 }
 
 /* Modal sizing: prevent full-width overlays from stretching to 100% width */
-.compat-modal .App-compat-modal,
-.App-compat-modal {
+.compat-modal .app-compat-modal,
+.app-compat-modal {
   max-width: 920px; /* comfortable desktop width */
   width: calc(100% - 2rem);
   margin: 1.5rem auto !important; /* center and give vertical spacing */
@@ -335,8 +335,8 @@ body { scrollbar-gutter: stable; }
 
 /* For very small screens allow full width but keep side padding */
 @media (max-width: 640px) {
-  .compat-modal .App-compat-modal,
-  .App-compat-modal {
+  .compat-modal .app-compat-modal,
+  .app-compat-modal {
     width: calc(100% - 1.5rem) !important;
     margin: 0.75rem auto !important;
     max-width: none !important;
@@ -353,9 +353,9 @@ body { scrollbar-gutter: stable; }
 /* Card-like appearance for form containers used across the app */
 .form-containers > div,
 .filters,
-.Contato-form-wrapper,
-.Checkin-form,
-.Login-form,
+.contato-form-wrapper,
+.checkin-form,
+.login-form,
 .results,
 .results-container .card,
 .bg-white.bordered-card {
@@ -378,9 +378,9 @@ textarea,
 .form-containers input.input,
 .results-container select,
 .filter-group select,
-.Checkin-input,
-.Contato-input,
-.Contato-textarea {
+.checkin-input,
+.contato-input,
+.contato-textarea {
   width: 100%;
   padding: 10px 12px;
   border: 1px solid #d1d5db;
@@ -419,8 +419,8 @@ textarea:focus,
 
 /* Primary buttons (search, submit, login/register) */
 .btn,
-.Login-submit,
-.Checkin-btnPrimary,
+.login-submit,
+.checkin-btnPrimary,
 .search-btn,
 .results-container .btn {
   background: #2563eb !important;
@@ -438,8 +438,8 @@ textarea:focus,
 
 /* Secondary / neutral buttons */
 .btn.secondary,
-.Checkin-btnSecondary,
-.VersaoPro-cta {
+.checkin-btnSecondary,
+.versaoPro-cta {
   background: #f3f4f6 !important;
   color: #111827 !important;
   border: none !important;
@@ -454,27 +454,27 @@ textarea:focus,
 select { -webkit-appearance: none; appearance: none; }
 
 /* App-specific grid and layout classes */
-.App-pecas-grid { display: flex; flex-direction: column; gap: 1em; }
+.app-pecas-grid { display: flex; flex-direction: column; gap: 1em; }
 
-.App-compat-wrapper { display: flex; flex-direction: column; align-items: stretch; padding: 0.1em; }
-.App-compat-header { display: flex; align-items: center; justify-content: flex-start; width: 100%; margin-bottom: 1.5em; margin-top: 6px; min-height: 40px; gap: 12px; padding-left: 8px; }
-.App-compat-checkimg { width: 36px; display: inline-block; flex: 0 0 auto; }
-.App-compat-title { font-weight: 700; font-size: 1.15rem; color: #222; text-align: left; display: block; }
-.App-compat-modal { background: #fff; border-radius: 8px; padding: 0.9em; box-shadow: 0 2px 10px #e0e0e0; display: flex; flex-direction: column; gap: 0.6em; }
-.App-compat-grid-header { display: grid; grid-template-columns: minmax(240px, 1fr) 140px 72px; gap: 12px; padding: 0.5em 0.6em; align-items: center; border-bottom: 1px solid #f3f3f3; }
-.App-compat-col-left { text-align: left; }
-.App-compat-col-center { text-align: center; }
-.App-compat-row { background: #fff; border-radius: 6px; box-shadow: 0 1px 3px #eee; padding: 0.5em; display: grid; grid-template-columns: minmax(240px, 1fr) 140px 72px; gap: 12px; align-items: center; }
-.App-compat-vehicle { overflow: hidden; }
-.App-compat-vehicle-text { white-space: normal; overflow-wrap: break-word; word-break: break-word; font-weight: 500; }
-.App-compat-years-text { white-space: normal; }
-.App-compat-contact-cell { text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; }
-.App-compat-contact-btn { position: relative; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; }
-.App-whatsapp-btn { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 18px; background: #25D366; color: #fff; text-decoration: none; }
-.App-overlay-blur { position: absolute; inset: 0; border-radius: 18px; backdrop-filter: blur(3px); background: rgba(255,255,255,0.4); cursor: default; }
-.App-tooltip-wrapper { display: inline-block; }
-.App-tooltip-icon { width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; }
-.App-padlock-img { width: 22px; height: 22px; object-fit: contain; display: block; }
+.app-compat-wrapper { display: flex; flex-direction: column; align-items: stretch; padding: 0.1em; }
+.app-compat-header { display: flex; align-items: center; justify-content: flex-start; width: 100%; margin-bottom: 1.5em; margin-top: 6px; min-height: 40px; gap: 12px; padding-left: 8px; }
+.app-compat-checkimg { width: 36px; display: inline-block; flex: 0 0 auto; }
+.app-compat-title { font-weight: 700; font-size: 1.15rem; color: #222; text-align: left; display: block; }
+.app-compat-modal { background: #fff; border-radius: 8px; padding: 0.9em; box-shadow: 0 2px 10px #e0e0e0; display: flex; flex-direction: column; gap: 0.6em; }
+.app-compat-grid-header { display: grid; grid-template-columns: minmax(240px, 1fr) 140px 72px; gap: 12px; padding: 0.5em 0.6em; align-items: center; border-bottom: 1px solid #f3f3f3; }
+.app-compat-col-left { text-align: left; }
+.app-compat-col-center { text-align: center; }
+.app-compat-row { background: #fff; border-radius: 6px; box-shadow: 0 1px 3px #eee; padding: 0.5em; display: grid; grid-template-columns: minmax(240px, 1fr) 140px 72px; gap: 12px; align-items: center; }
+.app-compat-vehicle { overflow: hidden; }
+.app-compat-vehicle-text { white-space: normal; overflow-wrap: break-word; word-break: break-word; font-weight: 500; }
+.app-compat-years-text { white-space: normal; }
+.app-compat-contact-cell { text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; }
+.app-compat-contact-btn { position: relative; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; }
+.app-whatsapp-btn { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 18px; background: #25D366; color: #fff; text-decoration: none; }
+.app-overlay-blur { position: absolute; inset: 0; border-radius: 18px; backdrop-filter: blur(3px); background: rgba(255,255,255,0.4); cursor: default; }
+.app-tooltip-wrapper { display: inline-block; }
+.app-tooltip-icon { width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; }
+.app-padlock-img { width: 22px; height: 22px; object-fit: contain; display: block; }
 
 /* Utility classes */
 .custom-margin-top { margin-top: 10px !important; }
@@ -488,7 +488,7 @@ select { -webkit-appearance: none; appearance: none; }
     font-size: 1.15em;
   }
   
-  .App { padding-top: calc(var(--site-header-height) + var(--page-heading-gap)) !important; margin-top: 0 !important; }
+  .app { padding-top: calc(var(--site-header-height) + var(--page-heading-gap)) !important; margin-top: 0 !important; }
   .page-offset { padding-top: calc(var(--site-header-height) + var(--page-heading-gap)) !important; box-sizing: border-box; }
   
   /* general containers */
@@ -530,7 +530,7 @@ select { -webkit-appearance: none; appearance: none; }
     scroll-margin-top: calc(var(--site-header-height) + 0.5rem) !important;
   }
 
-  .App.page-offset.menu-page .home-section .page-heading,
+  .app.page-offset.menu-page .home-section .page-heading,
   .menu-page .home-section .page-heading {
     margin-top: calc(var(--site-header-height) + 1rem) !important;
     padding-top: 0 !important;

@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import Menu from './components/Menu';
-import { AuthContext } from './App';
+import { AuthContext } from './app';
 import './page-Checkin.css';
 
 export default function Checkin() {
@@ -116,8 +116,8 @@ export default function Checkin() {
   <section>
           <div className="page-section">
             <h2 className="page-heading">Pagamento concluído</h2>
-            <p className="Checkin-success-text">Obrigado — sua assinatura Pro foi ativada (simulado).</p>
-            <p className="Checkin-success-text">Você pode retornar à <a href="/">página inicial</a>.</p>
+            <p className="checkin-success-text">Obrigado — sua assinatura Pro foi ativada (simulado).</p>
+            <p className="checkin-success-text">Você pode retornar à <a href="/">página inicial</a>.</p>
           </div>
         </section>
         </div>
@@ -129,54 +129,54 @@ export default function Checkin() {
     <>
       <Menu />
       <div className="page-offset">
-      <section className="Checkin-section">
-        <div className="Checkin-container">
-          <h2 className="page-heading Checkin-title">Finalizar Assinatura — Versão Pro</h2>
-          <p className="Checkin-intro">R$ 9,90/mês — cancelamento a qualquer momento.</p>
+      <section className="checkin-section">
+        <div className="checkin-container">
+          <h2 className="page-heading checkin-title">Finalizar Assinatura — Versão Pro</h2>
+          <p className="checkin-intro">R$ 9,90/mês — cancelamento a qualquer momento.</p>
 
-          <form onSubmit={handleSubmit} className="Checkin-form">
-            <label className="Checkin-label">
+          <form onSubmit={handleSubmit} className="checkin-form">
+            <label className="checkin-label">
               Nome no cartão
-              <input className="checkin-input Checkin-input" value={name} onChange={e => handleNameChange(e.target.value)} placeholder="Nome completo" />
-              {nameError && <div className="Checkin-error">{nameError}</div>}
+              <input className="checkin-input checkin-input" value={name} onChange={e => handleNameChange(e.target.value)} placeholder="Nome completo" />
+              {nameError && <div className="checkin-error">{nameError}</div>}
             </label>
 
-            <label className="Checkin-label">
+            <label className="checkin-label">
               Número do cartão
-              <input className="checkin-input Checkin-input" value={card} onChange={e => handleCardChange(e.target.value)} placeholder="1234 5678 9012 3456" inputMode="numeric" />
-              {cardError && <div className="Checkin-error">{cardError}</div>}
+              <input className="checkin-input checkin-input" value={card} onChange={e => handleCardChange(e.target.value)} placeholder="1234 5678 9012 3456" inputMode="numeric" />
+              {cardError && <div className="checkin-error">{cardError}</div>}
             </label>
 
-            <div className="Checkin-row">
-              <label className="Checkin-label Checkin-row-item">
+            <div className="checkin-row">
+              <label className="checkin-label checkin-row-item">
                 Validade
-                <input className="checkin-input Checkin-input" value={expiry} onChange={e => handleExpiryChange(e.target.value)} placeholder="MM/AA" inputMode="numeric" />
-                {expiryError && <div className="Checkin-error">{expiryError}</div>}
+                <input className="checkin-input checkin-input" value={expiry} onChange={e => handleExpiryChange(e.target.value)} placeholder="MM/AA" inputMode="numeric" />
+                {expiryError && <div className="checkin-error">{expiryError}</div>}
               </label>
-              <label className="Checkin-label Checkin-row-item-small">
+              <label className="checkin-label checkin-row-item-small">
                 CVC
-                <input className="checkin-input Checkin-input" value={cvc} onChange={e => handleCvcChange(e.target.value)} placeholder="123" inputMode="numeric" />
-                {cvcError && <div className="Checkin-error">{cvcError}</div>}
+                <input className="checkin-input checkin-input" value={cvc} onChange={e => handleCvcChange(e.target.value)} placeholder="123" inputMode="numeric" />
+                {cvcError && <div className="checkin-error">{cvcError}</div>}
               </label>
             </div>
 
-            <label className="Checkin-label">
+            <label className="checkin-label">
               Cupom (opcional)
-              <input className="checkin-input Checkin-input" value={coupon} onChange={e => setCoupon(e.target.value)} placeholder="CUPOM" />
+              <input className="checkin-input checkin-input" value={coupon} onChange={e => setCoupon(e.target.value)} placeholder="CUPOM" />
             </label>
 
-            {error && <div className="Checkin-error-global">{error}</div>}
+            {error && <div className="checkin-error-global">{error}</div>}
 
-            <div className="Checkin-actions">
-              <button type="submit" disabled={processing} className="Checkin-btnPrimary">
+            <div className="checkin-actions">
+              <button type="submit" disabled={processing} className="checkin-btnPrimary">
                 {processing ? 'Processando...' : 'Pagar R$ 9,90'}
               </button>
-              <button type="button" onClick={() => { /* voltar */ window.history.back(); }} className="Checkin-btnSecondary">
+              <button type="button" onClick={() => { /* voltar */ window.history.back(); }} className="checkin-btnSecondary">
                 Voltar
               </button>
             </div>
 
-            <div className="Checkin-note">
+            <div className="checkin-note">
               Este é um formulário de pagamento simulado. Integre seu provedor de pagamentos (Stripe, PayPal, PagSeguro etc.) conforme necessário.
             </div>
           </form>

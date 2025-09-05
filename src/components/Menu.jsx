@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../App';
+import { AuthContext } from '../app';
 import './MenuLogin.css';
 import Logo from './Logo';
 
@@ -146,4 +146,4 @@ function UserMenu({ nome, isPro = false, onPerfil, onPro, onConfiguracoes, onLog
   );
 }
 
-// styles moved to App.css under the Menu namespace
+// styles moved to app.css under the Menu namespace

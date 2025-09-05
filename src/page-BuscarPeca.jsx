@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import Menu from './components/Menu';
-import { AuthContext } from './App';
+import { AuthContext } from './app';
 import CompatibilityModal from './CompatibilityModal';
 import SearchForm from './components/SearchForm';
 import PecasGrid from './components/PecasGrid';

@@ -42,9 +42,9 @@
 /* Full HD - 1920x1080 */
 @media (min-width: 1900px) and (max-width: 1940px) {
   /* NossoProjeto spacing */
-  .NossoProjeto-section { padding: 0 1rem; background: #fff; }
-  .NossoProjeto-container { max-width: 1000px; margin: 0 auto; text-align: center; }
-  .NossoProjeto-paragraph { margin-top: 0.75rem; }
+  .nossoProjeto-section { padding: 0 1rem; background: #fff; }
+  .nossoProjeto-container { max-width: 1000px; margin: 0 auto; text-align: center; }
+  .nossoProjeto-paragraph { margin-top: 0.75rem; }
 }
 
 /* HD - 1366x768 */

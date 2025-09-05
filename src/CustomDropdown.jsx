@@ -35,7 +35,7 @@ export default function CustomDropdown({ options = [], value, onChange, placehol
       >
         <span className="dropdown-label">{selectedLabel || placeholder}</span>
         <span className="dropdown-arrow">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="CustomDropdown-arrow-svg">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="customDropdown-arrow-svg">
             <path d="M4 6.5L8 10.5L12 6.5" stroke="#444" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </span>

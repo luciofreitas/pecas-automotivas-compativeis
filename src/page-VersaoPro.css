@@ -1,28 +1,28 @@
 /* page-VersaoPro.css - Estilos específicos da página Versão Pro */
 
-.VersaoPro-section {
+.versaoPro-section {
   padding: 2rem 1rem;
   background: #fff;
 }
 
-.VersaoPro-container {
+.versaoPro-container {
   max-width: 1000px;
   margin: 0 auto;
   text-align: center;
 }
 
-.VersaoPro-title {
+.versaoPro-title {
   color: #2563eb;
   margin-bottom: 1rem;
 }
 
-.VersaoPro-intro {
+.versaoPro-intro {
   color: #374151;
   line-height: 1.6;
   margin-bottom: 2rem;
 }
 
-.VersaoPro-cards {
+.versaoPro-cards {
   display: flex;
   gap: 1.5rem;
   justify-content: center;
@@ -31,7 +31,7 @@
   align-items: stretch;
 }
 
-.VersaoPro-features {
+.versaoPro-features {
   background: white;
   border: 1px solid #d1d5db;
   border-radius: 12px;
@@ -44,14 +44,14 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-.VersaoPro-features-title {
+.versaoPro-features-title {
   color: #111827;
   margin: 0;
   font-size: 1.25rem;
   margin-bottom: 1rem;
 }
 
-.VersaoPro-list {
+.versaoPro-list {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -61,13 +61,13 @@
   text-align: left;
 }
 
-.VersaoPro-list li {
+.versaoPro-list li {
   color: #374151;
   padding-left: 1rem;
   position: relative;
 }
 
-.VersaoPro-list li::before {
+.versaoPro-list li::before {
   content: "✓";
   position: absolute;
   left: 0;
@@ -75,7 +75,7 @@
   font-weight: bold;
 }
 
-.VersaoPro-pricecard {
+.versaoPro-pricecard {
   background: #f8fafc;
   border: 1px solid #d1d5db;
   border-radius: 12px;
@@ -90,21 +90,21 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-.VersaoPro-price {
+.versaoPro-price {
   font-size: 2rem;
   font-weight: 700;
   color: #111827;
   margin-bottom: 0.5rem;
 }
 
-.VersaoPro-price-note {
+.versaoPro-price-note {
   font-size: 0.9rem;
   color: #6b7280;
   margin-bottom: 1.5rem;
   text-align: center;
 }
 
-.VersaoPro-cta {
+.versaoPro-cta {
   padding: 0.75rem 1.5rem;
   background: #2563eb;
   color: #fff;
@@ -115,24 +115,24 @@
   transition: background 0.2s ease;
 }
 
-.VersaoPro-cta:hover {
+.versaoPro-cta:hover {
   background: #1e40af;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
-  .VersaoPro-section {
+  .versaoPro-section {
     padding: 1rem 0.5rem;
   }
   
-  .VersaoPro-cards {
+  .versaoPro-cards {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
   }
   
-  .VersaoPro-features,
-  .VersaoPro-pricecard {
+  .versaoPro-features,
+  .versaoPro-pricecard {
     width: 100%;
     max-width: 400px;
   }
@@ -141,13 +141,13 @@
 /* Full HD - 1920x1080 */
 @media (min-width: 1900px) and (max-width: 1940px) {
   /* VersaoPro */
-  .VersaoPro-intro { color: #374151; line-height: 1.6; }
-  .VersaoPro-cards { display: flex; gap: 0.6rem; justify-content: center; margin-top: 1rem; flex-wrap: wrap; align-items: stretch; }
-  .VersaoPro-features { background: white; border: 1px solid #d1d5db; border-radius: 12px; padding: 1rem; width: 420px; max-width: 100%; display: flex; flex-direction: column; box-sizing: border-box; }
-  .VersaoPro-features-title { color: #111827; margin: 0; font-size: 1.25rem; }
-  .VersaoPro-list { list-style: none; padding: 0; margin: 0.75rem 0 0 0; display: flex; flex-direction: column; gap: 8px; text-align: left; }
-  .VersaoPro-pricecard { background: #f8fafc; border: 1px solid #d1d5db; border-radius: 12px; padding: 1rem; width: 260px; max-width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-sizing: border-box; }
-  .VersaoPro-price { font-size: 1.5rem; font-weight: 700; color: #111827; }
-  .VersaoPro-price-note { font-size: 0.9rem; color: #6b7280; margin-top: 6px; }
-  .VersaoPro-cta { margin-top: 14px; padding: 0.6rem 1rem; background: #2563eb; color: #fff; border: none; border-radius: 8px; cursor: pointer; }
+  .versaoPro-intro { color: #374151; line-height: 1.6; }
+  .versaoPro-cards { display: flex; gap: 0.6rem; justify-content: center; margin-top: 1rem; flex-wrap: wrap; align-items: stretch; }
+  .versaoPro-features { background: white; border: 1px solid #d1d5db; border-radius: 12px; padding: 1rem; width: 420px; max-width: 100%; display: flex; flex-direction: column; box-sizing: border-box; }
+  .versaoPro-features-title { color: #111827; margin: 0; font-size: 1.25rem; }
+  .versaoPro-list { list-style: none; padding: 0; margin: 0.75rem 0 0 0; display: flex; flex-direction: column; gap: 8px; text-align: left; }
+  .versaoPro-pricecard { background: #f8fafc; border: 1px solid #d1d5db; border-radius: 12px; padding: 1rem; width: 260px; max-width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-sizing: border-box; }
+  .versaoPro-price { font-size: 1.5rem; font-weight: 700; color: #111827; }
+  .versaoPro-price-note { font-size: 0.9rem; color: #6b7280; margin-top: 6px; }
+  .versaoPro-cta { margin-top: 14px; padding: 0.6rem 1rem; background: #2563eb; color: #fff; border: none; border-radius: 8px; cursor: pointer; }
 }

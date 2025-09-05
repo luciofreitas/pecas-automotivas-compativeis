@@ -12,7 +12,7 @@ import Contato from './page-Contato';
 import Parceiros from './page-Parceiros';
 import ContatoLogado from './page-ContatoLogado';
 import BuscarPeca from './page-BuscarPeca';
-import './App.css';
+import './app.css';
 import './CustomDropdown.css';
 
 export const AuthContext = createContext(null);
@@ -24,7 +24,7 @@ function ProtectedRoute({ children }) {
   return children;
 }
 
-export default function App() {
+export default function app() {
   const [usuarioLogado, setUsuarioLogado] = useState(null);
   const [authLoaded, setAuthLoaded] = useState(false);
 
@@ -33,7 +33,7 @@ export default function App() {
       const stored = localStorage.getItem('usuarioLogado');
       if (stored) {
         setUsuarioLogado(JSON.parse(stored));
-        console.log('[App] hydrated usuarioLogado from localStorage');
+        console.log('[app] hydrated usuarioLogado from localStorage');
       }
     } catch (e) {
       console.warn('Failed to parse usuarioLogado from localStorage', e);
@@ -44,7 +44,7 @@ export default function App() {
   return (
     <AuthContext.Provider value={{ usuarioLogado, setUsuarioLogado, authLoaded, setAuthLoaded }}>
       <BrowserRouter>
-        <div className="App">
+        <div className="app">
           <Routes>
             <Route path="/" element={
               <ProtectedRoute>

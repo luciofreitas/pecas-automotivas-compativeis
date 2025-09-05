@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Menu from './components/Menu';
 import ContatoForm from './components/ContatoForm';
-import { AuthContext } from './App';
+import { AuthContext } from './app';
 import './page-ContatoLogado.css';
 
 export default function ContatoLogado() {

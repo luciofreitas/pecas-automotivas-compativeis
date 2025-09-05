@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import './App.css';
+import './app.css';
 
 export default function CompatibilityModal({ show, onClose, title, children }) {
 	useEffect(() => {
@@ -23,12 +23,12 @@ export default function CompatibilityModal({ show, onClose, title, children }) {
 	return (
 		<div className="modal-overlay" onClick={handleOverlayClick}>
 			<div className="modal-content compat-modal" role="dialog" aria-modal="true" aria-label={title || 'Modal'}>
-				<div className="App-compat-modal">
-					<div className="App-compat-header">
-						<span className="App-compat-title">{title}</span>
-						<button className="App-compat-close" aria-label="Fechar" onClick={onClose}>✕</button>
+				<div className="app-compat-modal">
+					<div className="app-compat-header">
+						<span className="app-compat-title">{title}</span>
+						<button className="app-compat-close" aria-label="Fechar" onClick={onClose}>✕</button>
 					</div>
-					<div className="App-compat-body">
+					<div className="app-compat-body">
 						{children}
 					</div>
 				</div>

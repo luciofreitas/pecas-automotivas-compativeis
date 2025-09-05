@@ -5,7 +5,7 @@ import './components/Menu.css';
 import './page-Login.css';
 import usuariosData from './usuarios.json';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from './App';
+import { AuthContext } from './app';
 function Login() {
   // Estados para login
   const [email, setEmail] = useState('');
@@ -192,7 +192,7 @@ function Login() {
                     </a>
                   </div>
                   {error && <div className="text-red-600 text-center text-sm">{error}</div>}
-                  <button type="submit" className="btn w-full Login-submit">Entrar</button>
+                  <button type="submit" className="btn w-full login-submit">Entrar</button>
                 </form>
               </div>
 
@@ -253,7 +253,7 @@ function Login() {
                     />
                   </div>
                   {regError && <div className="text-red-600 text-center text-sm">{regError}</div>}
-                  <button type="submit" className="btn w-full Login-submit">Registrar</button>
+                  <button type="submit" className="btn w-full login-submit">Registrar</button>
                 </form>
               </div>
             </div>
