@@ -64,7 +64,7 @@
 .login-page-header h2 {
   /* Match the global `page-heading` appearance used across the site */
   color: #2563eb !important;
-  font-weight: 600 !important;
+  font-weight: 400 !important;
   font-size: 2rem !important;
   margin-bottom: 0.5em;
   text-align: center;
