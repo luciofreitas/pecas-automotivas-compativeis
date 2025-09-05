@@ -49,6 +49,19 @@
   border: 1px solid #e5e7eb;
 }
 
+/* Scale content for different viewport widths */
+@media (max-width: 1366px) {
+  .perfil-container { max-width: 640px; padding: 1.5rem 1rem; }
+  .perfil-card { padding: 1.5rem; }
+  .perfil-card-header h2 { font-size: 1.4rem; }
+}
+
+@media (min-width: 1600px) {
+  .perfil-container { max-width: 980px; padding: 3rem 2rem; }
+  .perfil-card { padding: 2.5rem; }
+  .perfil-card-header h2 { font-size: 1.8rem; }
+}
+
 .perfil-card-header {
   display: flex;
   justify-content: space-between;
