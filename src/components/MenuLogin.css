@@ -39,8 +39,9 @@
 }
 
 .menu-login-logo img {
-  height: 102px;
-  width: 102px;
+  /* size the logo dynamically according to header height */
+  height: calc(var(--site-header-height, 4.5rem) - 0.6rem);
+  width: calc(var(--site-header-height, 4.5rem) - 0.6rem);
   border-radius: 50%;
   object-fit: cover;
   cursor: pointer;
@@ -150,7 +151,8 @@
   }
   
   .menu-responsive .menu-login-logo img {
-    height: 82px;
+    height: calc(var(--site-header-height, 4.5rem) - 0.6rem);
+    width: calc(var(--site-header-height, 4.5rem) - 0.6rem);
   }
   
   .menu-responsive .menu-list {
@@ -190,7 +192,8 @@
   }
   
   .menu-login-logo img {
-    height: 82px;
+    height: calc(var(--site-header-height, 4.5rem) - 0.6rem);
+    width: calc(var(--site-header-height, 4.5rem) - 0.6rem);
   }
   
   .menu-login-center {

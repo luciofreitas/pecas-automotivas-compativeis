@@ -3,7 +3,7 @@
   --app-main-padding-top: 1rem; /* legacy fallback */
   /* Use rem units so spacing scales with root font-size and rem/em math works reliably */
   --site-header-height: 5rem; /* increased header height for even more space */
-  --page-heading-gap: calc(var(--site-header-height) * 0.1); /* increased gap: ~60% for maximum space */
+  --page-heading-gap: 0.6rem; /* tuned gap between header and page heading */
   /*
     GLOBAL CONTROL:
     To change the distance between the fixed header (MenuLogin) and
@@ -17,6 +17,23 @@
     - `.page-offset` and normalized page headings use calc(var(--site-header-height) + <extra-gap>)
       to keep a consistent gap across pages.
   */
+}
+
+/* Responsive header height for consistent spacing across viewports */
+@media (max-width: 1366px) {
+  :root { --site-header-height: 4.6rem; --page-heading-gap: 0.5rem; }
+}
+
+@media (max-width: 1024px) {
+  :root { --site-header-height: 4.2rem; --page-heading-gap: 0.5rem; }
+}
+
+@media (max-width: 768px) {
+  :root { --site-header-height: 5.2rem; --page-heading-gap: 0.6rem; }
+}
+
+@media (max-width: 420px) {
+  :root { --site-header-height: 5.6rem; --page-heading-gap: 0.6rem; }
 }
 
 /* ==========================
