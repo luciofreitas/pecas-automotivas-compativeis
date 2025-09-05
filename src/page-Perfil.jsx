@@ -6,7 +6,6 @@ import './page-Perfil.css';
 function PagePerfil() {
   const { usuarioLogado, setUsuarioLogado } = useContext(AuthContext);
   const [editMode, setEditMode] = useState(false);
-  const [passwordMode, setPasswordMode] = useState(false);
   const [formData, setFormData] = useState({
     nome: usuarioLogado?.nome || '',
     email: usuarioLogado?.email || '',
@@ -36,56 +35,48 @@ function PagePerfil() {
 
   const handleSave = () => {
     // Atualizar os dados do usuário
+    // Se o usuário preencheu qualquer campo de senha, validar e incluir na atualização
+    if (passwordData.senhaAtual || passwordData.novaSenha || passwordData.confirmNovaSenha) {
+      if (passwordData.senhaAtual !== usuarioLogado.senha) {
+        alert('Senha atual incorreta!');
+        return;
+      }
+
+      if (passwordData.novaSenha !== passwordData.confirmNovaSenha) {
+        alert('Confirmação de senha não confere!');
+        return;
+      }
+
+      if (passwordData.novaSenha.length < 6) {
+        alert('A nova senha deve ter pelo menos 6 caracteres!');
+        return;
+      }
+    }
+
     const updatedUser = { ...usuarioLogado, ...formData };
+
+    if (passwordData.novaSenha) {
+      updatedUser.senha = passwordData.novaSenha;
+    }
+
     setUsuarioLogado(updatedUser);
     localStorage.setItem('usuarioLogado', JSON.stringify(updatedUser));
-    
+
     // Atualizar também na lista de usuários
     const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
     const updatedUsuarios = usuarios.map(user => 
       user.id === usuarioLogado.id ? updatedUser : user
     );
     localStorage.setItem('usuarios', JSON.stringify(updatedUsuarios));
-    
+
+    // limpar estado de senha e fechar edição
+    setPasswordData({ senhaAtual: '', novaSenha: '', confirmNovaSenha: '' });
     setEditMode(false);
     console.log('Dados salvos:', updatedUser);
   };
 
   const handlePasswordSave = () => {
-    if (passwordData.senhaAtual !== usuarioLogado.senha) {
-      alert('Senha atual incorreta!');
-      return;
-    }
-    
-    if (passwordData.novaSenha !== passwordData.confirmNovaSenha) {
-      alert('Confirmação de senha não confere!');
-      return;
-    }
-    
-    if (passwordData.novaSenha.length < 6) {
-      alert('A nova senha deve ter pelo menos 6 caracteres!');
-      return;
-    }
-
-    // Atualizar a senha
-    const updatedUser = { ...usuarioLogado, senha: passwordData.novaSenha };
-    setUsuarioLogado(updatedUser);
-    localStorage.setItem('usuarioLogado', JSON.stringify(updatedUser));
-    
-    // Atualizar também na lista de usuários
-    const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
-    const updatedUsuarios = usuarios.map(user => 
-      user.id === usuarioLogado.id ? updatedUser : user
-    );
-    localStorage.setItem('usuarios', JSON.stringify(updatedUsuarios));
-    
-    setPasswordData({
-      senhaAtual: '',
-      novaSenha: '',
-      confirmNovaSenha: ''
-    });
-    setPasswordMode(false);
-    alert('Senha alterada com sucesso!');
+  // function removed - password handling now integrated in handleSave
   };
 
   const handleCancel = () => {
@@ -94,16 +85,9 @@ function PagePerfil() {
       email: usuarioLogado?.email || '',
       celular: usuarioLogado?.celular || ''
     });
-    setEditMode(false);
-  };
-
-  const handlePasswordCancel = () => {
-    setPasswordData({
-      senhaAtual: '',
-      novaSenha: '',
-      confirmNovaSenha: ''
-    });
-    setPasswordMode(false);
+  // reset password inputs as well
+  setPasswordData({ senhaAtual: '', novaSenha: '', confirmNovaSenha: '' });
+  setEditMode(false);
   };
 
   if (!usuarioLogado) {
@@ -124,16 +108,11 @@ function PagePerfil() {
     <div className="page-perfil">
       <Menu />
       <div className="perfil-container">
-        <div className="perfil-header">
-          <h1 className="page-heading">Meu Perfil</h1>
-          <p className="perfil-subtitle">Gerencie suas informações pessoais</p>
-        </div>
-
         <div className="perfil-content">
           <div className="perfil-cards-row">
             <div className="perfil-card">
               <div className="perfil-card-header">
-                <h2>Informações Pessoais</h2>
+                <h2>Dados da Conta</h2>
                 {!editMode ? (
                   <button className="btn-edit" onClick={() => setEditMode(true)}>
                     Editar
@@ -199,6 +178,50 @@ function PagePerfil() {
                     <div className="form-value">{usuarioLogado.celular || 'Não informado'}</div>
                   )}
                 </div>
+                
+                {editMode && (
+                  <>
+                    <hr />
+                    <h3 className="subsection-title">Alterar Senha</h3>
+                    <div className="form-group">
+                      <label htmlFor="senhaAtual">Senha Atual</label>
+                      <input
+                        type="password"
+                        id="senhaAtual"
+                        name="senhaAtual"
+                        value={passwordData.senhaAtual}
+                        onChange={handlePasswordChange}
+                        className="form-input"
+                      />
+                    </div>
+
+                    <div className="form-group">
+                      <label htmlFor="novaSenha">Nova Senha</label>
+                      <input
+                        type="password"
+                        id="novaSenha"
+                        name="novaSenha"
+                        value={passwordData.novaSenha}
+                        onChange={handlePasswordChange}
+                        className="form-input"
+                        placeholder="Mínimo 6 caracteres"
+                      />
+                    </div>
+
+                    <div className="form-group">
+                      <label htmlFor="confirmNovaSenha">Confirmar Nova Senha</label>
+                      <input
+                        type="password"
+                        id="confirmNovaSenha"
+                        name="confirmNovaSenha"
+                        value={passwordData.confirmNovaSenha}
+                        onChange={handlePasswordChange}
+                        className="form-input"
+                        placeholder="Digite a nova senha novamente"
+                      />
+                    </div>
+                  </>
+                )}
               </div>
             </div>
 
@@ -223,67 +246,7 @@ function PagePerfil() {
             </div>
           </div>
 
-          <div className="perfil-card">
-            <div className="perfil-card-header">
-              <h2>Alterar Senha</h2>
-              {!passwordMode ? (
-                <button className="btn-edit" onClick={() => setPasswordMode(true)}>
-                  Alterar
-                </button>
-              ) : (
-                <div className="edit-actions">
-                  <button className="btn-save" onClick={handlePasswordSave}>
-                    Salvar
-                  </button>
-                  <button className="btn-cancel" onClick={handlePasswordCancel}>
-                    Cancelar
-                  </button>
-                </div>
-              )}
-            </div>
-
-            {passwordMode && (
-              <div className="perfil-form">
-                <div className="form-group">
-                  <label htmlFor="senhaAtual">Senha Atual</label>
-                  <input
-                    type="password"
-                    id="senhaAtual"
-                    name="senhaAtual"
-                    value={passwordData.senhaAtual}
-                    onChange={handlePasswordChange}
-                    className="form-input"
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="novaSenha">Nova Senha</label>
-                  <input
-                    type="password"
-                    id="novaSenha"
-                    name="novaSenha"
-                    value={passwordData.novaSenha}
-                    onChange={handlePasswordChange}
-                    className="form-input"
-                    placeholder="Mínimo 6 caracteres"
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="confirmNovaSenha">Confirmar Nova Senha</label>
-                  <input
-                    type="password"
-                    id="confirmNovaSenha"
-                    name="confirmNovaSenha"
-                    value={passwordData.confirmNovaSenha}
-                    onChange={handlePasswordChange}
-                    className="form-input"
-                    placeholder="Digite a nova senha novamente"
-                  />
-                </div>
-              </div>
-            )}
-          </div>
+          {/* password card removed - password fields integrated into Dados da Conta */}
         </div>
       </div>
     </div>
