@@ -34,6 +34,7 @@
   flex-direction: column;
   justify-content: center;
   line-height: 1.2;
+  margin-left: -4px; /* aproximar o texto ainda mais, pequena sobreposição */
 }
 
 .logo-title {
@@ -73,6 +74,10 @@
   .logo-container {
   gap: 0px;
   }
+
+  .logo-text-container {
+    margin-left: -3px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -91,6 +96,10 @@
   
   .logo-container {
   gap: 0px;
+  }
+
+  .logo-text-container {
+    margin-left: -2px;
   }
 }
 
