@@ -33,12 +33,16 @@
   display: flex;
   align-items: center;
   margin-left: 8px;
-  /* Mantendo o posicionamento normal para preservar o layout */
-  width: 120px; /* Largura fixa para garantir consistência */
+  /* Removendo largura fixa para acomodar logo + texto */
+  min-width: 200px; /* Largura mínima para garantir que o texto caiba */
+  flex-shrink: 0; /* Evita que a logo encolha */
 }
 
 .menu-login-logo img {
-  height: 70px;
+  height: 102px;
+  width: 102px;
+  border-radius: 50%;
+  object-fit: cover;
   cursor: pointer;
   vertical-align: middle;
   transition: transform 0.2s ease;
@@ -99,20 +103,27 @@
 }
 
 .menu-login-item::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: -8px;
-  transform: translateX(-50%) scaleX(0);
-  width: 60%;
-  height: 4px;
-  background: #2563eb;
-  border-radius: 2px;
-  transition: transform 0.2s;
+  /* hide legacy/top indicator (replaced by bottom underline) */
+  display: none !important;
 }
 
-.menu-login-item:hover::before {
-  transform: translateX(-50%) scaleX(1);
+/* Bottom yellow underline for top-level menu items (appears on hover/focus) */
+.menu-login-item::after {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: #fbbf24; /* yellow */
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: width 0.28s ease;
+}
+
+.menu-login-item:hover::after,
+.menu-login-item:focus::after {
+  width: 60%;
 }
 
 /* Ajuste para itens específicos que podem ser mais longos */
@@ -139,7 +150,7 @@
   }
   
   .menu-responsive .menu-login-logo img {
-    height: 45px;
+    height: 82px;
   }
   
   .menu-responsive .menu-list {
@@ -179,7 +190,7 @@
   }
   
   .menu-login-logo img {
-    height: 50px;
+    height: 82px;
   }
   
   .menu-login-center {
@@ -208,12 +219,14 @@
   background: transparent;
   padding: 6px 10px;
   border-radius: 8px;
-  color: #1976ed;
+  color: #374151;
+  text-decoration: none;
 }
 
 .user-button:focus, .user-logout-button:focus {
   outline: none;
   box-shadow: none;
+  text-decoration: none;
 }
 
 /* Dropdown items should use the same hover selection effect as top menu links */
@@ -223,29 +236,53 @@
   position: relative;
   display: block;
   text-align: left;
+  color: #374151;
+  text-decoration: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
-/* Dropdown: remove top indicator and use only color change on hover/focus */
+/* Linha amarela no hover dos itens do dropdown */
+.dropdown-item::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: #fbbf24;
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+/* Dropdown: usar linha amarela em vez de mudança de cor */
 .dropdown-item:hover,
 .dropdown-item:focus {
   background: transparent;
-  color: #1976ed;
+  color: #374151;
+}
+
+.dropdown-item:hover::after {
+  width: 80%;
 }
 
 .dropdown-item:focus-visible {
-  color: #1976ed;
+  color: #374151;
 }
 
-/* Show a blue focus/active ring for dropdown items */
+/* Show a subtle focus ring for dropdown items */
 .dropdown-item:focus,
 .dropdown-item:active {
-  outline: 2px solid #2563eb;
+  outline: 2px solid #fbbf24;
   outline-offset: 3px;
   border-radius: 8px;
 }
 
 .dropdown-item:focus-visible {
-  box-shadow: 0 0 0 4px rgba(37,99,235,0.12), 0 0 0 2px rgba(37,99,235,0.18);
+  box-shadow: 0 0 0 4px rgba(251,191,36,0.12), 0 0 0 2px rgba(251,191,36,0.18);
 }
 
 /* Ensure the top-bar indicator from .menu-login-item does not appear on dropdown items */
@@ -253,17 +290,42 @@
   display: none !important;
 }
 
+/* Give the user menu trigger the same bottom underline behaviour as top-level items */
+.user-button::before { display: none !important; }
+.user-button::after {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: #fbbf24;
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: width 0.28s ease;
+}
+.user-button:hover::after, .user-button:focus::after {
+  width: 60%;
+}
+
+/* ensure logout item does not show any unexpected top border/line (blue) */
+.dropdown-item.logout-item, .user-logout-button.logout-item {
+  border-top: none !important;
+  background: transparent !important;
+}
+
 /* Accessible focus visuals */
+.user-button:focus-visible, .user-logout-button:focus-visible, 
 .user-button:focus-visible, .user-logout-button:focus-visible, 
 .dropdown-item:focus-visible, .menu-login-item:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 4px rgba(37,99,235,0.12), 0 0 0 2px rgba(37,99,235,0.18);
+  box-shadow: 0 0 0 4px rgba(251,191,36,0.12), 0 0 0 2px rgba(251,191,36,0.18);
   border-radius: 8px;
 }
 
 /* Make dropdown items keyboard-focusable */
 .dropdown-item:focus {
-  background: #f3f4f6;
+  background: transparent;
 }
 
 /* Ensure the grouped menu + logo container uses a white background */
@@ -308,10 +370,78 @@
   align-items: center; 
 }
 
+/* Center the menu relative to the viewport (monitor) on larger screens
+   so menu items stay visually centered even if the logo is absent or has variable width. */
+@media (min-width: 769px) {
+  .menu-login-center {
+    position: absolute !important;
+    left: 50% !important;
+    top: 0 !important;
+    transform: translateX(-50%) !important;
+    width: auto !important;
+    z-index: 5 !important;
+    justify-content: center !important;
+    align-items: center !important;
+    pointer-events: auto !important;
+    display: flex !important;
+    height: 100% !important;
+  }
+
+  /* Ensure the header container remains full-width and other elements don't shift
+     (logo stays at left, user controls to the right). */
+  .menu-login-root {
+    position: relative !important;
+  }
+}
+
 .menu-login-right {
   display: flex;
   align-items: center;
   margin-left: 1rem; /* Reduzido de auto para 1rem para diminuir espaçamento */
+}
+
+/* ALIGNMENT OVERRIDES: force consistent vertical centering of menu items */
+/* Use CSS variable set by MenuLogin component JS; fallback to 4.5rem */
+.site-header,
+.menu-login-root,
+.menu-login-center {
+  height: var(--site-header-height, 4.5rem) !important;
+  min-height: var(--site-header-height, 4.5rem) !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.menu-list {
+  /* Ensure the list fills the header height so children can center correctly */
+  height: var(--site-header-height, 4.5rem) !important;
+  align-items: center !important;
+}
+
+.menu-list > li {
+  display: flex !important;
+  align-items: center !important;
+  /* Use header height so flex centering aligns with logo and header */
+  height: var(--site-header-height, 4.5rem) !important;
+}
+
+.menu-login-item {
+  display: inline-flex !important; /* keep inline flow but ensure flex centering */
+  align-items: center !important;
+  /* Let the anchor size to content; vertical centering is handled by parent li */
+  height: auto !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  line-height: 1 !important;
+}
+
+  .menu-login-logo img { 
+  max-height: calc(var(--site-header-height, 4.5rem) + 1rem) !important;
+  height: auto !important;
+}
+
+/* Reduce chance of pseudo-element being clipped by header children */
+.site-header * {
+  overflow: visible !important;
 }
 
 /* Menu list styles - classes customizadas para evitar conflito com DaisyUI */
@@ -407,7 +537,7 @@
     padding-right: 48px; 
   }
   .menu-login-logo img { 
-    height: 80px; 
+    height: 112px; 
   }
 }
 
@@ -453,6 +583,108 @@
   text-decoration: none !important;
   color: #374151 !important;
 }
+
+/* >>> Visual Overrides applied to MenuLogin to ensure the blue header, white text and yellow underline */
+/* These are appended as stronger overrides so they survive earlier edits or framework classes */
+.site-header {
+  background: #2563eb !important;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.15) !important;
+  overflow: visible !important; /* allow underline pseudo-element to show */
+}
+
+.menu-login-root {
+  padding-bottom: 8px !important; /* ensure visual room for underline */
+}
+
+.menu-login-container {
+  background: #2563eb !important;
+}
+
+.menu-login-logo img {
+  /* allow the SVG/native color to show (do not force white) */
+  filter: none !important;
+  transition: transform 0.2s ease, filter 0.2s ease !important;
+}
+
+/* Force menu items to white and remove hover background; add yellow rounded underline via ::after */
+.menu-login-item {
+  color: #ffffff !important;
+  background: transparent !important;
+  transition: color 0.18s ease, background 0.18s ease !important;
+}
+
+.menu-login-item:hover {
+  background: transparent !important;
+}
+
+.menu-login-item::before {
+  display: none !important; /* disable old top indicator */
+}
+
+.menu-login-item::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  transform: translateX(-50%) scaleX(0);
+  width: 60%;
+  height: 3px; /* thinner marker */
+  background: #fbbf24; /* yellow */
+  border-radius: 3px;
+  transition: transform 0.18s ease;
+  transform-origin: center;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.menu-login-item:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Ensure compact mode doesn't force dark text */
+.menu-compact .menu-login-item {
+  color: #ffffff !important;
+}
+
+.user-button, .user-logout-button {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  position: relative;
+}
+
+/* Linha amarela para user-button em modo compact */
+.user-button::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: #fbbf24;
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: width 0.24s cubic-bezier(.2,.9,.3,1), opacity 0.2s;
+  z-index: 2;
+  pointer-events: none;
+  display: block !important;
+}
+
+.user-button:hover::after,
+.user-button:focus::after,
+.user-button:focus-visible::after {
+  width: 80% !important;
+  opacity: 1 !important;
+}
+
+/* Mobile: smaller underline */
+@media (max-width: 768px) {
+  .menu-login-item::after {
+    width: 40% !important;
+  height: 2px !important;
+  bottom: -5px !important;
+  }
+}
+
 
 @media (max-width: 768px) {
   .menu-login-root {
@@ -503,11 +735,32 @@
   cursor: pointer;
   white-space: nowrap;
   gap: 8px;
-  transition: background-color 0.2s;
+  transition: all 0.2s;
+  text-decoration: none;
+  position: relative;
+}
+
+/* Linha amarela no hover do nome do usuário */
+.user-button::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: #fbbf24;
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
 }
 
 .user-button:hover {
-  background-color: #f3f4f6;
+  background-color: transparent;
+  color: #374151;
+}
+
+.user-button:hover::after {
+  width: 80%;
 }
 
 /* Indicador de versão Pro */
@@ -521,15 +774,16 @@
   margin-left: 4px;
 }
 
-/* Dropdown do menu do usuário */
+/* Dropdown do menu do usuário (visual mais leve) */
 .user-dropdown {
   position: fixed; /* Alterado de absolute para fixed para escapar de qualquer container limitante */
   top: auto; /* Removido o cálculo para usar posição fixa */
   right: auto; /* Será posicionado com JS */
   margin-top: 4px; /* Espaçamento do botão */
-  background-color: white;
+  background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* Sombra mais forte para destacar */
+  border: 1px solid rgba(16,24,40,0.06); /* borda sutil */
+  box-shadow: 0 6px 18px rgba(16,24,40,0.06); /* sombra muito mais suave */
   padding: 8px;
   min-width: 180px;
   z-index: 9999; /* Z-index muito alto para garantir que fique acima de tudo */
@@ -537,6 +791,51 @@
   flex-direction: column;
   gap: 4px;
 }
+
+/* Force dropdown above any menu pseudo-elements that might overlap */
+.user-dropdown {
+  z-index: 20000 !important;
+}
+
+/* Hide any decorative pseudo-elements that may bleed into the dropdown area */
+.user-dropdown::before,
+.user-dropdown::after,
+.user-dropdown *::before,
+.user-dropdown *::after {
+  /* hide generic decorative pseudo-elements by default */
+  display: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Exception: allow dropdown items to show their own underline pseudo-element */
+.user-dropdown .dropdown-item {
+  position: relative; /* required so ::after positions relative to the item */
+  overflow: visible; /* ensure the underline isn't clipped */
+}
+
+.user-dropdown .dropdown-item::after {
+  /* re-enable the yellow underline specifically for dropdown items */
+  content: '';
+  display: block !important;
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: #fbbf24 !important;
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: width 0.28s ease;
+}
+
+.user-dropdown .dropdown-item:hover::after,
+.user-dropdown .dropdown-item:focus::after {
+  width: 80% !important;
+}
+
+/* Remove the top indicator on the user button specifically to avoid overlap */
+.user-button::before { display: none !important; }
 
 /* Itens do dropdown */
 .dropdown-item {
@@ -552,7 +851,13 @@
 }
 
 .dropdown-item:hover {
-  background-color: #f3f4f6;
+  background-color: transparent !important;
+}
+
+/* Active / selected style: very subtle light background to indicate selection on keyboard nav */
+.dropdown-item[aria-pressed="true"],
+.dropdown-item.active {
+  background-color: rgba(16,24,40,0.02);
 }
 
 .dropdown-item-logout {
@@ -561,6 +866,21 @@
   padding-top: 8px;
   color: #dc2626;
 }
+
+/* Linha amarela também para o item de logout */
+.dropdown-item-logout::after {
+  background: #fbbf24 !important;
+}
+
+/* Ensure the logout item does not show the top blue indicator or focus outline */
+.dropdown-item-logout::before { display: none !important; }
+.dropdown-item-logout:focus, .dropdown-item-logout:active { outline: none !important; box-shadow: none !important; }
+
+/* Force dropdown background white (override other themes) */
+.user-dropdown { background-color: #ffffff !important; }
+
+/* Remove the visible top border for logout to avoid blue-looking line */
+.dropdown-item-logout { border-top: none !important; }
 
 /* Versão responsiva para resolução 1366x768 e similares */
 @media screen and (max-width: 1366px) {
