@@ -81,7 +81,7 @@ function PagePerfil() {
   return (
     <div className="page-perfil">
       <Menu />
-      <div className="perfil-container">
+      <div className="perfil-container page-offset menu-page">
         <div className="perfil-card single-card">
           <div className="perfil-card-header">
             <h2>Informações Pessoais</h2>
