@@ -1,0 +1,151 @@
+/* Logo.css - Estilos para o componente Logo */
+
+.logo-container {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.logo-container:hover {
+  transform: scale(1.02);
+}
+
+.logo-image {
+  height: 102px !important;
+  width: 102px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  transition: transform 0.2s ease !important;
+  flex-shrink: 0;
+  display: block !important;
+  filter: none !important;
+}
+
+.logo-image:hover {
+  transform: scale(1.05);
+}
+
+.logo-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.2;
+}
+
+.logo-title {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+  color: #000000;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.logo-subtitle {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #666666;
+  margin: 0;
+  margin-top: 1px;
+  white-space: nowrap;
+}
+
+/* Responsividade */
+@media screen and (max-width: 1366px) {
+  .logo-image {
+    height: 82px !important;
+    width: 82px !important;
+  }
+  
+  .logo-title {
+    font-size: 24px;
+  }
+  
+  .logo-subtitle {
+    font-size: 12px;
+  }
+  
+  .logo-container {
+  gap: 0px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .logo-image {
+    height: 82px !important;
+    width: 82px !important;
+  }
+  
+  .logo-title {
+    font-size: 20px;
+  }
+  
+  .logo-subtitle {
+    font-size: 11px;
+  }
+  
+  .logo-container {
+  gap: 0px;
+  }
+}
+
+/* Para telas muito pequenas - esconder texto se necessário */
+@media screen and (max-width: 480px) {
+  .logo-text-container {
+    display: none;
+  }
+  
+  .logo-image {
+    height: 60px !important;
+    width: 60px !important;
+  }
+}
+
+/* Para telas muito grandes */
+@media (min-width: 1600px) {
+  .logo-image {
+    height: 112px !important;
+    width: 112px !important;
+  }
+  
+  .logo-title {
+    font-size: 32px;
+  }
+  
+  .logo-subtitle {
+    font-size: 16px;
+  }
+}
+
+/* Ajustes para header com fundo azul - texto branco */
+.site-header .logo-title {
+  color: #ffffff;
+}
+
+.site-header .logo-subtitle {
+  color: #e5e7eb;
+}
+
+/* Debug removido - estilos limpos */
+.menu-login-logo {
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: flex !important;
+}
+
+.menu-login-logo .logo-container {
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: flex !important;
+}
+
+.menu-login-logo .logo-image {
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: block !important;
+}
