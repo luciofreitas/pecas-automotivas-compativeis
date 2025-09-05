@@ -247,3 +247,25 @@
     font-size: 2rem;
   }
 }
+
+/* Single-card and password toggle styles added to match design */
+.single-card { max-width: 640px; margin: 0 auto; border-radius: 12px; }
+
+.password-field { display: flex; align-items: center; gap: 0.5rem; }
+.password-field .form-input { flex: 1; }
+
+.car-toggle { display: inline-flex; align-items: center; gap: 0.35rem; cursor: pointer; padding: 6px 8px; border-radius: 8px; }
+.car-body { font-size: 1.05rem; }
+.car-light { width: 10px; height: 10px; border-radius: 50%; background: rgba(0,0,0,0.12); transition: background 0.15s ease, box-shadow 0.15s ease; }
+.car-toggle.on { background: rgba(16, 185, 129, 0.08); }
+.car-toggle.on .car-light { background: #fde68a; box-shadow: 0 0 8px rgba(250, 204, 21, 0.6); }
+.car-toggle.off { background: transparent; }
+
+.form-actions { display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 0.5rem; }
+.btn-save { background: #2563eb; color: #fff; padding: 8px 14px; border-radius: 8px; border: none; }
+.btn-cancel { background: #6b7280; color: #fff; padding: 8px 14px; border-radius: 8px; border: none; }
+
+@media (max-width: 480px) {
+  .single-card { padding: 1rem; }
+  .car-body { font-size: 0.95rem; }
+}
