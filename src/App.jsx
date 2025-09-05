@@ -24,7 +24,7 @@ function ProtectedRoute({ children }) {
   return children;
 }
 
-export default function app() {
+export default function App() {
   const [usuarioLogado, setUsuarioLogado] = useState(null);
   const [authLoaded, setAuthLoaded] = useState(false);
 
@@ -33,7 +33,7 @@ export default function app() {
       const stored = localStorage.getItem('usuarioLogado');
       if (stored) {
         setUsuarioLogado(JSON.parse(stored));
-        console.log('[app] hydrated usuarioLogado from localStorage');
+        console.log('[App] hydrated usuarioLogado from localStorage');
       }
     } catch (e) {
       console.warn('Failed to parse usuarioLogado from localStorage', e);
