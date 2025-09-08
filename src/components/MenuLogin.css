@@ -39,9 +39,9 @@
 }
 
 .menu-login-logo img {
-  /* size the logo dynamically according to header height */
-  height: calc(var(--site-header-height, 4.5rem) - 0.6rem);
-  width: calc(var(--site-header-height, 4.5rem) - 0.6rem);
+  /* size the logo proportionally to header height so it scales across viewports */
+  height: calc(var(--site-header-height, 4.5rem) * 0.7);
+  width: calc(var(--site-header-height, 4.5rem) * 0.7);
   border-radius: 50%;
   object-fit: cover;
   cursor: pointer;
@@ -151,8 +151,8 @@
   }
   
   .menu-responsive .menu-login-logo img {
-    height: calc(var(--site-header-height, 4.5rem) - 0.6rem);
-    width: calc(var(--site-header-height, 4.5rem) - 0.6rem);
+    height: calc(var(--site-header-height, 4.5rem) * 0.7);
+    width: calc(var(--site-header-height, 4.5rem) * 0.7);
   }
   
   .menu-responsive .menu-list {
@@ -192,8 +192,8 @@
   }
   
   .menu-login-logo img {
-    height: calc(var(--site-header-height, 4.5rem) - 0.6rem);
-    width: calc(var(--site-header-height, 4.5rem) - 0.6rem);
+    height: calc(var(--site-header-height, 4.5rem) * 0.7);
+    width: calc(var(--site-header-height, 4.5rem) * 0.7);
   }
   
   .menu-login-center {

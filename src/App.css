@@ -3,7 +3,7 @@
   --app-main-padding-top: 1rem; /* legacy fallback */
   /* Use rem units so spacing scales with root font-size and rem/em math works reliably */
   --site-header-height: 5rem; /* increased header height for even more space */
-  --page-heading-gap: 0.6rem; /* tuned gap between header and page heading */
+  --page-heading-gap: 1rem; /* slightly larger gap for better visual balance */
   /*
     GLOBAL CONTROL:
     To change the distance between the fixed header (MenuLogin) and
@@ -21,19 +21,19 @@
 
 /* Responsive header height for consistent spacing across viewports */
 @media (max-width: 1366px) {
-  :root { --site-header-height: 4.6rem; --page-heading-gap: 0.5rem; }
+  :root { --site-header-height: 4.6rem; --page-heading-gap: 0.9rem; }
 }
 
 @media (max-width: 1024px) {
-  :root { --site-header-height: 4.2rem; --page-heading-gap: 0.5rem; }
+  :root { --site-header-height: 4.2rem; --page-heading-gap: 0.9rem; }
 }
 
 @media (max-width: 768px) {
-  :root { --site-header-height: 5.2rem; --page-heading-gap: 0.6rem; }
+  :root { --site-header-height: 5.2rem; --page-heading-gap: 1rem; }
 }
 
 @media (max-width: 420px) {
-  :root { --site-header-height: 5.6rem; --page-heading-gap: 0.6rem; }
+  :root { --site-header-height: 5.6rem; --page-heading-gap: 1rem; }
 }
 
 /* ==========================
@@ -159,7 +159,7 @@
 
 
 body {
-  background-color: #fff;
+  background-color: #fff !important;
   margin: 0;
   padding: 0;
 }
