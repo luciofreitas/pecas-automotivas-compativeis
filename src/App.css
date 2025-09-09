@@ -88,12 +88,33 @@
   padding: 14px 18px;
   border-bottom: 1px solid #eef2f6;
   background: linear-gradient(90deg, #ffffff, #fbfdff);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .app-compat-title {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   color: #133d7a;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 12px;
+}
+
+.app-compat-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.app-compat-title-icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
 }
 
 .app-compat-close {
@@ -114,6 +135,8 @@
   overflow-x: hidden;
   max-height: calc(100vh - 160px);
   position: relative;
+  z-index: 1;
+  padding-bottom: 0; /* Remove padding extra no final */
 }
 
 /* Subtle scroll indicator shadow at the bottom when content overflows */

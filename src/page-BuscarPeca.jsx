@@ -79,10 +79,6 @@ export default function BuscarPeca() {
 
     const compatContent = (
       <div className="buscarpeca-compat-wrapper">
-        <div className="buscarpeca-compat-header">
-          <img src="/check.png" alt="Compatível" className="buscarpeca-compat-checkimg" />
-          <span className="buscarpeca-compat-title">Compatibilidade</span>
-        </div>
         <CompatibilityGrid applications={peca.applications} usuarioLogado={usuarioLogado} />
       </div>
     );
@@ -176,6 +172,7 @@ export default function BuscarPeca() {
           show={showModal} 
           onClose={() => setShowModal(false)} 
           title={modalTitle}
+          titleIcon={modalTitle === 'Compatibilidade' ? '/check.png' : null}
         >
           {modalContent}
         </CompatibilityModal>
