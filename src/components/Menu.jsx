@@ -57,8 +57,10 @@ function Menu() {
               onPro={() => navigate(proActive ? '/versao-pro-assinado' : '/versao-pro')}
               onConfiguracoes={() => navigate('/configuracoes')}
               onLogout={() => {
+                // limpa estado/localStorage e redireciona para a tela de login
                 setUsuarioLogado(null);
                 localStorage.removeItem('usuarioLogado');
+                navigate('/login');
               }}
             />
           )}
