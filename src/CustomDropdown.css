@@ -88,22 +88,26 @@
 }
 
 .dropdown-item {
+  display: block; /* ensure full line hit area */
+  width: 100%;
   padding: 0.7rem 1rem;
   cursor: pointer;
   color: #555;
   font-size: 1rem;
   transition: background 0.15s;
   text-align: left;
+  box-sizing: border-box;
+}
+
+/* stronger hover selector to avoid specificity issues */
+.dropdown-menu .dropdown-item:hover:not(.disabled) {
+  background: #f3f4f6 !important;
 }
 
 .dropdown-item.selected {
   background: #e0e7ff;
   font-weight: 600;
   color: #222;
-}
-
-.dropdown-item:hover:not(.disabled) {
-  background: #f3f4f6;
 }
 
 .dropdown-item.disabled {
@@ -115,6 +119,58 @@
   background: #f3f4f6;
   color: #aaa;
   cursor: not-allowed;
+}
+
+/* Remover apenas pseudo-elemento problemático no container do menu (se existir) */
+.custom-dropdown .dropdown-menu::before,
+.custom-dropdown .dropdown-menu::after {
+  display: none !important;
+  content: none !important;
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+/* Mantemos pseudo-elementos nos items, e adicionamos um marcador sutil no item selecionado */
+.custom-dropdown .dropdown-item::before,
+.custom-dropdown .dropdown-item::after {
+  /* não esconder por padrão para preservar outros usos */
+  display: none;
+}
+
+/* --- Alteração: mostrar marcador apenas em hover --- */
+/* Tornar cada item relativo para posicionar o marcador */
+.custom-dropdown .dropdown-item {
+  position: relative;
+}
+
+/* Exibir a linha/gradiente apenas quando o item estiver em hover */
+.custom-dropdown .dropdown-item:hover::after {
+  content: '';
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 8px;
+  height: 3px;
+  background: linear-gradient(90deg, #f6d365 0%, #fda085 100%); /* tom amarelado/laranja suave */
+  border-radius: 2px;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.12s ease-in-out;
+}
+
+/* Garantir que o primeiro item não exiba borda/linhas extras e fique com fundo branco */
+.custom-dropdown .dropdown-item:first-child {
+  border-top: none !important;
+  background: #fff !important; /* evita a faixa azul no topo */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* Remover qualquer linha fina em topo do menu (fallback) */
+.custom-dropdown .dropdown-menu {
+  border-top: 0 !important;
+  padding-top: 0.3rem; /* mantém o espaçamento interno desejado */
 }
 
 /* Full HD - 1920x1080 */

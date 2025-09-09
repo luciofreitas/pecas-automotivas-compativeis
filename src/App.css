@@ -217,6 +217,7 @@ body { scrollbar-gutter: stable; }
   display: block !important;
   text-align: center !important;
   scroll-margin-top: calc(var(--site-header-height) + 0.5rem) !important;
+  font-weight: 400 !important;
 }
 
 /* For pages using the regular Menu (not MenuLogin) ensure same h2 distance

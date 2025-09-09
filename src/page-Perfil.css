@@ -3,6 +3,7 @@
 .page-perfil {
   min-height: 100vh;
   background: white;
+  padding-top: calc(var(--site-header-height) + 0.5rem);
 }
 
 .perfil-container {
@@ -74,7 +75,7 @@
 .perfil-card-header h2 {
   color: #1e293b;
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 400;
   margin: 0;
 }
 
@@ -216,6 +217,7 @@
   color: #dc2626;
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  font-weight: 400;
 }
 
 .perfil-error p {
@@ -265,6 +267,12 @@
   .perfil-container {
     transform: scale(0.8);
     transform-origin: top center;
+  }
+}
+
+@media (min-width: 1920px) {
+  .page-perfil {
+    padding-top: calc(var(--site-header-height) - 4.5rem);
   }
 }
 
