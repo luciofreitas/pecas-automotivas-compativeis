@@ -479,8 +479,7 @@ textarea:focus,
 
 /* Secondary / neutral buttons */
 .btn.secondary,
-.checkin-btnSecondary,
-.versaoPro-cta {
+.checkin-btnSecondary {
   background: #f3f4f6 !important;
   color: #111827 !important;
   border: none !important;

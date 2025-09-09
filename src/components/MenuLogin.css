@@ -772,13 +772,14 @@
 
 /* Indicador de versão Pro */
 .pro-badge {
-  background-color: #2563eb;
-  color: white;
+  background-color: #fbbf24; /* amarelo */
+  color: #ffffff; /* texto escuro para contraste */
   font-size: 0.7em;
   padding: 0.15em 0.5em;
   border-radius: 4px;
-  font-weight: 600;
+  font-weight:bold;
   margin-left: 4px;
+
 }
 
 /* Dropdown do menu do usuário (visual mais leve) */

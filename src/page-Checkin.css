@@ -98,6 +98,7 @@
 .checkin-success-text {
   color: #374151;
   margin-top: 0.5rem;
+  text-align: center;
 }
 
 .checkin-actions {

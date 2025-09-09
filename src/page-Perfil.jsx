@@ -106,9 +106,14 @@ function PagePerfil() {
             </div>
 
             <div className="form-group">
-              <label htmlFor="senha">Senha (deixe em branco para manter)</label>
+              <label htmlFor="senhaAtual">Senha atual</label>
+              <input id="senhaAtual" name="senhaAtual" type="password" value={passwordData.senhaAtual} onChange={handlePasswordChange} className="form-input" placeholder="Digite sua senha atual" />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="novaSenha">Nova senha</label>
               <div className="password-field">
-                <input id="senha" name="senha" type={showPassword ? 'text' : 'password'} value={passwordData.novaSenha} onChange={(e)=> setPasswordData(prev => ({ ...prev, novaSenha: e.target.value }))} className="form-input password-input" placeholder="" />
+                <input id="novaSenha" name="novaSenha" type={showPassword ? 'text' : 'password'} value={passwordData.novaSenha} onChange={handlePasswordChange} className="form-input password-input" placeholder="Digite a nova senha" />
                 <span className={`car-toggle ${showPassword ? 'headlight-on' : 'headlight-off'}`} role="button" tabIndex={0} onClick={()=> setShowPassword(s => !s)} onKeyDown={(e)=> { if(e.key === 'Enter' || e.key === ' ') setShowPassword(s => !s); }} aria-label={showPassword ? 'Ocultar senha' : 'Mostrar senha'}>
                   <svg width="32" height="24" viewBox="0 0 32 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     {/* Car main body */}
@@ -165,6 +170,11 @@ function PagePerfil() {
                   </svg>
                 </span>
               </div>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="confirmNovaSenha">Confirme a nova senha</label>
+              <input id="confirmNovaSenha" name="confirmNovaSenha" type="password" value={passwordData.confirmNovaSenha} onChange={handlePasswordChange} className="form-input" placeholder="Confirme a nova senha" />
             </div>
 
             <div className="form-actions">
