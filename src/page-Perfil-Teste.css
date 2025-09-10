@@ -203,7 +203,8 @@
 	/* Match the effective spacing used by default page headings:
 		 header height + 2 * page-heading-gap + much larger gap to push title further down
 	*/
-	padding-top: calc(var(--site-header-height) + (2 * var(--page-heading-gap)) + 5rem) !important;
+	/* Use the exact requested top padding so the section matches BuscarPeca and the user's spec */
+	padding-top: 88.4px !important;
 	box-sizing: border-box;
 }
 
