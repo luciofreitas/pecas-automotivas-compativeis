@@ -1,0 +1,250 @@
+/* page-Perfil-Teste.css - Estilos específicos da página Perfil Teste (copiados de Contato Logado) */
+
+.perfil-teste-section {
+	padding: 2rem 1rem;
+	background: #fff;
+}
+
+.perfil-teste-container {
+	max-width: 800px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.perfil-teste-title {
+	color: #2563eb;
+	margin-bottom: 1rem;
+}
+
+.perfil-teste-intro {
+	color: #374151;
+	line-height: 1.6;
+	margin-bottom: 2rem;
+	text-align: center;
+}
+.perfil-teste-info {
+	color: #374151;
+	line-height: 1.6;
+	margin-bottom: 1rem;
+	text-align: center;
+}
+
+.perfil-teste-user-info {
+	background: #f8fafc;
+	border: 1px solid #e5e7eb;
+	border-radius: 8px;
+	padding: 1.5rem;
+	margin-bottom: 2rem;
+	text-align: left;
+}
+
+.perfil-teste-user-info h3 {
+	color: #111827;
+	margin-bottom: 1rem;
+}
+
+.perfil-teste-user-info p {
+	color: #374151;
+	margin-bottom: 0.5rem;
+}
+
+.perfil-teste-form-wrapper {
+	margin-top: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	align-items: center;
+}
+
+.perfil-teste-input,
+.perfil-teste-textarea {
+	width: 100%;
+	max-width: 520px;
+	padding: 0.75rem;
+	border-radius: 8px;
+	border: 1px solid #d1d5db;
+	box-sizing: border-box;
+	font-size: 1rem;
+	background: #fff;
+	color: #111827;
+}
+
+.perfil-teste-textarea {
+	padding: 1rem;
+	min-height: 120px;
+	resize: vertical;
+}
+
+.perfil-teste-input:focus,
+.perfil-teste-textarea:focus {
+	outline: none;
+	border-color: #2563eb;
+	box-shadow: 0 0 0 4px rgba(37,99,235,0.08);
+}
+
+.perfil-teste-submit {
+	margin-top: 1rem;
+	min-width: 260px;
+	width: auto;
+	padding: 0.75rem 1.5rem;
+	background: #2563eb;
+	color: #fff;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	font-weight: 600;
+	transition: background 0.2s ease;
+}
+
+.perfil-teste-submit:hover {
+	background: #1e40af;
+}
+
+.perfil-teste-actions {
+	margin-top: 2rem;
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.perfil-teste-btn-secondary {
+	padding: 0.75rem 1.5rem;
+	background: #f3f4f6;
+	color: #111827;
+	border: 1px solid #d1d5db;
+	border-radius: 8px;
+	cursor: pointer;
+	font-weight: 600;
+	text-decoration: none;
+	transition: background 0.2s ease;
+}
+
+.perfil-teste-btn-secondary:hover {
+	background: #e5e7eb;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+	.perfil-teste-section {
+		padding: 1rem 0.5rem;
+	}
+
+	.perfil-teste-input,
+	.perfil-teste-textarea {
+		max-width: 100%;
+	}
+
+	.perfil-teste-submit,
+	.perfil-teste-btn-secondary {
+		width: 100%;
+		max-width: 300px;
+	}
+
+	.perfil-teste-actions {
+		flex-direction: column;
+		align-items: center;
+	}
+	.perfil-teste-info{
+	margin-top: 3rem;
+	color: #6b7280;
+	text-align: center !important;
+	line-height: 1.6;
+	}
+}
+
+/* Full HD - 1920x1080 */
+@media (min-width: 1900px) and (max-width: 1940px) {
+	/* ContatoLogado */
+	.perfil-teste-section { padding: 2rem 1rem; background: #fff; }
+	.perfil-teste-container { max-width: 720px; margin: 0 auto; text-align: center; }
+	.perfil-teste-title { color: #2563eb; margin-bottom: 8px; }
+	.perfil-teste-intro { color: #374151; line-height: 1.6; margin-bottom: 16px;}
+	.perfil-teste-user-info { background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px; margin-bottom: 16px; text-align: left; }
+	.perfil-teste-user-info h3 { color: #111827; margin-bottom: 8px; }
+	.perfil-teste-user-info p { color: #374151; margin-bottom: 4px; }
+	.perfil-teste-form-wrapper { margin-top: 16px; display: flex; flex-direction: column; gap: 8px; align-items: center; }
+	.perfil-teste-info { margin-top: 24px; color: #6b7280; text-align: center !important; line-height: 1.6; }
+}
+
+/* Explicit: for 1920x1080 set section padding to 50px to match requested spacing */
+@media (min-width: 1900px) and (max-width: 1940px) {
+	.page-offset.menu-page section#perfil-teste {
+		padding: 50px !important;
+		box-sizing: border-box;
+	}
+}
+
+/* Ultra-specific force for Full HD: raise the Perfil heading a lot. */
+@media (min-width: 1900px) and (max-width: 1940px) {
+	html body .app .page-offset.menu-page section#perfil-teste .page-section > h2.page-heading {
+		/* neutralize earlier aggressive offset so site-wide patterns can be applied
+		   and allow the more specific FullHD+height rule below to control the final spacing */
+		margin-top: initial !important;
+		padding-top: 0 !important;
+		scroll-margin-top: calc(var(--site-header-height) + 0.5rem) !important;
+	}
+}
+
+/* Remove aggressive per-page override so heading follows the global pattern
+   defined in App.css (.page-offset .page-heading). This ensures consistent
+   spacing with other pages such as Parceiros without using inline styles. */
+.page-offset.menu-page #perfil-teste .page-heading {
+	/* Match global normalized heading spacing: small extra gap above the title */
+	margin-top: calc(var(--page-heading-gap) + 1rem) !important;
+	padding-top: 0 !important;
+	scroll-margin-top: calc(var(--site-header-height) + 0.5rem) !important;
+}
+
+/* Strong per-page guarantee: push the section content down so the heading
+	 never overlaps the fixed header. This mirrors the global approach used for
+	 other menu pages while scoping the change to this test page only. */
+.page-offset.menu-page #perfil-teste {
+	/* Match the effective spacing used by default page headings:
+		 header height + 2 * page-heading-gap + much larger gap to push title further down
+	*/
+	padding-top: calc(var(--site-header-height) + (2 * var(--page-heading-gap)) + 5rem) !important;
+	box-sizing: border-box;
+}
+
+.page-offset.menu-page #perfil-teste .page-heading {
+	/* With the section padded, remove extra margin on the heading itself to avoid double spacing */
+	/* explicit margin requested by user */
+	margin-top: 30.4px !important;
+}
+
+/* Tight viewport guard for common 1366x768 laptops where header chrome affects layout */
+@media screen and (min-width: 1330px) and (max-width: 1366px) and (min-height: 730px) and (max-height: 800px) {
+		.page-offset.menu-page #perfil-teste {
+			/* extra-extra large gap for 1366x768-like viewports */
+			padding-top: calc(var(--site-header-height) + (2 * var(--page-heading-gap)) + 6.25rem) !important;
+		}
+}
+
+/* Broader desktop adjustment: slightly larger gap to match BuscarPeca on most widescreens */
+@media screen and (min-width: 1200px) and (max-width: 1899px) {
+			.page-offset.menu-page #perfil-teste {
+				padding-top: calc(var(--site-header-height) + (2 * var(--page-heading-gap)) + 5.75rem) !important;
+			}
+}
+
+/* Specific override for 1920x1080 to match BuscarPeca spacing: push less and let the
+	 heading margin behave like the global normalized heading. This rule only applies
+	 to wide Full HD displays (1900-1940px). */
+@media (min-width: 1900px) and (max-width: 1940px) and (min-height: 1000px) and (max-height: 1100px) {
+	/* Mirror BuscarPeca behavior on Full HD: small top padding on the section
+		 and the page-heading uses header height + 1rem as margin to visually align. */
+	.page-offset.menu-page #perfil-teste {
+		/* Explicitly use the requested smaller top spacing for the menu/section on 1920x1080 */
+		/* Keep other sides using the previously defined 50px (if present) by only changing top */
+		padding-top: 88.4px !important;
+		box-sizing: border-box;
+	}
+
+	.page-offset.menu-page #perfil-teste .page-heading {
+		/* Apply the exact h2 offset requested only for Full HD 1920x1080 */
+		margin-top: 30.4px !important;
+		padding-top: 0 !important;
+		scroll-margin-top: calc(var(--site-header-height) + 0.5rem) !important;
+	}
+}
