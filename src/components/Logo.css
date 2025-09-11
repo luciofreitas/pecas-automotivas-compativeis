@@ -3,11 +3,12 @@
 .logo-container {
   display: flex !important;
   align-items: center !important;
-  gap: 0px;
+  gap: 0rem;
   cursor: pointer;
   transition: transform 0.2s ease;
   visibility: visible !important;
   opacity: 1 !important;
+  position: relative !important;
 }
 
 .logo-container:hover {
@@ -15,8 +16,8 @@
 }
 
 .logo-image {
-  height: 102px !important;
-  width: 102px !important;
+  height: 6.375rem !important;
+  width: 6.375rem !important;
   border-radius: 50% !important;
   object-fit: cover !important;
   transition: transform 0.2s ease !important;
@@ -39,7 +40,7 @@
 
 .logo-title {
   font-family: 'Segoe UI', Arial, sans-serif;
-  font-size: 28px;
+  font-size: 1.75rem;
   font-weight: bold;
   color: #000000;
   margin: 0;
@@ -48,31 +49,31 @@
 
 .logo-subtitle {
   font-family: 'Segoe UI', Arial, sans-serif;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 400;
   color: #666666;
   margin: 0;
-  margin-top: 1px;
+  margin-top: 0.062rem;
   white-space: nowrap;
 }
 
 /* Responsividade */
-@media screen and (max-width: 1366px) {
+@media screen and (max-width: 85.375rem) {
   .logo-image {
-    height: 82px !important;
-    width: 82px !important;
+    height: 5.125rem !important;
+    width: 5.125rem !important;
   }
   
   .logo-title {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
   
   .logo-subtitle {
-    font-size: 12px;
+    font-size: 0.75rem;
   }
   
   .logo-container {
-  gap: 0px;
+  gap: 0rem;
   }
 
   .logo-text-container {
@@ -80,22 +81,22 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 48rem) {
   .logo-image {
-    height: 82px !important;
-    width: 82px !important;
+    height: 5.125rem !important;
+    width: 5.125rem !important;
   }
   
   .logo-title {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
   
   .logo-subtitle {
-    font-size: 11px;
+    font-size: 0.688rem;
   }
   
   .logo-container {
-  gap: 0px;
+  gap: 0rem;
   }
 
   .logo-text-container {
@@ -104,30 +105,30 @@
 }
 
 /* Para telas muito pequenas - esconder texto se necessário */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 30rem) {
   .logo-text-container {
     display: none;
   }
   
   .logo-image {
-    height: 60px !important;
-    width: 60px !important;
+    height: 3.75rem !important;
+    width: 3.75rem !important;
   }
 }
 
 /* Para telas muito grandes */
-@media (min-width: 1600px) {
+@media (min-width: 100rem) {
   .logo-image {
-    height: 112px !important;
-    width: 112px !important;
+    height: 7rem !important;
+    width: 7rem !important;
   }
   
   .logo-title {
-    font-size: 32px;
+    font-size: 2rem;
   }
   
   .logo-subtitle {
-    font-size: 16px;
+    font-size: 1rem;
   }
 }
 

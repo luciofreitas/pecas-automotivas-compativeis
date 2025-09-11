@@ -26,8 +26,6 @@ const MenuLogin = () => {
           </div>
         </div>
       </header>
-      {/* Spacer to reserve space in the flow for the fixed header */}
-      <div className="site-header-spacer" aria-hidden="true" />
     </>
   );
 };

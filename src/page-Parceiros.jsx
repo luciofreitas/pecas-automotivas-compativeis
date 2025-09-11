@@ -9,7 +9,7 @@ export default function Parceiros() {
       <div className="page-offset menu-page">
       <section id="parceiros">
         <div className="page-section">
-          <h2 className="page-heading">Parceiros</h2>
+          <h2 className="page-heading page-title">Parceiros</h2>
           <p className="parceiros-intro">
             Esta página apresenta informações sobre nossos parceiros e oportunidades de colaboração.
             Aqui você pode encontrar como se tornar um parceiro, benefícios e contatos.

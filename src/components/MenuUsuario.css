@@ -1,0 +1,191 @@
+/* ===== MENU DO USUÁRIO ===== */
+
+/* Container raiz do menu do usuário */
+.user-menu-root {
+  position: relative !important;
+  display: inline-block !important;
+  top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Botão principal com o nome do usuário */
+.user-button {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  color: #374151;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.35em 0.9em;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  white-space: nowrap;
+  gap: 0.5rem;
+  transition: all 0.2s;
+  text-decoration: none;
+  position: relative;
+}
+
+/* Linha amarela no hover do nome do usuário */
+.user-button::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 0.188rem;
+  background: #fbbf24;
+  border-radius: 0.125rem;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+.user-button:hover {
+  background-color: transparent;
+  color: #374151;
+}
+
+.user-button:hover::after {
+  width: 80%;
+}
+
+/* Indicador de versão Pro */
+.pro-badge {
+  background-color: #fbbf24; /* amarelo */
+  color: #ffffff; /* texto escuro para contraste */
+  font-size: 0.7em;
+  padding: 0.15em 0.5em;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  margin-left: 0.25rem;
+}
+
+/* Dropdown do menu do usuário (visual mais leve) */
+.user-dropdown {
+  position: fixed; /* Alterado de absolute para fixed para escapar de qualquer container limitante */
+  top: auto; /* Removido o cálculo para usar posição fixa */
+  right: auto; /* Será posicionado com JS */
+  margin-top: 0.25rem; /* Espaçamento do botão */
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  border: 0.062rem solid rgba(16,24,40,0.06); /* borda sutil */
+  box-shadow: 0 0.375rem 1.125rem rgba(16,24,40,0.06); /* sombra muito mais suave */
+  padding: 0.5rem;
+  min-width: 11.25rem;
+  z-index: 9999; /* Z-index muito alto para garantir que fique acima de tudo */
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* Force dropdown above any menu pseudo-elements that might overlap */
+.user-dropdown {
+  z-index: 20000 !important;
+}
+
+/* Hide any decorative pseudo-elements that may bleed into the dropdown area */
+.user-dropdown::before,
+.user-dropdown::after,
+.user-dropdown *::before,
+.user-dropdown *::after {
+  /* hide generic decorative pseudo-elements by default */
+  display: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Exception: allow dropdown items to show their own underline pseudo-element */
+.user-dropdown .dropdown-item {
+  position: relative; /* required so ::after positions relative to the item */
+  overflow: visible; /* ensure the underline isn't clipped */
+}
+
+.user-dropdown .dropdown-item::after {
+  /* re-enable the yellow underline specifically for dropdown items */
+  content: '';
+  display: block !important;
+  position: absolute;
+  bottom: 0.375rem;
+  left: 50%;
+  width: 0;
+  height: 0.188rem;
+  background: #fbbf24 !important;
+  border-radius: 0.125rem;
+  transform: translateX(-50%);
+  transition: width 0.28s ease;
+}
+
+.user-dropdown .dropdown-item:hover::after,
+.user-dropdown .dropdown-item:focus::after {
+  width: 80% !important;
+}
+
+/* Remove the top indicator on the user button specifically to avoid overlap */
+.user-button::before { 
+  display: none !important; 
+}
+
+/* Itens do dropdown */
+.dropdown-item {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border: none;
+  background-color: transparent;
+  color: #374151;
+  font-size: 0.875rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.dropdown-item:hover {
+  background-color: transparent !important;
+}
+
+/* Active / selected style: very subtle light background to indicate selection on keyboard nav */
+.dropdown-item[aria-pressed="true"],
+.dropdown-item.active {
+  background-color: rgba(16,24,40,0.02);
+}
+
+.dropdown-item-logout {
+  border-top: 0.062rem solid #e5e7eb;
+  margin-top: 0.25rem;
+  padding-top: 0.5rem;
+  color: #dc2626;
+}
+
+/* Linha amarela também para o item de logout */
+.dropdown-item-logout::after {
+  background: #fbbf24 !important;
+}
+
+/* Ensure the logout item does not show the top blue indicator or focus outline */
+.dropdown-item-logout::before { 
+  display: none !important; 
+}
+
+.dropdown-item-logout:focus, 
+.dropdown-item-logout:active { 
+  outline: none !important; 
+  box-shadow: none !important; 
+}
+
+/* Force dropdown background white (override other themes) */
+.user-dropdown { 
+  background-color: #ffffff !important; 
+}
+
+/* Remove the visible top border for logout to avoid blue-looking line */
+.dropdown-item-logout { 
+  border-top: none !important; 
+}
+
+/* Versão responsiva para resolução 1366x768 e similares */
+@media screen and (max-width: 85.375rem) {
+  .menu-responsive .user-button {
+    font-size: 0.812rem;
+    padding: 0.25em 0.5em;
+  }
+}

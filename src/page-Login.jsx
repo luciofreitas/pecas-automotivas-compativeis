@@ -160,7 +160,7 @@ function Login() {
       <div className="page-offset">
         <div className="login-page-wrapper">
           <div className="login-content-container">
-            <h2 className="page-heading login-heading">Faça o Login ou Cadastro</h2>
+            <h2 className="page-heading login-heading page-title">Faça o Login ou Cadastro</h2>
             <div className="form-containers">
               {/* Entrar Container */}
               <div className="login-form-card">

@@ -1,6 +1,7 @@
 import React from 'react';
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import './reset.css' // Reset CSS primeiro para garantir que não haja margens/paddings
 import './index.css'
 import App from './App.jsx'
 

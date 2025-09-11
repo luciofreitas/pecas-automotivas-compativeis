@@ -4,13 +4,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .whatsapp-button-wrapper {
   position: relative;
-  width: 36px;
-  height: 36px;
+  width: 2.25rem;
+  height: 2.25rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -20,9 +20,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 18px;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 1.125rem;
   background: #25D366;
   color: #fff;
   text-decoration: none;
@@ -35,15 +35,15 @@
 }
 
 .whatsapp-button svg {
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 .whatsapp-button-blur {
   position: absolute;
   inset: 0;
-  border-radius: 18px;
-  backdrop-filter: blur(3px);
+  border-radius: 1.125rem;
+  backdrop-filter: blur(0.188rem);
   background: rgba(255,255,255,0.4);
   cursor: default;
   z-index: 1;
@@ -55,8 +55,8 @@
 }
 
 .whatsapp-tooltip-icon {
-  width: 22px;
-  height: 22px;
+  width: 1.375rem;
+  height: 1.375rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -64,8 +64,8 @@
 }
 
 .whatsapp-padlock {
-  width: 22px;
-  height: 22px;
+  width: 1.375rem;
+  height: 1.375rem;
   object-fit: contain;
   display: block;
 }
@@ -80,8 +80,8 @@
   background: #111827;
   color: #fff;
   text-align: center;
-  border-radius: 6px;
-  padding: 8px 12px;
+  border-radius: 0.375rem;
+  padding: 0.5rem 0.75rem;
   font-size: 0.8rem;
   white-space: nowrap;
   z-index: 10;
@@ -94,7 +94,7 @@
   top: 100%;
   left: 50%;
   margin-left: -5px;
-  border-width: 5px;
+  border-width: 0.312rem;
   border-style: solid;
   border-color: #111827 transparent transparent transparent;
 }

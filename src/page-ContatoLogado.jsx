@@ -19,7 +19,7 @@ export default function ContatoLogado() {
   <div className="page-offset menu-page">
         <section id="contato-logado">
           <div className="page-section">
-            <h2 className="page-heading">Contato</h2>
+            <h2 className="page-heading page-title">Contato</h2>
             <p className="contato-logado-intro">
               Entre em contato conosco pelo formulário abaixo ou pelos canais oficiais.
             </p>

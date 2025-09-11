@@ -115,7 +115,7 @@ export default function Checkin() {
   <div className="page-offset menu-page">
   <section>
           <div className="page-section">
-            <h2 className="page-heading">Pagamento concluído</h2>
+              <h2 className="page-heading page-title">Pagamento concluído</h2>
             <p className="checkin-success-text">Obrigado — sua assinatura Pro foi ativada (simulado).</p>
             <p className="checkin-success-text">Você pode retornar à <a href="/">página inicial</a>.</p>
           </div>
@@ -131,7 +131,7 @@ export default function Checkin() {
       <div className="page-offset">
       <section className="checkin-section">
         <div className="checkin-container">
-          <h2 className="page-heading checkin-title">Finalizar Assinatura — Versão Pro</h2>
+            <h2 className="page-heading checkin-title page-title">Finalizar Assinatura — Versão Pro</h2>
           <p className="checkin-intro">R$ 9,90/mês — cancelamento a qualquer momento.</p>
 
           <form onSubmit={handleSubmit} className="checkin-form">

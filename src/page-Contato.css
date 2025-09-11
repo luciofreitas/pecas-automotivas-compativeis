@@ -7,7 +7,7 @@
 }
 
 .contato-container {
-  max-width: 640px; /* reduced from 800px to make the form area more compact */
+  max-width: 40rem; /* reduced from 50rem to make the form area more compact */
   margin: 0 auto;
   text-align: center;
 }
@@ -43,20 +43,20 @@
 }
 
 /* Responsividade */
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   #contato {
     padding: 1rem 0.5rem;
   }
 }
 
 /* Full HD - 1920x1080 */
-@media (min-width: 1900px) and (max-width: 1940px) {
+@media (min-width: 118.75rem) and (max-width: 121.25rem) {
   /* Contato component centralized spacing */
-  .contato-form-wrapper { margin-top: 20px; display: flex; flex-direction: column; gap: 12px; align-items: center; }
-  .contato-input, .contato-textarea { width: 100%; max-width: 520px; padding: 10px 12px; border-radius: 6px; border: 1px solid #ddd; box-sizing: border-box; }
-  .contato-textarea { padding: 12px; }
-  .contato-submit { margin-top: 8px; min-width: 260px; width: auto; }
-  .contato-info { margin-top: 28px; color: #555; }
+  .contato-form-wrapper { margin-top: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem; align-items: center; }
+  .contato-input, .contato-textarea { width: 100%; max-width: 32.5rem; padding: 0.625rem 0.75rem; border-radius: 0.375rem; border: 0.062rem solid #ddd; box-sizing: border-box; }
+  .contato-textarea { padding: 0.75rem; }
+  .contato-submit { margin-top: 0.5rem; min-width: 16.25rem; width: auto; }
+  .contato-info { margin-top: 1.75rem; color: #555; }
   
   /* For Contato, remove section top padding so the global h2 normalization controls spacing
     This keeps the Contato title aligned with other pages (Quem Somos) at FullHD */

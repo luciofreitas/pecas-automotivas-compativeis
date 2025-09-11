@@ -140,7 +140,7 @@ export default function BuscarPeca() {
       <div className="page-offset menu-page">
         <section className="buscarpeca-section">
           <div className="page-section">
-            <h2 className="page-heading">Catálogo de Peças</h2>
+              <h2 className="page-heading page-title">Catálogo de Peças</h2>
             <SearchForm
               selectedGrupo={selectedGrupo}
               setSelectedGrupo={setSelectedGrupo}

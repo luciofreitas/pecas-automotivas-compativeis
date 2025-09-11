@@ -1,126 +1,33 @@
-/* Page Perfil - Estilos para a página de perfil do usuário */
+/* page-Perfil.css - Estilos para a página de perfil do usuário */
 
-.page-perfil {
-  min-height: 100vh;
-  background: white;
-  padding-top: calc(var(--site-header-height) + 0.5rem);
-}
-
-.perfil-container {
-  max-width: 800px;
-  margin: 0 auto;
+#perfil {
   padding: 2rem 1rem;
+  background: #fff;
 }
 
-.perfil-header {
+.perfil-error {
   text-align: center;
-  margin-bottom: 3rem;
-}
-
-.perfil-header .page-heading {
-  color: #2563eb;
-  font-weight: 400;
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.perfil-subtitle {
-  color: #64748b;
-  font-size: 1.125rem;
-  margin: 0;
-}
-
-.perfil-content {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.perfil-cards-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  padding: 2rem;
+  color: #ef4444;
 }
 
 .perfil-card {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e5e7eb;
+  max-width: 32.5rem; /* converted from 520px */
+  width: 100%;
+  margin: 1rem auto;
+  background: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 0.375rem -1px rgba(0, 0, 0, 0.1);
+  padding: 1rem; /* slightly reduced padding for compact layout */
 }
 
-/* Scale content for different viewport widths */
-@media (max-width: 1366px) {
-  .perfil-container { max-width: 640px; padding: 1.5rem 1rem; }
-  .perfil-card { padding: 1.5rem; }
-  .perfil-card-header h2 { font-size: 1.4rem; }
-}
-
-@media (min-width: 1600px) {
-  .perfil-container { max-width: 980px; padding: 3rem 2rem; }
-  .perfil-card { padding: 2.5rem; }
-  .perfil-card-header h2 { font-size: 1.8rem; }
+.single-card {
+  border: 0.062rem solid #e5e7eb;
 }
 
 .perfil-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 2px solid #f1f5f9;
-}
-
-.perfil-card-header h2 {
-  color: #1e293b;
-  font-size: 1.5rem;
-  font-weight: 400;
-  margin: 0;
-}
-
-.btn-edit,
-.btn-save,
-.btn-cancel {
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  font-weight: 500;
-  font-size: 0.875rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  border: none;
-}
-
-.btn-edit {
-  background: #2563eb;
-  color: white;
-}
-
-.btn-edit:hover {
-  background: #1d4ed8;
-}
-
-.edit-actions {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.btn-save {
-  background: #10b981;
-  color: white;
-}
-
-.btn-save:hover {
-  background: #059669;
-}
-
-.btn-cancel {
-  background: #6b7280;
-  color: white;
-}
-
-.btn-cancel:hover {
-  background: #4b5563;
+  text-align: center;
 }
 
 .perfil-form {
@@ -139,305 +46,146 @@
   font-weight: 600;
   color: #374151;
   font-size: 0.875rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  text-align: left; /* ensure label text is left-aligned */
+  display: block;
 }
 
 .form-input {
+  width: 100%;
   padding: 0.75rem;
-  border: 2px solid #e5e7eb;
-  border-radius: 8px;
+  border-radius: 0.5rem;
+  border: 0.062rem solid #d1d5db;
+  box-sizing: border-box;
   font-size: 1rem;
-  transition: border-color 0.2s ease;
-  background: #ffffff;
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  color: #111827;
 }
 
 .form-input:focus {
   outline: none;
   border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 0 0 0.188rem rgba(37, 99, 235, 0.1);
 }
 
-.form-value {
-  padding: 0.75rem;
-  background: #f8fafc;
-  border: 2px solid #f1f5f9;
-  border-radius: 8px;
-  font-size: 1rem;
-  color: #1e293b;
-  min-height: 1.25rem;
+.form-input.error {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 0.188rem rgba(239, 68, 68, 0.1);
 }
 
-.perfil-status {
+.error-message {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.password-field {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.status-item {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  background: #f8fafc;
-  border-radius: 8px;
-  border: 1px solid #e2e8f0;
-}
-
-.status-label {
-  font-weight: 600;
-  color: #475569;
-}
-
-.status-value {
-  font-weight: 500;
-  color: #1e293b;
-}
-
-.status-value.pro {
-  color: #10b981;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.status-value.free {
-  color: #6b7280;
-}
-
-.perfil-error {
-  text-align: center;
-  padding: 3rem 2rem;
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e5e7eb;
-}
-
-.perfil-error h2 {
-  color: #dc2626;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  font-weight: 400;
-}
-
-.perfil-error p {
-  color: #6b7280;
-  font-size: 1.125rem;
-  margin: 0;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .perfil-container {
-    padding: 1rem;
-  }
-
-  .perfil-cards-row {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .perfil-card {
-    padding: 1.5rem;
-  }
-
-  .perfil-card-header {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: stretch;
-  }
-
-  .edit-actions {
-    justify-content: center;
-  }
-
-  .status-item {
-    flex-direction: column;
-    gap: 0.5rem;
-    align-items: stretch;
-    text-align: center;
-  }
-
-  .perfil-header .page-heading {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 1366px) and (max-height: 768px) {
-  .perfil-container {
-    transform: scale(0.8);
-    transform-origin: top center;
-  }
-}
-
-@media (min-width: 1920px) {
-  .page-perfil {
-    padding-top: calc(var(--site-header-height) - 4.5rem);
-  }
-}
-
-/* Single-card and password toggle styles added to match design */
-.single-card { max-width: 640px; margin: 0 auto; border-radius: 12px; }
-
-.password-field { 
-  position: relative; 
-  display: flex; 
-  align-items: center; 
-}
-
-.password-field .form-input { 
-  flex: 1; 
-  padding-right: 2.5rem; /* space for the icon */
 }
 
 .password-input {
-  width: 100%;
+  padding-right: 5rem;
 }
 
-.car-toggle { 
+.toggle-pw {
   position: absolute;
   right: 0.75rem;
-  top: 50%;
-  transform: translateY(-50%);
-  display: inline-flex; 
-  align-items: center; 
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.toggle-pw:hover {
+  color: #374151;
+  background-color: #f3f4f6;
+}
+
+.toggle-pw.on {
+  color: #2563eb;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
   justify-content: center;
-  cursor: pointer; 
-  padding: 4px; 
-  border-radius: 6px; 
-  transition: all 0.2s ease;
+  margin-top: 2rem;
+  flex-wrap: wrap;
 }
 
-.car-toggle:hover { 
-  background: transparent; /* removed hover background as requested */
-  transform: translateY(-50%) scale(1.05);
+.btn-save {
+  padding: 0.75rem 2rem;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background 0.2s ease;
+  min-width: 7.5rem;
 }
 
-/* Car color transitions */
-.car-toggle .car-body,
-.car-toggle .car-roof,
-.car-toggle .car-grille,
-.car-toggle .wheel-rim,
-.car-toggle .door-handle,
-.car-toggle .side-mirror {
-  transition: fill 0.4s ease;
+.btn-save:hover {
+  background: #1e40af;
 }
 
-/* Headlight animations */
-.car-toggle.headlight-on .headlight-main {
-  animation: headlight-pulse 1.5s ease-in-out infinite;
-  filter: drop-shadow(0 0 8px #F59E0B);
+.btn-save:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
 }
 
-.car-toggle.headlight-on .headlight-beam {
-  animation: beam-glow 2s ease-in-out infinite;
+.btn-cancel {
+  padding: 0.75rem 2rem;
+  background: #f3f4f6;
+  color: #111827;
+  border: 0.062rem solid #d1d5db;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background 0.2s ease;
+  min-width: 7.5rem;
 }
 
-.car-toggle.headlight-on .headlight-glow-1 {
-  animation: inner-glow-1 1.8s ease-in-out infinite;
+.btn-cancel:hover {
+  background: #e5e7eb;
 }
 
-.car-toggle.headlight-on .headlight-glow-2 {
-  animation: inner-glow-2 1.6s ease-in-out infinite;
-}
-
-.car-toggle.headlight-on .headlight-bright {
-  animation: bright-center 1.2s ease-in-out infinite;
-}
-
-.car-toggle.headlight-off .headlight-main {
-  transition: fill 0.4s ease, filter 0.4s ease;
-}
-
-/* Keyframe animations for realistic headlight effect */
-@keyframes headlight-pulse {
-  0%, 100% { 
-    filter: drop-shadow(0 0 8px #F59E0B);
+/* Responsividade */
+@media (max-width: 48rem) {
+  .perfil-card {
+    margin: 0 1rem;
+    padding: 1.5rem;
   }
-  50% { 
-    filter: drop-shadow(0 0 15px #FBBF24) drop-shadow(0 0 25px #FED7AA);
-  }
-}
 
-@keyframes beam-glow {
-  0%, 100% { 
-    opacity: 0.15;
+  .form-actions {
+    flex-direction: column;
+    align-items: center;
   }
-  50% { 
-    opacity: 0.35;
+
+  .btn-save,
+  .btn-cancel {
+    width: 100%;
+    max-width: 18.75rem;
   }
 }
 
-@keyframes inner-glow-1 {
-  0%, 100% { 
-    opacity: 0.25;
-    transform: scale(1);
+@media (max-width: 30rem) {
+  #perfil {
+    padding: 1rem 0.5rem;
   }
-  50% { 
-    opacity: 0.45;
-    transform: scale(1.1);
+
+  .perfil-card {
+    margin: 0 0.5rem;
+    padding: 1rem;
   }
 }
 
-@keyframes inner-glow-2 {
-  0%, 100% { 
-    opacity: 0.4;
-    transform: scale(1);
-  }
-  50% { 
-    opacity: 0.7;
-    transform: scale(1.15);
-  }
-}
-
-@keyframes bright-center {
-  0%, 100% { 
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% { 
-    opacity: 0.8;
-    transform: scale(1.2);
-  }
-}
-
-/* Headlight rays (short strokes) animation */
-.headlight-rays .ray {
-  opacity: 0;
-  transform-origin: 5px 10px; /* pivot around headlight center */
-  transform: translateX(0) scale(0.9);
-}
-
-.car-toggle.headlight-on .headlight-rays .ray {
-  animation: ray-burst 700ms ease-out forwards;
-}
-
-/* Stagger for each ray to feel organic */
-.car-toggle.headlight-on .headlight-rays .ray-1 { animation-delay: 0ms; }
-.car-toggle.headlight-on .headlight-rays .ray-2 { animation-delay: 60ms; }
-.car-toggle.headlight-on .headlight-rays .ray-3 { animation-delay: 120ms; }
-.car-toggle.headlight-on .headlight-rays .ray-4 { animation-delay: 40ms; }
-.car-toggle.headlight-on .headlight-rays .ray-5 { animation-delay: 100ms; }
-
-@keyframes ray-burst {
-  0% {
-    opacity: 0;
-    transform: translateX(0) scale(0.9);
-  }
-  40% {
-    opacity: 1;
-    transform: translateX(6px) scale(1.05);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(12px) scale(1.1);
-  }
-}
-
-.form-actions { display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 0.5rem; }
-.btn-save { background: #2563eb; color: #fff; padding: 8px 14px; border-radius: 8px; border: none; }
-.btn-cancel { background: #6b7280; color: #fff; padding: 8px 14px; border-radius: 8px; border: none; }
-
-@media (max-width: 480px) {
-  .single-card { padding: 1rem; }
-}

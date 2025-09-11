@@ -21,7 +21,7 @@
   color: #374151;
   line-height: 1.6;
   margin: 0 auto 2rem auto;
-  max-width: 760px;
+  max-width: 47.5rem;
   text-align: center;
 }
 
@@ -36,22 +36,22 @@
 
 .seja-pro-card {
   background: white;
-  border: 1px solid #d1d5db;
-  border-radius: 12px;
+  border: 0.062rem solid #d1d5db;
+  border-radius: 0.75rem;
   padding: 1.5rem;
-  width: 360px;
+  width: 22.5rem;
   max-width: 100%;
   display: flex;
   flex-direction: column;
-  min-height: 320px;
+  min-height: 20rem;
   box-sizing: border-box;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.05);
   transition: all 0.2s ease;
 }
 
 .seja-pro-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.1);
 }
 
 .seja-pro-card-title {
@@ -73,7 +73,7 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.5rem;
   text-align: left;
   flex-grow: 1;
 }
@@ -108,7 +108,7 @@
   background: #2563eb;
   color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   cursor: pointer;
   font-weight: 600;
   transition: background 0.2s ease;
@@ -119,7 +119,7 @@
 }
 
 /* Responsividade */
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .seja-pro-section {
     padding: 1rem 0.5rem;
   }
@@ -132,12 +132,12 @@
 
   .seja-pro-card {
     width: 100%;
-    max-width: 400px;
+    max-width: 25rem;
   }
 }
 
 /* Full HD - 1920x1080 */
-@media (min-width: 1900px) and (max-width: 1940px) {
+@media (min-width: 118.75rem) and (max-width: 121.25rem) {
   #seja-pro{
     padding: 2rem 1rem;
   }
@@ -145,9 +145,9 @@
   /* SejaPro */
   .sejaPro-intro { color: #374151; line-height: 1.6; }
   .sejaPro-cards { display: flex; gap: 0.6rem; justify-content: center; margin-top: 1rem; flex-wrap: wrap; align-items: stretch; }
-  .sejaPro-card { background: white; border: 1px solid #d1d5db; border-radius: 12px; padding: 0.5rem; width: 360px; max-width: 100%; display: flex; flex-direction: column; min-height: 320px; box-sizing: border-box; }
+  .sejaPro-card { background: white; border: 0.062rem solid #d1d5db; border-radius: 0.75rem; padding: 0.5rem; width: 22.5rem; max-width: 100%; display: flex; flex-direction: column; min-height: 20rem; box-sizing: border-box; }
   .sejaPro-card-title { color: #2563eb !important; margin: 0; font-size: 1.25rem; }
   .sejaPro-card-lead { color: #111827; margin: 1rem 0; font-size: 1.15rem; font-weight: 600; }
-  .sejaPro-features { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; text-align: left; }
+  .sejaPro-features { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.25rem; text-align: left; }
   .sejaPro-features li { font-size: 0.98rem; }
 }

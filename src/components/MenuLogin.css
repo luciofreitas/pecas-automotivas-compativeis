@@ -5,7 +5,7 @@
 /* Header do site */
 .site-header {
   position: fixed;
-  top: 0;
+  top: 0 !important;
   left: 0;
   right: 0;
   height: var(--site-header-height, 4.5rem);
@@ -13,29 +13,38 @@
   align-items: center;
   width: 100%;
   overflow: hidden;
-  background: #ffffff;
+  background: #3b66d4; /* Fundo azul como na imagem */
   z-index: 1000;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  box-shadow: 0 0.125rem 0.375rem rgba(0,0,0,0.08);
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
 }
 
 /* Container principal do menu */
 .menu-login-root {
-  position: relative;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  padding: 0 32px;
-  box-sizing: border-box;
+  position: relative !important;
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 2rem !important;
+  height: 100% !important;
+  box-sizing: border-box !important;
+  top: 0 !important;
+  margin: 0 !important;
 }
 
-/* Área da logo */
+/* Área da logo - garantir que fique junto com o menu fixo */
 .menu-login-logo {
-  display: flex;
-  align-items: center;
-  margin-left: 8px;
+  display: flex !important;
+  align-items: center !important;
+  margin-left: 0.5rem !important;
   /* Removendo largura fixa para acomodar logo + texto */
-  min-width: 200px; /* Largura mínima para garantir que o texto caiba */
-  flex-shrink: 0; /* Evita que a logo encolha */
+  min-width: 12.5rem !important; /* Largura mínima para garantir que o texto caiba */
+  flex-shrink: 0 !important; /* Evita que a logo encolha */
+  position: relative !important;
+  top: 0 !important;
+  margin-top: 0 !important;
 }
 
 .menu-login-logo img {
@@ -85,11 +94,11 @@
 
 /* Estilo para indicador acima do item do menu ao hover */
 .menu-login-item {
-  color: #374151;
+  color: white; /* Alterado para branco para contrastar com fundo azul */
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1rem;
   padding: 0.35em 0.9em;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   position: relative;
   text-decoration: none;
   display: inline-block;
@@ -100,7 +109,7 @@
 }
 
 .menu-login-item:hover {
-  background: #f3f4f6;
+  background: rgba(255, 255, 255, 0.15); /* Hover semi-transparente */
 }
 
 .menu-login-item::before {
@@ -112,12 +121,12 @@
 .menu-login-item::after {
   content: '';
   position: absolute;
-  bottom: 6px;
+  bottom: 0.375rem;
   left: 50%;
   width: 0;
-  height: 3px;
+  height: 0.188rem;
   background: #fbbf24; /* yellow */
-  border-radius: 2px;
+  border-radius: 0.125rem;
   transform: translateX(-50%);
   transition: width 0.28s ease;
 }
@@ -130,7 +139,7 @@
 /* Ajuste para itens específicos que podem ser mais longos */
 .menu-login-item.nosso-projeto,
 .menu-login-item.entrar-registrar {
-  max-width: 130px;
+  max-width: 8.125rem;
   text-overflow: ellipsis;
   overflow: hidden;
 }
@@ -138,14 +147,14 @@
 /* ===== RESPONSIVIDADE DO MENU ===== */
 
 /* Versão responsiva para resolução 1366x768 e similares */
-@media screen and (max-width: 1366px) {
+@media screen and (max-width: 85.375rem) {
   /* Menu responsivo */
   .menu-responsive {
-    padding: 0 8px;
+  padding: 0 0.5rem;
   }
   
   .menu-responsive .menu-login-logo {
-    left: 8px;
+    left: 0.5rem;
     margin-left: 0;
     margin-right: 0;
   }
@@ -161,24 +170,24 @@
   }
   
   .menu-responsive .menu-login-item {
-    font-size: 13px;
+    font-size: 0.812rem;
     padding: 0.25em 0.5em;
   }
   
   /* Ajuste para itens mais longos em telas pequenas */
   .menu-responsive .menu-login-item.nosso-projeto {
-    max-width: 80px;
+    max-width: 5rem;
   }
   
   .menu-responsive .menu-login-item.entrar-registrar {
-    max-width: 90px;
+    max-width: 5.625rem;
   }
 }
 
 /* Dispositivos móveis */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 48rem) {
   .menu-login-root {
-    padding: 0 16px;
+    padding: 0 1rem;
     flex-direction: column;
     gap: 1rem;
   }
@@ -209,7 +218,7 @@
   }
   
   .menu-login-item {
-    font-size: 14px;
+    font-size: 0.875rem;
     padding: 0.25em 0.5em;
   }
 }
@@ -220,9 +229,9 @@
   box-shadow: none;
   border: none;
   background: transparent;
-  padding: 6px 10px;
-  border-radius: 8px;
-  color: #374151;
+  padding: 0.375rem 0.625rem;
+  border-radius: 0.5rem;
+  color: white; /* Alterado para branco para contrastar com fundo azul */
   text-decoration: none;
 }
 
@@ -234,7 +243,7 @@
 
 /* Dropdown items should use the same hover selection effect as top menu links */
 .dropdown-item {
-  padding: 8px 12px !important;
+  padding: 0.5rem 0.75rem !important;
   margin-right: 0 !important;
   position: relative;
   display: block;
@@ -251,12 +260,12 @@
 .dropdown-item::after {
   content: '';
   position: absolute;
-  bottom: 2px;
+  bottom: 0.125rem;
   left: 50%;
   width: 0;
-  height: 3px;
+  height: 0.188rem;
   background: #fbbf24;
-  border-radius: 2px;
+  border-radius: 0.125rem;
   transform: translateX(-50%);
   transition: width 0.3s ease;
 }
@@ -276,16 +285,23 @@
   color: #374151;
 }
 
-/* Show a subtle focus ring for dropdown items */
-.dropdown-item:focus,
-.dropdown-item:active {
-  outline: 2px solid #fbbf24;
-  outline-offset: 3px;
-  border-radius: 8px;
+/* Remove mouse-click/active outline; preserve keyboard focus visuals via :focus-visible */
+.dropdown-item:active,
+.dropdown-item:focus {
+  /* remove the yellow border that appears on click */
+  outline: none;
+  box-shadow: none;
+}
+
+/* Keep an accessible focus ring only for keyboard users */
+.dropdown-item:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 0.25rem rgba(251,191,36,0.12), 0 0 0 0.125rem rgba(251,191,36,0.18);
+  border-radius: 0.5rem;
 }
 
 .dropdown-item:focus-visible {
-  box-shadow: 0 0 0 4px rgba(251,191,36,0.12), 0 0 0 2px rgba(251,191,36,0.18);
+  box-shadow: 0 0 0 0.25rem rgba(251,191,36,0.12), 0 0 0 0.125rem rgba(251,191,36,0.18);
 }
 
 /* Ensure the top-bar indicator from .menu-login-item does not appear on dropdown items */
@@ -298,12 +314,12 @@
 .user-button::after {
   content: '';
   position: absolute;
-  bottom: 6px;
+  bottom: 0.375rem;
   left: 50%;
   width: 0;
-  height: 3px;
+  height: 0.188rem;
   background: #fbbf24;
-  border-radius: 2px;
+  border-radius: 0.125rem;
   transform: translateX(-50%);
   transition: width 0.28s ease;
 }
@@ -322,8 +338,8 @@
 .user-button:focus-visible, .user-logout-button:focus-visible, 
 .dropdown-item:focus-visible, .menu-login-item:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 4px rgba(251,191,36,0.12), 0 0 0 2px rgba(251,191,36,0.18);
-  border-radius: 8px;
+  box-shadow: 0 0 0 0.25rem rgba(251,191,36,0.12), 0 0 0 0.125rem rgba(251,191,36,0.18);
+  border-radius: 0.5rem;
 }
 
 /* Make dropdown items keyboard-focusable */
@@ -345,18 +361,18 @@
   width: 100%; 
   display: flex; 
   align-items: center; 
-  padding: 0 32px; 
+  padding: 0 2rem; 
 }
 
 .menu-login-logo { 
   display: flex; 
   align-items: center; 
   align-self: center; 
-  margin-left: 8px; 
+  margin-left: 0.5rem; 
 }
 
 .menu-login-logo img { 
-  height: 70px; 
+  height: 4.375rem; 
   cursor: pointer; 
   vertical-align: middle; 
   transition: transform 0.2s ease;
@@ -375,12 +391,12 @@
 
 /* Center the menu relative to the viewport (monitor) on larger screens
    so menu items stay visually centered even if the logo is absent or has variable width. */
-@media (min-width: 769px) {
+@media (min-width: 48.062rem) {
   .menu-login-center {
     position: absolute !important;
     left: 50% !important;
-    top: 0 !important;
-    transform: translateX(-50%) !important;
+    top: 50% !important;
+    transform: translateX(-50%) translateY(-50%) !important;
     width: auto !important;
     z-index: 5 !important;
     justify-content: center !important;
@@ -398,22 +414,25 @@
 }
 
 .menu-login-right {
-  display: flex;
-  align-items: center;
-  margin-left: auto; /* push user controls to the far right of the header */
-  justify-content: flex-end;
-  gap: 0.75rem;
+  display: flex !important;
+  align-items: center !important;
+  margin-left: auto !important; /* push user controls to the far right of the header */
+  justify-content: flex-end !important;
+  gap: 0.75rem !important;
+  position: relative !important;
+  top: 0 !important;
+  margin-top: 0 !important;
 }
 
 /* ALIGNMENT OVERRIDES: force consistent vertical centering of menu items */
 /* Use CSS variable set by MenuLogin component JS; fallback to 4.5rem */
 .site-header,
-.menu-login-root,
-.menu-login-center {
-  height: var(--site-header-height, 4.5rem) !important;
-  min-height: var(--site-header-height, 4.5rem) !important;
-  display: flex !important;
-  align-items: center !important;
+.menu-login-root { 
+  position: relative; 
+  width: 100%; 
+  display: flex; 
+  align-items: center; 
+  padding: 0; 
 }
 
 .menu-list {
@@ -467,7 +486,7 @@
 
 /* Classe específica para layout compacto - SEMPRE ATIVA */
 .menu-compact {
-  padding: 0 8px !important;
+  padding: 0 0.5rem !important;
 }
 
 .menu-compact .menu-login-logo {
@@ -475,7 +494,7 @@
 }
 
 .menu-compact .menu-login-logo img {
-  height: 45px !important;
+  height: 2.812rem !important;
 }
 
 .menu-compact .custom-menu-list {
@@ -483,15 +502,15 @@
 }
 
 .menu-compact .menu-login-item {
-  font-size: 13px !important;
+  font-size: 0.812rem !important;
   padding: 0.25em 0.5em !important;
   white-space: nowrap !important;
 }
 
-/* Regras específicas para resolução pequena - SEMPRE APLICADAS em 1366px */
-@media (max-width: 1366px) {
+/* Regras específicas para resolução pequena - SEMPRE APLICADAS em 85.375rem */
+@media (max-width: 85.375rem) {
   .menu-login-root { 
-    padding: 0 8px !important;
+    padding: 0 0.5rem !important;
   }
   
   .menu-login-logo { 
@@ -499,7 +518,7 @@
   }
   
   .menu-login-logo img { 
-    height: 45px !important;
+    height: 2.812rem !important;
   }
   
   .menu-list {
@@ -507,7 +526,7 @@
   }
   
   .menu-login-item {
-    font-size: 13px !important;
+    font-size: 0.812rem !important;
     padding: 0.25em 0.5em !important;
   }
 }
@@ -538,13 +557,13 @@
 }
 
 /* Responsividade */
-@media (min-width: 1600px) {
+@media (min-width: 100rem) {
   .menu-login-root { 
-    padding-left: 48px; 
-    padding-right: 48px; 
+    padding-left: 3rem; 
+    padding-right: 3rem; 
   }
   .menu-login-logo img { 
-    height: 112px; 
+    height: 7rem; 
   }
 }
 
@@ -555,7 +574,7 @@
 }
 
 .menu-compact {
-  padding: 0 8px !important;
+  padding: 0 0.5rem !important;
   width: 100% !important;
   max-width: none !important;
   margin: 0 !important;
@@ -563,11 +582,11 @@
 
 .menu-compact .menu-login-logo {
   margin-left: 0 !important;
-  margin-right: 8px !important;
+  margin-right: 0.5rem !important;
 }
 
 .menu-compact .menu-login-logo img {
-  height: 45px !important;
+  height: 2.812rem !important;
   width: auto !important;
 }
 
@@ -581,7 +600,7 @@
 }
 
 .menu-compact .menu-login-item {
-  font-size: 13px !important;
+  font-size: 0.812rem !important;
   padding: 0.25em 0.5em !important;
   white-space: nowrap !important;
   margin: 0 !important;
@@ -593,17 +612,17 @@
 
 /* >>> Visual Overrides applied to MenuLogin to ensure the blue header, white text and yellow underline */
 /* These are appended as stronger overrides so they survive earlier edits or framework classes */
-.site-header {
+.site-header.menu-login {
   background: #2563eb !important;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.15) !important;
+  box-shadow: 0 0.062rem 0.375rem rgba(0,0,0,0.15) !important;
   overflow: visible !important; /* allow underline pseudo-element to show */
 }
 
 .menu-login-root {
-  padding-bottom: 8px !important; /* ensure visual room for underline */
+  padding-bottom: 0.5rem !important; /* ensure visual room for underline */
 }
 
-.menu-login-container {
+.site-header.menu-login .menu-login-container {
   background: #2563eb !important;
 }
 
@@ -614,7 +633,7 @@
 }
 
 /* Force menu items to white and remove hover background; add yellow rounded underline via ::after */
-.menu-login-item {
+.site-header.menu-login .menu-login-item {
   color: #ffffff !important;
   background: transparent !important;
   transition: color 0.18s ease, background 0.18s ease !important;
@@ -635,9 +654,9 @@
   bottom: -8px;
   transform: translateX(-50%) scaleX(0);
   width: 60%;
-  height: 3px; /* thinner marker */
+  height: 0.188rem; /* thinner marker */
   background: #fbbf24; /* yellow */
-  border-radius: 3px;
+  border-radius: 0.188rem;
   transition: transform 0.18s ease;
   transform-origin: center;
   z-index: 3;
@@ -666,9 +685,9 @@
   bottom: -2px;
   left: 50%;
   width: 0;
-  height: 3px;
+  height: 0.188rem;
   background: #fbbf24;
-  border-radius: 2px;
+  border-radius: 0.125rem;
   transform: translateX(-50%);
   transition: width 0.24s cubic-bezier(.2,.9,.3,1), opacity 0.2s;
   z-index: 2;
@@ -684,18 +703,18 @@
 }
 
 /* Mobile: smaller underline */
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .menu-login-item::after {
     width: 40% !important;
-  height: 2px !important;
+  height: 0.125rem !important;
   bottom: -5px !important;
   }
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .menu-login-root {
-    padding: 0 16px;
+    padding: 0 1rem;
     flex-direction: column;
     gap: 1rem;
   }
@@ -705,7 +724,7 @@
   }
   
   .menu-login-logo img {
-    height: 50px;
+    height: 3.125rem;
   }
   
   .menu-list {
@@ -715,185 +734,31 @@
   }
   
   .menu-login-item {
-    font-size: 14px !important;
+    font-size: 0.875rem !important;
     padding: 0.25em 0.5em;
   }
 }
 
-/* ===== MENU DO USUÁRIO ===== */
 
-/* Container raiz do menu do usuário */
-.user-menu-root {
-  position: relative;
-  display: inline-block;
+
+/* Ensure top-level menu items keep white text when hovered/focused/active
+   This rule is placed at the end to override earlier color changes. */
+.site-header.menu-login .menu-login-item:hover,
+.site-header.menu-login .menu-login-item:focus,
+.site-header.menu-login .menu-login-item:active,
+.menu-login-item:hover,
+.menu-login-item:focus,
+.menu-login-item:active,
+.menu-compact .menu-login-item:hover,
+.menu-compact .menu-login-item:focus,
+.menu-compact .menu-login-item:active {
+  color: #ffffff !important;
+  text-decoration: none !important;
 }
 
-/* Botão principal com o nome do usuário */
-.user-button {
-  display: flex;
-  align-items: center;
-  background-color: transparent;
-  border: none;
-  color: #374151;
-  font-weight: 500;
-  font-size: 16px;
-  padding: 0.35em 0.9em;
-  border-radius: 8px;
-  cursor: pointer;
-  white-space: nowrap;
-  gap: 8px;
-  transition: all 0.2s;
-  text-decoration: none;
-  position: relative;
-}
-
-/* Linha amarela no hover do nome do usuário */
-.user-button::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 50%;
-  width: 0;
-  height: 3px;
-  background: #fbbf24;
-  border-radius: 2px;
-  transform: translateX(-50%);
-  transition: width 0.3s ease;
-}
-
-.user-button:hover {
-  background-color: transparent;
-  color: #374151;
-}
-
-.user-button:hover::after {
-  width: 80%;
-}
-
-/* Indicador de versão Pro */
-.pro-badge {
-  background-color: #fbbf24; /* amarelo */
-  color: #ffffff; /* texto escuro para contraste */
-  font-size: 0.7em;
-  padding: 0.15em 0.5em;
-  border-radius: 4px;
-  font-weight:bold;
-  margin-left: 4px;
-
-}
-
-/* Dropdown do menu do usuário (visual mais leve) */
-.user-dropdown {
-  position: fixed; /* Alterado de absolute para fixed para escapar de qualquer container limitante */
-  top: auto; /* Removido o cálculo para usar posição fixa */
-  right: auto; /* Será posicionado com JS */
-  margin-top: 4px; /* Espaçamento do botão */
-  background-color: #ffffff;
-  border-radius: 8px;
-  border: 1px solid rgba(16,24,40,0.06); /* borda sutil */
-  box-shadow: 0 6px 18px rgba(16,24,40,0.06); /* sombra muito mais suave */
-  padding: 8px;
-  min-width: 180px;
-  z-index: 9999; /* Z-index muito alto para garantir que fique acima de tudo */
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-/* Force dropdown above any menu pseudo-elements that might overlap */
-.user-dropdown {
-  z-index: 20000 !important;
-}
-
-/* Hide any decorative pseudo-elements that may bleed into the dropdown area */
-.user-dropdown::before,
-.user-dropdown::after,
-.user-dropdown *::before,
-.user-dropdown *::after {
-  /* hide generic decorative pseudo-elements by default */
-  display: none !important;
-  background: transparent !important;
-  box-shadow: none !important;
-}
-
-/* Exception: allow dropdown items to show their own underline pseudo-element */
-.user-dropdown .dropdown-item {
-  position: relative; /* required so ::after positions relative to the item */
-  overflow: visible; /* ensure the underline isn't clipped */
-}
-
-.user-dropdown .dropdown-item::after {
-  /* re-enable the yellow underline specifically for dropdown items */
-  content: '';
-  display: block !important;
-  position: absolute;
-  bottom: 6px;
-  left: 50%;
-  width: 0;
-  height: 3px;
-  background: #fbbf24 !important;
-  border-radius: 2px;
-  transform: translateX(-50%);
-  transition: width 0.28s ease;
-}
-
-.user-dropdown .dropdown-item:hover::after,
-.user-dropdown .dropdown-item:focus::after {
-  width: 80% !important;
-}
-
-/* Remove the top indicator on the user button specifically to avoid overlap */
-.user-button::before { display: none !important; }
-
-/* Itens do dropdown */
-.dropdown-item {
-  text-align: left;
-  padding: 8px 12px;
-  border: none;
-  background-color: transparent;
-  color: #374151;
-  font-size: 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.dropdown-item:hover {
-  background-color: transparent !important;
-}
-
-/* Active / selected style: very subtle light background to indicate selection on keyboard nav */
-.dropdown-item[aria-pressed="true"],
-.dropdown-item.active {
-  background-color: rgba(16,24,40,0.02);
-}
-
-.dropdown-item-logout {
-  border-top: 1px solid #e5e7eb;
-  margin-top: 4px;
-  padding-top: 8px;
-  color: #dc2626;
-}
-
-/* Linha amarela também para o item de logout */
-.dropdown-item-logout::after {
-  background: #fbbf24 !important;
-}
-
-/* Ensure the logout item does not show the top blue indicator or focus outline */
-.dropdown-item-logout::before { display: none !important; }
-.dropdown-item-logout:focus, .dropdown-item-logout:active { outline: none !important; box-shadow: none !important; }
-
-/* Force dropdown background white (override other themes) */
-.user-dropdown { background-color: #ffffff !important; }
-
-/* Remove the visible top border for logout to avoid blue-looking line */
-.dropdown-item-logout { border-top: none !important; }
-
-/* Versão responsiva para resolução 1366x768 e similares */
-@media screen and (max-width: 1366px) {
-  .menu-responsive .user-button {
-    font-size: 13px;
-    padding: 0.25em 0.5em;
-  }
+/* Also ensure the user button (name/avatar) keeps white color on hover/focus */
+.site-header.menu-login .user-button:hover,
+.site-header.menu-login .user-button:focus,
+.site-header.menu-login .user-button:active {
+  color: #ffffff !important;
 }

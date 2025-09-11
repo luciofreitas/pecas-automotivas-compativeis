@@ -13,7 +13,7 @@ import Parceiros from './page-Parceiros';
 import ContatoLogado from './page-ContatoLogado';
 import BuscarPeca from './page-BuscarPeca';
 import PagePerfil from './page-Perfil';
-import './app.css';
+import './App.css';
 import './CustomDropdown.css';
 
 export const AuthContext = createContext(null);
@@ -69,6 +69,8 @@ export default function App() {
                 <PagePerfil />
               </ProtectedRoute>
             } />
+            {/* Redirecionamento da rota antiga para a nova */}
+            <Route path="/perfil-teste" element={<Navigate to="/perfil" replace />} />
           </Routes>
         </div>
       </BrowserRouter>

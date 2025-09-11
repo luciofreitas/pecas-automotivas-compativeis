@@ -1,8 +1,61 @@
+/* ===== REGRA GLOBAL PARA MENUS FIXOS NO TOPO ===== */
+/* Garantir que todos os menus (Menu.jsx e MenuLogin.jsx) fiquem fixos no topo sem espaço acima */
+.site-header,
+.main-menu,
+header[class*="menu"],
+nav[class*="menu"] {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  margin: 0 !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  border-top: 0 !important;
+  z-index: 1000 !important;
+}
+
+/* Garantir que todos os elementos DENTRO do header fixo mantenham posicionamento correto */
+.site-header .menu-login-root,
+.site-header .menu-login-logo,
+.site-header .menu-login-right,
+.site-header .logo-container,
+.site-header .user-menu-root,
+.site-header .user-button {
+  position: relative !important;
+  top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* O menu-login-center pode ser absolute apenas em telas grandes, mas deve estar dentro do header */
+@media (max-width: 48rem) {
+  .site-header .menu-login-center {
+    position: relative !important;
+    top: 0 !important;
+    margin-top: 0 !important;
+  }
+}
+
+/* Garantir que não haja espaçamento no topo da página */
+html, body {
+  margin: 0 !important;
+  margin-top: 0 !important;
+  padding: 0 !important;
+  padding-top: 0 !important;
+}
+
+#root, .app {
+  margin: 0 !important;
+  margin-top: 0 !important;
+  padding: 0 !important;
+  padding-top: 0 !important;
+}
+
 /* Global CSS variables for spacing control */
 :root {
   --app-main-padding-top: 1rem; /* legacy fallback */
   /* Use rem units so spacing scales with root font-size and rem/em math works reliably */
-  --site-header-height: 5rem; /* increased header height for even more space */
+  --site-header-height: 4.5rem; /* ajustado para ficar mais próximo da imagem */
   --page-heading-gap: 1rem; /* slightly larger gap for better visual balance */
   /*
     GLOBAL CONTROL:
@@ -19,20 +72,32 @@
   */
 }
 
+/* Garantir espaçamento adequado para conteúdo abaixo do menu fixo */
+.page-offset,
+main,
+.app > *:not(.site-header):not(.main-menu):first-of-type,
+section:first-of-type,
+div.menu-page,
+.page-inicio,
+.page-content {
+  margin-top: var(--site-header-height) !important;
+  padding-top: var(--page-heading-gap) !important;
+}
+
 /* Responsive header height for consistent spacing across viewports */
-@media (max-width: 1366px) {
+@media (max-width: 85.375rem) {
   :root { --site-header-height: 4.6rem; --page-heading-gap: 0.9rem; }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 64rem) {
   :root { --site-header-height: 4.2rem; --page-heading-gap: 0.9rem; }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   :root { --site-header-height: 5.2rem; --page-heading-gap: 1rem; }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 26.25rem) {
   :root { --site-header-height: 5.6rem; --page-heading-gap: 1rem; }
 }
 
@@ -44,7 +109,7 @@
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.45);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,45 +120,42 @@
 .modal-content {
   background: transparent;
   width: 100%;
-  max-width: 520px;
+  max-width: 32.5rem;
   margin: 0 auto;
   box-sizing: border-box;
 }
 
-.modal-content.compat-modal {
-  background: none;
-  padding: 0;
-}
+/* Remover essa regra que não é mais necessária */
 
 .compat-modal {
   display: flex;
   flex-direction: column;
   background: #fff;
-  border-radius: 12px;
+  border-radius: 0.75rem;
   overflow: visible;
-  box-shadow: 0 10px 30px rgba(16,24,40,0.12);
-  max-height: calc(100vh - 80px);
+  box-shadow: none;
+  max-height: calc(100vh - 5rem);
+  max-width: 57.5rem;
+  width: calc(100% - 2rem);
+  margin: 1.5rem auto;
+  box-sizing: border-box;
 }
 
-.app-compat-modal {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
+/* Essa div foi removida da estrutura do modal */
 
 .app-compat-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 18px;
-  border-bottom: 1px solid #eef2f6;
+  padding: 0.875rem 1.125rem;
+  border-bottom: 0.062rem solid #eef2f6;
   background: linear-gradient(90deg, #ffffff, #fbfdff);
   width: 100%;
   box-sizing: border-box;
 }
 
 .app-compat-title {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 700;
   color: #133d7a;
   flex: 1;
@@ -101,39 +163,39 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  margin-right: 12px;
+  margin-right: 0.75rem;
 }
 
 .app-compat-title-wrapper {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 0.75rem;
   flex: 1;
 }
 
 .app-compat-title-icon {
-  width: 28px;
-  height: 28px;
+  width: 1.75rem;
+  height: 1.75rem;
   flex-shrink: 0;
 }
 
 .app-compat-close {
   background: transparent;
   border: none;
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 1;
   cursor: pointer;
   color: #556b86;
-  padding: 6px;
-  border-radius: 6px;
+  padding: 0.375rem;
+  border-radius: 0.375rem;
 }
 .app-compat-close:hover { background: rgba(0,0,0,0.04); }
 
 .app-compat-body {
-  padding: 16px;
+  padding: 1rem;
   overflow-y: auto;
   overflow-x: hidden;
-  max-height: calc(100vh - 160px);
+  max-height: calc(100vh - 10rem);
   position: relative;
   z-index: 1;
   padding-bottom: 0; /* Remove padding extra no final */
@@ -145,7 +207,7 @@
   position: sticky;
   bottom: 0;
   display: block;
-  height: 8px;
+  height: 0.5rem;
   margin: 0 -16px -16px;
   background: linear-gradient(transparent, rgba(0,0,0,0.03));
   pointer-events: none;
@@ -154,7 +216,7 @@
 .compat-results-grid {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0.75rem;
   align-items: stretch;
 }
 
@@ -170,7 +232,7 @@
 .compat-results-grid .pecas-grid {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0.75rem;
 }
 
 /* Global logo styling - ensures logo.png is always circular */
@@ -228,13 +290,23 @@ body { scrollbar-gutter: stable; }
 /* spacer removed: site-header-spacer element was removed from markup - spacing is handled
   with the CSS variables and `.page-offset` class so this rule is no longer required */
 
-/* Normalize all page headings (h2 and .page-heading) to have the same distance
-   from the fixed header. This overrides page-specific paddings/margins. */
-.page-offset h2,
+/* Normalize only .page-heading distance from the fixed header. Do not affect
+  inner h2 titles inside cards/sections. */
+/* Ensure any legacy .page-heading inside a .page-offset does not add extra margin
+   - spacing is controlled by the container `.page-offset` (padding-top)
+   - visual appearance for page titles is provided by `.page-title` */
 .page-offset .page-heading {
-  /* remove any top padding coming from page rules and use a consistent margin */
   padding-top: 0 !important;
-  margin-top: calc(var(--page-heading-gap) + 1rem) !important;
+  margin-top: 0 !important;
+}
+
+/* New global class for page titles: apply to all top-level h2 used as page headings.
+   This lets pages opt-in by adding `page-title` to the h2 and keeps layout
+   spacing controlled by `.page-offset` on the container. */
+.page-title {
+  /* appearance only: avoid adding top margin so container controls clearance */
+  margin-top: 0 !important;
+  padding: var(--page-heading-gap) 1rem !important;
   font-size: 2rem !important;
   color: #2563eb !important;
   display: block !important;
@@ -243,12 +315,41 @@ body { scrollbar-gutter: stable; }
   font-weight: 400 !important;
 }
 
-/* For pages using the regular Menu (not MenuLogin) ensure same h2 distance
-   by targeting pages where we added the `menu-page` helper class */
-.menu-page h2,
-.menu-page .page-heading {
-  margin-top: calc(var(--page-heading-gap) + 1rem) !important;
-  padding-top: 0 !important;
+/* Keep a specific rule for pages with .menu-page to avoid double spacing on some breakpoints. */
+.menu-page .page-title { margin-top: 0 !important; padding-top: 0 !important; }
+
+/* For pages using the regular Menu (not MenuLogin) ensure the main page heading
+   clears the fixed header; do not affect inner h2 inside cards/sections. */
+/* Narrow tweak only for typical 1366px-wide displays */
+@media (min-width: 85.312rem) and (max-width: 85.375rem) {
+  :root { --site-header-height: 5.2rem; }
+  /* Push the entire content down a bit to ensure the page title clears the header */
+  .page-offset.menu-page {
+    padding-top: calc(var(--site-header-height) + var(--page-heading-gap) + 1rem) !important;
+  }
+  /* Then keep the page title margin modest to avoid double spacing */
+  .menu-page .page-title {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    scroll-margin-top: calc(var(--site-header-height) + 0.5rem) !important;
+  }
+}
+
+/* Slightly broader guard for typical 1366x768 viewports accounting for UI chrome/scrollbars */
+@media screen and (min-width: 83.125rem) and (max-width: 85.375rem) and (min-height: 46.25rem) and (max-height: 49.375rem) {
+  .page-offset.menu-page {
+    padding-top: calc(var(--site-header-height) + var(--page-heading-gap) + 1rem) !important;
+  }
+  .menu-page .page-title {
+    margin-top: 0 !important;
+  }
+}
+
+/* Final override guard at end of file for 1366x768 viewport */
+@media screen and (min-width: 83.125rem) and (max-width: 85.375rem) and (min-height: 45.625rem) and (max-height: 50rem) {
+  .page-offset.menu-page { padding-top: calc(var(--site-header-height) + var(--page-heading-gap) + 1rem) !important; }
+  .page-offset.menu-page .page-title { margin-top: 0 !important; padding-top: 0 !important; }
+  .site-header-spacer { display: none !important; height: 0 !important; }
 }
 
 /* Let page-specific titles control their own styling */
@@ -262,12 +363,10 @@ body { scrollbar-gutter: stable; }
   /* Override any global rules that might interfere */
   margin-top: 0 !important;
   padding-top: 0 !important;
+  color: #2563eb !important; /* project standard blue */
 }
 
-/* Hide any duplicate logos across all resolutions */
-.logo-container {
-  display: none !important;
-}
+/* Logo deve aparecer dentro dos menus */
 
 /* Garantindo que o menu esteja centralizado sem posicionamento absoluto */
 .menu-login-center {
@@ -301,7 +400,7 @@ body { scrollbar-gutter: stable; }
 }
 
 /* Default welcome title size */
-.welcome-title { font-size: 40px; }
+.welcome-title { font-size: 2.5rem; }
 
 /* Evita quebra de linha nas palavras destacadas */
 .nowrap {
@@ -309,7 +408,7 @@ body { scrollbar-gutter: stable; }
 }
 
 .welcome-text {
-  max-width: 720px;
+  max-width: 45rem;
   margin-left: 0;
   margin-right: 0;
   text-align: center;
@@ -321,12 +420,12 @@ body { scrollbar-gutter: stable; }
 
 /* Scrollbar customizado para modal de resultados */
 .compat-modal ::-webkit-scrollbar {
-  width: 6px;
+  width: 0.375rem;
   background: transparent;
 }
 .compat-modal ::-webkit-scrollbar-thumb {
   background: #d1d5db;
-  border-radius: 6px;
+  border-radius: 0.375rem;
 }
 .compat-modal ::-webkit-scrollbar-thumb:hover {
   background: #b0b7c3;
@@ -340,7 +439,7 @@ body { scrollbar-gutter: stable; }
 /* Modal sizing: prevent full-width overlays from stretching to 100% width */
 .compat-modal .app-compat-modal,
 .app-compat-modal {
-  max-width: 920px; /* comfortable desktop width */
+  max-width: 57.5rem; /* comfortable desktop width */
   width: calc(100% - 2rem);
   margin: 1.5rem auto !important; /* center and give vertical spacing */
   box-sizing: border-box !important;
@@ -350,7 +449,7 @@ body { scrollbar-gutter: stable; }
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -362,7 +461,7 @@ body { scrollbar-gutter: stable; }
 .modal-content {
   background: transparent; /* content container lets inner .compat-modal style the card */
   width: 100%;
-  max-width: 920px;
+  max-width: 57.5rem;
   box-sizing: border-box;
   margin: 0 auto;
 }
@@ -375,7 +474,7 @@ body { scrollbar-gutter: stable; }
 }
 
 /* For very small screens allow full width but keep side padding */
-@media (max-width: 640px) {
+@media (max-width: 40rem) {
   .compat-modal .app-compat-modal,
   .app-compat-modal {
     width: calc(100% - 1.5rem) !important;
@@ -401,10 +500,10 @@ body { scrollbar-gutter: stable; }
 .results-container .card,
 .bg-white.bordered-card {
   background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
+  border: 0.062rem solid #e5e7eb;
+  border-radius: 0.75rem;
   padding: 1.25rem;
-  box-shadow: 0 6px 18px rgba(16,24,40,0.04);
+  box-shadow: 0 0.375rem 1.125rem rgba(16,24,40,0.04);
   box-sizing: border-box;
 }
 
@@ -423,9 +522,9 @@ textarea,
 .contato-input,
 .contato-textarea {
   width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #d1d5db;
-  border-radius: 10px;
+  padding: 0.625rem 0.75rem;
+  border: 0.062rem solid #d1d5db;
+  border-radius: 0.625rem;
   background: #fff;
   color: #111827;
   font-size: 1rem;
@@ -443,7 +542,7 @@ textarea:focus,
 .input:focus {
   outline: none;
   border-color: #2563eb;
-  box-shadow: 0 0 0 4px rgba(37,99,235,0.08);
+  box-shadow: 0 0 0 0.25rem rgba(37,99,235,0.08);
 }
 
 /* Labels and spacing */
@@ -451,7 +550,7 @@ textarea:focus,
 .filter-group label,
 .form-control label {
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 0.375rem;
   color: #374151;
   font-weight: 600;
   font-size: 0.95rem;
@@ -467,10 +566,10 @@ textarea:focus,
   background: #2563eb !important;
   color: #ffffff !important;
   border: none !important;
-  border-radius: 8px !important;
-  padding: 10px 14px !important;
+  border-radius: 0.5rem !important;
+  padding: 0.625rem 0.875rem !important;
   cursor: pointer !important;
-  box-shadow: 0 6px 14px rgba(37,99,235,0.12) !important;
+  box-shadow: 0 0.375rem 0.875rem rgba(37,99,235,0.12) !important;
   font-weight: 600 !important;
 }
 .btn:hover { background: #1e40af !important; }
@@ -483,12 +582,12 @@ textarea:focus,
   background: #f3f4f6 !important;
   color: #111827 !important;
   border: none !important;
-  border-radius: 8px !important;
+  border-radius: 0.5rem !important;
 }
 
 /* Small helpers to keep consistent gap inside form containers */
 .form-containers { gap: 2rem !important; }
-.form-containers > div { min-width: 260px; }
+.form-containers > div { min-width: 16.25rem; }
 
 /* Ensure selects inherit same visual on mobile */
 select { -webkit-appearance: none; appearance: none; }
@@ -497,34 +596,34 @@ select { -webkit-appearance: none; appearance: none; }
 .app-pecas-grid { display: flex; flex-direction: column; gap: 1em; }
 
 .app-compat-wrapper { display: flex; flex-direction: column; align-items: stretch; padding: 0.1em; }
-.app-compat-header { display: flex; align-items: center; justify-content: flex-start; width: 100%; margin-bottom: 1.5em; margin-top: 6px; min-height: 40px; gap: 12px; padding-left: 8px; }
-.app-compat-checkimg { width: 36px; display: inline-block; flex: 0 0 auto; }
+.app-compat-header { display: flex; align-items: center; justify-content: flex-start; width: 100%; margin-bottom: 1.5em; margin-top: 0.375rem; min-height: 2.5rem; gap: 0.75rem; padding-left: 0.5rem; }
+.app-compat-checkimg { width: 2.25rem; display: inline-block; flex: 0 0 auto; }
 .app-compat-title { font-weight: 700; font-size: 1.15rem; color: #222; text-align: left; display: block; }
-.app-compat-modal { background: #fff; border-radius: 8px; padding: 0.9em; box-shadow: 0 2px 10px #e0e0e0; display: flex; flex-direction: column; gap: 0.6em; }
-.app-compat-grid-header { display: grid; grid-template-columns: minmax(240px, 1fr) 140px 72px; gap: 12px; padding: 0.5em 0.6em; align-items: center; border-bottom: 1px solid #f3f3f3; }
+.app-compat-modal { background: #fff; border-radius: 0.5rem; padding: 0.9em; box-shadow: 0 0.125rem 0.625rem #e0e0e0; display: flex; flex-direction: column; gap: 0.6em; }
+.app-compat-grid-header { display: grid; grid-template-columns: minmax(15rem, 1fr) 8.75rem 4.5rem; gap: 0.75rem; padding: 0.5em 0.6em; align-items: center; border-bottom: 0.062rem solid #f3f3f3; }
 .app-compat-col-left { text-align: left; }
 .app-compat-col-center { text-align: center; }
-.app-compat-row { background: #fff; border-radius: 6px; box-shadow: 0 1px 3px #eee; padding: 0.5em; display: grid; grid-template-columns: minmax(240px, 1fr) 140px 72px; gap: 12px; align-items: center; }
+.app-compat-row { background: #fff; border-radius: 0.375rem; box-shadow: 0 0.062rem 0.188rem #eee; padding: 0.5em; display: grid; grid-template-columns: minmax(15rem, 1fr) 8.75rem 4.5rem; gap: 0.75rem; align-items: center; }
 .app-compat-vehicle { overflow: hidden; }
 .app-compat-vehicle-text { white-space: normal; overflow-wrap: break-word; word-break: break-word; font-weight: 500; }
 .app-compat-years-text { white-space: normal; }
-.app-compat-contact-cell { text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; }
-.app-compat-contact-btn { position: relative; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; }
-.app-whatsapp-btn { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 18px; background: #25D366; color: #fff; text-decoration: none; }
-.app-overlay-blur { position: absolute; inset: 0; border-radius: 18px; backdrop-filter: blur(3px); background: rgba(255,255,255,0.4); cursor: default; }
+.app-compat-contact-cell { text-align: center; display: flex; justify-content: center; align-items: center; gap: 0.5rem; }
+.app-compat-contact-btn { position: relative; width: 2.25rem; height: 2.25rem; display: inline-flex; align-items: center; justify-content: center; }
+.app-whatsapp-btn { display: inline-flex; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; border-radius: 1.125rem; background: #25D366; color: #fff; text-decoration: none; }
+.app-overlay-blur { position: absolute; inset: 0; border-radius: 1.125rem; backdrop-filter: blur(0.188rem); background: rgba(255,255,255,0.4); cursor: default; }
 .app-tooltip-wrapper { display: inline-block; }
-.app-tooltip-icon { width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; }
-.app-padlock-img { width: 22px; height: 22px; object-fit: contain; display: block; }
+.app-tooltip-icon { width: 1.375rem; height: 1.375rem; display: inline-flex; align-items: center; justify-content: center; }
+.app-padlock-img { width: 1.375rem; height: 1.375rem; object-fit: contain; display: block; }
 
 /* Utility classes */
-.custom-margin-top { margin-top: 10px !important; }
-.custom-margin-top.large { margin-top: 120px !important; }
+.custom-margin-top { margin-top: 0.625rem !important; }
+.custom-margin-top.large { margin-top: 7.5rem !important; }
 .no-results svg { margin-top: -150px !important; }
 
 /* Full HD - 1920x1080 */
-@media (min-width: 1900px) and (max-width: 1940px) {
+@media (min-width: 118.75rem) and (max-width: 121.25rem) {
   .main-content, .container, .results-container, .filters {
-    max-width: 1100px;
+    max-width: 68.75rem;
     font-size: 1.15em;
   }
   
@@ -532,20 +631,23 @@ select { -webkit-appearance: none; appearance: none; }
   .page-offset { padding-top: calc(var(--site-header-height) + var(--page-heading-gap)) !important; box-sizing: border-box; }
   
   /* general containers */
-  .container, .main-content, .results-container, .filters { max-width: 1100px; margin: 0 auto; }
+  .container, .main-content, .results-container, .filters { max-width: 68.75rem; margin: 0 auto; }
 
   /* menu / header spacing */
-  .site-root-header, .site-header { height: var(--site-header-height); padding: 1em 1.5em; }
+  /* At 85.375rem, make header's visual height exactly match --site-header-height
+    to avoid content being overlapped; move vertical space inside the header
+    content rather than padding the header box itself. */
+  .site-root-header, .site-header { height: var(--site-header-height); padding: 0 1.5em; box-sizing: border-box; }
   .menu-login-logo img { 
-    height: 102px !important; 
-    width: 102px !important;
+    height: 6.375rem !important; 
+    width: 6.375rem !important;
     border-radius: 50% !important;
     object-fit: cover !important;
   }
 
   /* page headings and sections */
   section[id], .page-section { padding: 0 1rem; }
-  .page-offset > section, .page-offset > div { max-width: 1000px; margin: 0 auto; text-align: center; }
+  .page-offset > section, .page-offset > div { max-width: 62.5rem; margin: 0 auto; text-align: center; }
   .page-offset .page-heading { padding: var(--page-heading-gap) 1rem !important; }
 
   /* Prevent doubled gap on menu pages */
@@ -570,6 +672,12 @@ select { -webkit-appearance: none; appearance: none; }
     scroll-margin-top: calc(var(--site-header-height) + 0.5rem) !important;
   }
 
+  /* Make BuscarPeca page title align with other pages using .menu-page */
+  .menu-page .buscarpeca-section .page-title {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
   .app.page-offset.menu-page .home-section .page-heading,
   .menu-page .home-section .page-heading {
     margin-top: calc(var(--site-header-height) + 1rem) !important;
@@ -585,27 +693,44 @@ select { -webkit-appearance: none; appearance: none; }
 }
 
 /* 1440p - 2560x1440 */
-@media (min-width: 2500px) and (max-width: 2600px) {
+@media (min-width: 156.25rem) and (max-width: 162.5rem) {
   .main-content, .container, .results-container, .filters {
-    max-width: 1400px;
+    max-width: 87.5rem;
     margin: 0 auto;
     font-size: 1.25em;
   }
 }
 
 /* 4K UHD - 3840x2160 */
-@media (min-width: 3800px) and (max-width: 3860px) {
+@media (min-width: 237.5rem) and (max-width: 241.25rem) {
   .main-content, .container, .results-container, .filters {
-    max-width: 1800px;
+    max-width: 112.5rem;
     margin: 0 auto;
     font-size: 1.35em;
   }
 }
 
+/* Final global normalization: use Catálogo de Peças as reference and make
+   all page titles align with it. This override uses high specificity and
+   !important to defeat earlier breakpoint rules. */
+.page-offset .page-title,
+.menu-page .page-title,
+.page-title {
+  margin-top: 0 !important;
+  padding-top: 0.85rem !important; /* small internal padding for visual gap */
+}
+
+/* Ensure legacy selectors that targeted .page-heading don't reintroduce gaps */
+.page-offset .page-heading,
+.menu-page .page-heading {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
 /* HD - 1366x768 */
-@media (min-width: 1365px) and (max-width: 1366px) {
+@media (min-width: 85.312rem) and (max-width: 85.375rem) {
   .main-content, .container, .results-container, .filters {
-    max-width: 900px;
+    max-width: 56.25rem;
     margin: 0 auto;
     font-size: 1em;
   }
@@ -616,7 +741,7 @@ select { -webkit-appearance: none; appearance: none; }
     margin-top: -150px !important;
   }
   
-  .welcome-title { font-size: 32px !important; }
+  .welcome-title { font-size: 2rem !important; }
   
   .site-header {
     position: fixed !important;
@@ -625,25 +750,30 @@ select { -webkit-appearance: none; appearance: none; }
     width: 100% !important;
     z-index: 1000;
     background: #ffffff !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1) !important;
   }
   
   .menu-login-root {
     padding: 0.75em 1.5em !important;
   }
+
+  /* Ensure proper spacing for page headings in 1366x768 */
+  .page-offset.menu-page { padding-top: calc(var(--site-header-height) + var(--page-heading-gap) + 1.25rem) !important; }
+  .menu-page .page-heading { margin-top: 0 !important; padding-top: 0 !important; }
+  .site-header-spacer { display: none !important; height: 0 !important; }
 }
 
 /* WXGA+ - 1440x900 */
-@media (min-width: 1430px) and (max-width: 1460px) {
+@media (min-width: 89.375rem) and (max-width: 91.25rem) {
   .main-content, .container, .results-container, .filters {
-    max-width: 950px;
+    max-width: 59.375rem;
     margin: 0 auto;
     font-size: 1.05em;
   }
 }
 
 /* Tablets - 768x1024 */
-@media (min-width: 760px) and (max-width: 780px) {
+@media (min-width: 47.5rem) and (max-width: 48.75rem) {
   .main-content, .container, .results-container, .filters {
     max-width: 98vw;
     margin: 0 auto;
@@ -652,7 +782,7 @@ select { -webkit-appearance: none; appearance: none; }
 }
 
 /* Mobile - 414x896 */
-@media (min-width: 410px) and (max-width: 418px) {
+@media (min-width: 25.625rem) and (max-width: 26.125rem) {
   .main-content, .container, .results-container, .filters {
     max-width: 100%;
     margin: 0;
@@ -660,11 +790,11 @@ select { -webkit-appearance: none; appearance: none; }
     padding: 0 0.5em;
   }
   .menu-items-center { left: 50%; gap: 1em; }
-  .logo-container img { height: 40px; }
+  .logo-container img { height: 2.5rem; }
 }
 
 /* Mobile - 375x667 */
-@media (min-width: 370px) and (max-width: 380px) {
+@media (min-width: 23.125rem) and (max-width: 23.75rem) {
   .main-content, .container, .results-container, .filters {
     max-width: 100%;
     margin: 0;
@@ -672,11 +802,11 @@ select { -webkit-appearance: none; appearance: none; }
     padding: 0 0.5em;
   }
   .menu-items-center { left: 50%; gap: 1em; }
-  .logo-container img { height: 40px; }
+  .logo-container img { height: 2.5rem; }
 }
 
 /* Mobile - 360x640 */
-@media (min-width: 355px) and (max-width: 365px) {
+@media (min-width: 22.188rem) and (max-width: 22.812rem) {
   .main-content, .container, .results-container, .filters {
     max-width: 100%;
     margin: 0;
@@ -684,5 +814,24 @@ select { -webkit-appearance: none; appearance: none; }
     padding: 0 0.5em;
   }
   .menu-items-center { left: 50%; gap: 1em; }
-  .logo-container img { height: 40px; }
+  .logo-container img { height: 2.5rem; }
+}
+
+/* Ensure spacer takes no space so the header sits flush with content */
+.site-header-spacer {
+  display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Full HD: move the small spacer element up so any decorative band sits behind the fixed header
+   (affects only 1920x1080-like viewports). This keeps content spacing (page-offset) unchanged. */
+@media (min-width: 118.75rem) and (max-width: 121.25rem) and (min-height: 62.5rem) and (max-height: 68.75rem) {
+  .site-header-spacer {
+    display: none !important;
+    height: 0 !important;
+    z-index: 0 !important; /* ensure header (z-index:1000) stays above */
+    /* do not change background here - we only reposition the spacer */
+  }
 }
