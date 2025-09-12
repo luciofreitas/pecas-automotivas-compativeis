@@ -137,7 +137,7 @@ export default function BuscarPeca() {
   return (
     <>
       <Menu />
-      <div className="page-offset menu-page">
+      <div className="menu-page">
         <section className="buscarpeca-section">
           <div className="page-section">
               <h2 className="page-heading page-title">Catálogo de Peças</h2>

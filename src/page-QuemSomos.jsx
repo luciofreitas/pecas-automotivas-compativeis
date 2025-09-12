@@ -6,7 +6,7 @@ export default function QuemSomos() {
   return (
     <>
     <MenuLogin />
-    <div className="page-offset">
+    <div className="">
   <section id="quem-somos">
         <div className="page-section">
           <h2 className="quem-somos__title">Quem Somos</h2>

@@ -112,7 +112,7 @@ export default function Checkin() {
     return (
       <>
   <Menu />
-  <div className="page-offset menu-page">
+  <div className="menu-page">
   <section>
           <div className="page-section">
               <h2 className="page-heading page-title">Pagamento concluído</h2>
@@ -128,7 +128,7 @@ export default function Checkin() {
   return (
     <>
       <Menu />
-      <div className="page-offset">
+      <div className="">
       <section className="checkin-section">
         <div className="checkin-container">
             <h2 className="page-heading checkin-title page-title">Finalizar Assinatura — Versão Pro</h2>

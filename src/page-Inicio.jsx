@@ -7,7 +7,7 @@ export default function PageInicio() {
   const navigate = useNavigate();
 
   return (
-    <div className="page-inicio app page-offset">
+    <div className="page-inicio app">
       <MenuLogin />
 
       <main className="inicio-main">

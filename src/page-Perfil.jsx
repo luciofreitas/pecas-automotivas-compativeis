@@ -11,7 +11,7 @@ export default function PagePerfil() {
     return (
       <>
         <Menu />
-        <div className="page-offset menu-page">
+        <div className="menu-page">
           <div className="perfil-error">
             <h2 className="page-heading">Acesso Negado</h2>
             <p>Você precisa estar logado para acessar esta página.</p>
@@ -25,7 +25,7 @@ export default function PagePerfil() {
     <>
       <Menu />
       <div className="site-header-spacer" aria-hidden="true"></div>
-      <div className="page-offset menu-page">
+      <div className="menu-page">
         <section id="perfil">
           <div className="page-section">
             <h2 className="page-heading page-title">Meu Perfil</h2>

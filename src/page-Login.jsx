@@ -157,7 +157,7 @@ function Login() {
   return (
     <>
       <MenuLogin />
-      <div className="page-offset">
+      <div className="">
         <div className="login-page-wrapper">
           <div className="login-content-container">
             <h2 className="page-heading login-heading page-title">Faça o Login ou Cadastro</h2>

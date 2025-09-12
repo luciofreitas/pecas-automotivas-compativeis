@@ -16,7 +16,7 @@ export default function ContatoLogado() {
   return (
     <>
       <Menu />
-  <div className="page-offset menu-page">
+  <div className="menu-page">
         <section id="contato-logado">
           <div className="page-section">
             <h2 className="page-heading page-title">Contato</h2>

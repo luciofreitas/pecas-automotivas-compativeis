@@ -11,6 +11,5 @@ createRoot(document.getElementById('root')).render(
   </StrictMode>,
 )
 
-// NOTE: runtime CSS overrides were intentionally removed so that
-// `src/app.css` (the project's global stylesheet) is the
-// single source of truth for `--site-header-height` and related spacing.
+// NOTE: runtime CSS overrides were intentionally removed so that the project's
+// global stylesheet contains fixed spacing values rather than runtime variables.

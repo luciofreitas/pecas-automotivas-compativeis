@@ -6,7 +6,7 @@ export default function SejaPro() {
   return (
     <>
   <MenuLogin />
-  <div className="page-offset">
+  <div className="">
   <section id="seja-pro">
         <div className="page-section">
           <h2 className="seja-pro__title">Seja Pro</h2>

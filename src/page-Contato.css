@@ -60,7 +60,6 @@
   
   /* For Contato, remove section top padding so the global h2 normalization controls spacing
     This keeps the Contato title aligned with other pages (Quem Somos) at FullHD */
-  .page-offset > #contato { padding-top: 0 !important; }
   .contato__title { margin-top: 0 !important; padding-top: 0 !important; }
   .contato-title { color: #2563eb; }
   .contato-intro { color: #374151; line-height: 1.6; }

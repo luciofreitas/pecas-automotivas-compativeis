@@ -8,7 +8,7 @@ export default function VersaoPro() {
   return (
     <>
   <Menu />
-      <div className="page-offset menu-page">
+      <div className="menu-page">
       <section id="versao-pro">
         <div className="page-section">
             <h2 className="page-heading page-title">Versão Pro</h2>

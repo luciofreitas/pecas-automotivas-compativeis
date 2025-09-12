@@ -27,21 +27,9 @@ function Menu() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScroll]);
 
-  // Sync CSS var to actual header height to avoid any overlap regardless of viewport quirks
-  useEffect(() => {
-    const syncHeaderHeightVar = () => {
-      const h = headerRef.current ? headerRef.current.offsetHeight : 0;
-      if (h > 0) {
-        document.documentElement.style.setProperty('--site-header-height', `${h}px`);
-  // dev diagnostic
-  try { console.info('[Menu] set --site-header-height =>', `${h}px`); } catch(e){}
-      }
-    };
-    // initial and on resize
-    syncHeaderHeightVar();
-    window.addEventListener('resize', syncHeaderHeightVar);
-    return () => window.removeEventListener('resize', syncHeaderHeightVar);
-  }, []);
+  // Previously this effect synchronized the header height to a CSS variable.
+  // That runtime synchronization was removed per request; header sizing is now
+  // controlled by static CSS rules to avoid runtime style manipulation.
 
   return (
     <header ref={headerRef} className="site-header menu-login">

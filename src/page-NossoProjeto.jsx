@@ -6,7 +6,7 @@ export default function NossoProjeto() {
   return (
     <>
   <MenuLogin />
-  <div className="page-offset">
+  <div className="">
     <section id="nosso-projeto" className="nosso-projeto-section">
   <div className="nosso-projeto-container">
           <h2 className="nosso-projeto__title">Nosso Projeto</h2>
@@ -23,7 +23,7 @@ export default function NossoProjeto() {
               e em menor capital parado para o comércio de peças.
             </p>
 
-        <p className=" nosso-projeto-paragraph">
+        <p className="nosso-projeto-paragraph">
               Em termos de tempo, oferecemos uma busca mais rápida e precisa. Técnicos e consumidores não precisam mais pesquisar múltiplas
               fontes ou consultar catálogos confusos: a plataforma centraliza as opções compatíveis, encurtando o ciclo de identificação
               e aquisição da peça necessária.

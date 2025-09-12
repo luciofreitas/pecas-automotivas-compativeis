@@ -8,7 +8,7 @@
   top: 0 !important;
   left: 0;
   right: 0;
-  height: var(--site-header-height, 4.5rem);
+  height: 4.5rem;
   display: flex;
   align-items: center;
   width: 100%;
@@ -49,8 +49,8 @@
 
 .menu-login-logo img {
   /* size the logo proportionally to header height so it scales across viewports */
-  height: calc(var(--site-header-height, 4.5rem) * 0.7);
-  width: calc(var(--site-header-height, 4.5rem) * 0.7);
+  height: calc(4.5rem * 0.7);
+  width: calc(4.5rem * 0.7);
   border-radius: 50%;
   object-fit: cover;
   cursor: pointer;
@@ -160,8 +160,8 @@
   }
   
   .menu-responsive .menu-login-logo img {
-    height: calc(var(--site-header-height, 4.5rem) * 0.7);
-    width: calc(var(--site-header-height, 4.5rem) * 0.7);
+  height: calc(4.5rem * 0.7);
+  width: calc(4.5rem * 0.7);
   }
   
   .menu-responsive .menu-list {
@@ -201,8 +201,8 @@
   }
   
   .menu-login-logo img {
-    height: calc(var(--site-header-height, 4.5rem) * 0.7);
-    width: calc(var(--site-header-height, 4.5rem) * 0.7);
+  height: calc(4.5rem * 0.7);
+  width: calc(4.5rem * 0.7);
   }
   
   .menu-login-center {
@@ -437,7 +437,7 @@
 
 .menu-list {
   /* Ensure the list fills the header height so children can center correctly */
-  height: var(--site-header-height, 4.5rem) !important;
+  height: 4.5rem !important;
   align-items: center !important;
 }
 
@@ -445,7 +445,7 @@
   display: flex !important;
   align-items: center !important;
   /* Use header height so flex centering aligns with logo and header */
-  height: var(--site-header-height, 4.5rem) !important;
+  height: 4.5rem !important;
 }
 
 .menu-login-item {
@@ -459,7 +459,7 @@
 }
 
   .menu-login-logo img { 
-  max-height: calc(var(--site-header-height, 4.5rem) + 1rem) !important;
+  max-height: calc(4.5rem + 1rem) !important;
   height: auto !important;
 }
 
