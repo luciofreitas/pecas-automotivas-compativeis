@@ -137,8 +137,8 @@ export default function BuscarPeca() {
   return (
     <>
       <Menu />
-      <div className="menu-page">
-        <section className="buscarpeca-section">
+      <div className="page-wrapper menu-page">
+  <div className="page-content buscarpeca-section">
           <div className="page-section">
               <h2 className="page-heading page-title">Catálogo de Peças</h2>
             <SearchForm
@@ -166,9 +166,9 @@ export default function BuscarPeca() {
               error={error}
             />
           </div>
-        </section>
+  </div>
 
-        <CompatibilityModal 
+    <CompatibilityModal 
           show={showModal} 
           onClose={() => setShowModal(false)} 
           title={modalTitle}

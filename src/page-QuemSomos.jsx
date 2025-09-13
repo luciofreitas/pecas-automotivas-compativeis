@@ -6,8 +6,8 @@ export default function QuemSomos() {
   return (
     <>
     <MenuLogin />
-    <div className="">
-  <section id="quem-somos">
+    <div className="page-wrapper">
+  <div className="page-content" id="quem-somos">
         <div className="page-section">
           <h2 className="quem-somos__title">Quem Somos</h2>
 
@@ -24,7 +24,7 @@ export default function QuemSomos() {
             </p>
           </div>
         </div>
-  </section>
+  </div>
   </div>
     </>
   );

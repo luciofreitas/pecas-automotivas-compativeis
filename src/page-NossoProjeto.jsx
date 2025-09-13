@@ -6,9 +6,9 @@ export default function NossoProjeto() {
   return (
     <>
   <MenuLogin />
-  <div className="">
-    <section id="nosso-projeto" className="nosso-projeto-section">
-  <div className="nosso-projeto-container">
+  <div className="page-wrapper">
+  <div className="page-content" id="nosso-projeto">
+  <div className="nosso-projeto-section nosso-projeto-container">
           <h2 className="nosso-projeto__title">Nosso Projeto</h2>
 
           <div>
@@ -40,9 +40,9 @@ export default function NossoProjeto() {
               a profissionalizar a tomada de decisão no setor automotivo.
             </p>
           </div>
+              </div>
         </div>
-  </section>
-  </div>
-    </>
+        </div>
+          </>
   );
 }

@@ -6,9 +6,9 @@ export default function Parceiros() {
   return (
     <>
   <Menu />
-      <div className="menu-page">
-      <section id="parceiros">
-        <div className="page-section">
+  <div className="page-wrapper menu-page">
+  <div className="page-content" id="parceiros">
+    <div className="page-section">
           <h2 className="page-heading page-title">Parceiros</h2>
           <p className="parceiros-intro">
             Esta página apresenta informações sobre nossos parceiros e oportunidades de colaboração.
@@ -18,9 +18,9 @@ export default function Parceiros() {
           <div className="parceiros-cta">
             <button className="search-btn parceiros-cta-btn">Entre em contato</button>
           </div>
+              </div>
         </div>
-  </section>
-  </div>
+        </div>
     </>
   );
 }

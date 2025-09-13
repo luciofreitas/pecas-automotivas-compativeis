@@ -258,7 +258,7 @@ body { scrollbar-gutter: stable; }
    - visual appearance for page titles is provided by `.page-title` */
 .page-offset .page-heading {
   padding-top: 0 !important;
-  margin-top: 0 !important;
+  /* margin-top intentionally not forced here so .page-section can control clearance */
 }
 
 /* New global class for page titles: apply to all top-level h2 used as page headings.
@@ -266,7 +266,7 @@ body { scrollbar-gutter: stable; }
    spacing controlled by `.page-offset` on the container. */
 .page-title {
   /* appearance only: avoid adding top margin so container controls clearance */
-  margin-top: 0 !important;
+  /* margin-top removed to allow .page-section margin to control spacing */
   padding: 1rem 1rem !important;
   font-size: 2rem !important;
   color: #2563eb !important;
@@ -277,7 +277,7 @@ body { scrollbar-gutter: stable; }
 }
 
 /* Keep a specific rule for pages with .menu-page to avoid double spacing on some breakpoints. */
-.menu-page .page-title { margin-top: 0 !important; padding-top: 0 !important; }
+.menu-page .page-title { padding-top: 0 !important; }
 
 /* For pages using the regular Menu (not MenuLogin) ensure the main page heading
    clears the fixed header; do not affect inner h2 inside cards/sections. */
@@ -300,30 +300,45 @@ body { scrollbar-gutter: stable; }
   .page-offset.menu-page {
   padding-top: 0 !important;
   }
-  .menu-page .page-title {
-    margin-top: 0 !important;
-  }
+  /* .menu-page .page-title: margin-top not forced here so .page-section controls spacing */
 }
 
 /* Final override guard at end of file for 1366x768 viewport */
 @media screen and (min-width: 83.125rem) and (max-width: 85.375rem) and (min-height: 45.625rem) and (max-height: 50rem) {
-  .page-offset.menu-page .page-title { margin-top: 0 !important; padding-top: 0 !important; }
+  .page-offset.menu-page .page-title { padding-top: 0 !important; }
   .site-header-spacer { display: none !important; height: 0 !important; }
 }
 
 /* Let page-specific titles control their own styling */
-.quem-somos__title,
-.nosso-projeto__title, 
-.seja-pro__title,
-.contato__title,
-.inicio-title,
-.login-heading,
-.login-section-title {
-  /* Override any global rules that might interfere */
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-  color: #2563eb !important; /* project standard blue */
-}
+/* Page-specific title overrides moved into individual page CSS files for clarity */
+
+  /* Standardized page wrapper and content container
+     - .page-wrapper: outer container that reserves space for the fixed header
+       and optionally provides background, min-height and vertical alignment.
+     - .page-content: inner container that centers content and constrains width.
+     Pages should include both classes: <div className="page-wrapper"> <div className="page-content"> ...</div></div>
+  */
+  .page-wrapper {
+    box-sizing: border-box;
+    padding-top: 4.5rem; /* reserve space for fixed header (matches .page-title scroll-margin-top) */
+    min-height: calc(100vh - 4.5rem);
+    width: 100%;
+    display: flex;
+    justify-content: center; /* center the inner content horizontally */
+    align-items: flex-start; /* default: start near top; pages can override */
+    background: transparent;
+  }
+  .page-content {
+    width: 100%;
+    max-width: 88rem; /* generous max width, tune per project */
+    /* padding removed to let .page-section control spacing */
+    box-sizing: border-box;
+  }
+
+  /* Utility: pages that belong to the regular Menu may already use .menu-page
+     to manage spacing — keep compatibility by letting .menu-page reduce the
+     effective top padding if needed. */
+  .menu-page.page-wrapper { padding-top: 0; }
 
 /* Logo deve aparecer dentro dos menus */
 
@@ -450,7 +465,6 @@ body { scrollbar-gutter: stable; }
    ========================== */
 
 /* Card-like appearance for form containers used across the app */
-.form-containers > div,
 .filters,
 .contato-form-wrapper,
 .checkin-form,
@@ -473,8 +487,7 @@ input[type="password"],
 input[type="tel"],
 select,
 textarea,
-.input,
-.form-containers input.input,
+  .input,
 .results-container select,
 .filter-group select,
 .checkin-input,
@@ -544,9 +557,8 @@ textarea:focus,
   border-radius: 0.5rem !important;
 }
 
-/* Small helpers to keep consistent gap inside form containers */
-.form-containers { gap: 2rem !important; }
-.form-containers > div { min-width: 16.25rem; }
+/* Small helpers to keep consistent gap inside form containers (removed .form-containers) */
+/* spacing previously applied to .form-containers has been removed project-wide */
 
 /* Ensure selects inherit same visual on mobile */
 select { -webkit-appearance: none; appearance: none; }
@@ -604,8 +616,10 @@ select { -webkit-appearance: none; appearance: none; }
     object-fit: cover !important;
   }
 
-  /* page headings and sections */
-  section[id], .page-section { padding: 0 1rem; }
+  /* page headings and sections - controlled only via .page-section */
+  .page-section { padding: 0 1rem; }
+  /* Global vertical offset for page sections to clear fixed header */
+  .page-section { margin-top: 4rem !important; }
   .page-offset > section, .page-offset > div { max-width: 62.5rem; margin: 0 auto; text-align: center; }
   .page-offset .page-heading { padding: 0 0 !important; }
 
@@ -708,7 +722,8 @@ select { -webkit-appearance: none; appearance: none; }
     left: 0;
     width: 100% !important;
     z-index: 1000;
-    background: #ffffff !important;
+    /* background removed here to avoid overriding MenuLogin.css on narrow 1366px breakpoints
+       MenuLogin.css defines the intended blue background (#2563eb) and should take precedence. */
     box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1) !important;
   }
   

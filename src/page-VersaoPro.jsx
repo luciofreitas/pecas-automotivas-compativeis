@@ -8,9 +8,9 @@ export default function VersaoPro() {
   return (
     <>
   <Menu />
-      <div className="menu-page">
-      <section id="versao-pro">
-        <div className="page-section">
+  <div className="page-wrapper menu-page">
+  <div className="page-content" id="versao-pro">
+    <div className="page-section">
             <h2 className="page-heading page-title">Versão Pro</h2>
           <p className="versaoPro-intro">
             Tenha acesso a todos os recursos avançados, suporte prioritário e integrações para otimizar sua busca por peças.
@@ -33,9 +33,9 @@ export default function VersaoPro() {
               <button className="versaoPro-cta" onClick={() => navigate('/checkin')}>Assinar Pro</button>
             </div>
           </div>
+              </div>
         </div>
-  </section>
-  </div>
+        </div>
     </>
   );
 }

@@ -13,7 +13,7 @@
   align-items: center;
   width: 100%;
   overflow: hidden;
-  background: #3b66d4; /* Fundo azul como na imagem */
+  background: #2563eb !important; /* Fundo azul padrão para todas as resoluções */
   z-index: 1000;
   box-shadow: 0 0.125rem 0.375rem rgba(0,0,0,0.08);
   margin: 0 !important;
@@ -28,6 +28,7 @@
   display: flex !important;
   align-items: center !important;
   padding: 0 2rem !important;
+  padding-bottom: 0.5rem !important; /* espaço visual para underline */
   height: 100% !important;
   box-sizing: border-box !important;
   top: 0 !important;
@@ -94,7 +95,7 @@
 
 /* Estilo para indicador acima do item do menu ao hover */
 .menu-login-item {
-  color: white; /* Alterado para branco para contrastar com fundo azul */
+  color: #ffffff !important; /* Branco para contrastar com fundo azul - aplicado globalmente */
   font-weight: 500;
   font-size: 1rem;
   padding: 0.35em 0.9em;
@@ -184,6 +185,11 @@
   }
 }
 
+/* NOTE: All menu colors are now applied globally at the base level.
+   The menu uses blue background (#2563eb) with white text (#ffffff) as the default for all resolutions.
+   No conditional overrides needed - consistent styling everywhere.
+*/
+
 /* Dispositivos móveis */
 @media screen and (max-width: 48rem) {
   .menu-login-root {
@@ -231,7 +237,7 @@
   background: transparent;
   padding: 0.375rem 0.625rem;
   border-radius: 0.5rem;
-  color: white; /* Alterado para branco para contrastar com fundo azul */
+  color: #ffffff !important; /* Branco para contrastar com fundo azul - aplicado globalmente */
   text-decoration: none;
 }
 
@@ -347,9 +353,9 @@
   background: transparent;
 }
 
-/* Ensure the grouped menu + logo container uses a white background */
+/* Ensure the grouped menu + logo container uses the same blue background as header */
 .menu-login-container {
-  background: #ffffff;
+  background: #2563eb !important; /* Mesmo azul do header */
   width: 100%;
   overflow-x: hidden;
   overflow-y: visible;
@@ -411,6 +417,11 @@
   .menu-login-root {
     position: relative !important;
   }
+}
+
+/* Defensive rule: ensure MenuLogin stays blue even if other global CSS attempts to override it */
+.site-header {
+  background: #2563eb !important;
 }
 
 .menu-login-right {
@@ -610,21 +621,8 @@
   color: #374151 !important;
 }
 
-/* >>> Visual Overrides applied to MenuLogin to ensure the blue header, white text and yellow underline */
-/* These are appended as stronger overrides so they survive earlier edits or framework classes */
-.site-header.menu-login {
-  background: #2563eb !important;
-  box-shadow: 0 0.062rem 0.375rem rgba(0,0,0,0.15) !important;
-  overflow: visible !important; /* allow underline pseudo-element to show */
-}
-
-.menu-login-root {
-  padding-bottom: 0.5rem !important; /* ensure visual room for underline */
-}
-
-.site-header.menu-login .menu-login-container {
-  background: #2563eb !important;
-}
+/* >>> Simplified: No more conditional overrides - all styling is now applied at the base level */
+/* This ensures consistent blue header with white text across all pages and resolutions */
 
 .menu-login-logo img {
   /* allow the SVG/native color to show (do not force white) */
@@ -632,12 +630,7 @@
   transition: transform 0.2s ease, filter 0.2s ease !important;
 }
 
-/* Force menu items to white and remove hover background; add yellow rounded underline via ::after */
-.site-header.menu-login .menu-login-item {
-  color: #ffffff !important;
-  background: transparent !important;
-  transition: color 0.18s ease, background 0.18s ease !important;
-}
+/* Menu underline styling - now applied globally */
 
 .menu-login-item:hover {
   background: transparent !important;
@@ -741,24 +734,17 @@
 
 
 
-/* Ensure top-level menu items keep white text when hovered/focused/active
-   This rule is placed at the end to override earlier color changes. */
-.site-header.menu-login .menu-login-item:hover,
-.site-header.menu-login .menu-login-item:focus,
-.site-header.menu-login .menu-login-item:active,
+/* Global menu item hover/focus/active states - now applied to all instances */
 .menu-login-item:hover,
 .menu-login-item:focus,
-.menu-login-item:active,
-.menu-compact .menu-login-item:hover,
-.menu-compact .menu-login-item:focus,
-.menu-compact .menu-login-item:active {
+.menu-login-item:active {
   color: #ffffff !important;
   text-decoration: none !important;
 }
 
-/* Also ensure the user button (name/avatar) keeps white color on hover/focus */
-.site-header.menu-login .user-button:hover,
-.site-header.menu-login .user-button:focus,
-.site-header.menu-login .user-button:active {
+/* Also ensure the user button (name/avatar) keeps white color on hover/focus - global */
+.user-button:hover,
+.user-button:focus,
+.user-button:active {
   color: #ffffff !important;
 }

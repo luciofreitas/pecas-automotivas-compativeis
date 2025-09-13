@@ -7,11 +7,10 @@ export default function PageInicio() {
   const navigate = useNavigate();
 
   return (
-    <div className="page-inicio app">
+  <div className="page-wrapper">
       <MenuLogin />
-
-      <main className="inicio-main">
-        <section className="inicio-hero">
+      <div className="page-content inicio-main">
+  <div className="inicio-hero">
           <div className="inicio-hero-inner">
                     <h2 className="inicio-title">Bem Vindo ao Peça Fácil</h2>
             <p className="inicio-subtitle">Encontre peças compatíveis com economia e confiança.</p>
@@ -21,14 +20,14 @@ export default function PageInicio() {
               <button className="btn-secondary" onClick={() => navigate('/nosso-projeto')}>Nosso Projeto</button>
             </div>
           </div>
-        </section>
+  </div>
 
-        <section className="inicio-cards">
+  <div className="inicio-cards">
           <div className="card">Pesquisar peças por veículo</div>
           <div className="card">Ver parceiros credenciados</div>
           <div className="card">Seja Pro — descubra vantagens</div>
-        </section>
-      </main>
+  </div>
+      </div>
     </div>
   );
 }

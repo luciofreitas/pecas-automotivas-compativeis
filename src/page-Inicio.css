@@ -79,7 +79,7 @@
   /* Inicio */
   .page-inicio { min-height: 100vh; display: flex; flex-direction: column; background: #ffffff; }
   .inicio-main { flex: 1; width: 100%; max-width: 68.75rem; margin: 0 auto; box-sizing: border-box; }
-  .inicio-hero { padding: 0 0 2.5rem 0; text-align: center; }
+  .inicio-hero { padding: 0 !important; text-align: center; }
   .inicio-title { font-size: 2rem; line-height: 1.15; margin: 0 0 0.75rem 0; color: #2563eb; font-weight: 600; }
   .inicio-subtitle { color: #475569; margin: 0 0 1rem 0; }
   .inicio-actions { display: flex; gap: 0.75rem; justify-content: center; margin-top: 1.125rem; }
@@ -91,6 +91,5 @@
 
 /* HD - 1366x768 specific: ensure MenuLogin spacing for inicio content */
 @media (min-width: 85.312rem) and (max-width: 85.375rem) {
-  /* temporarily reset margin-top to zero for this resolution */
-  .inicio-main { margin-top: 0 !important; }
+  /* No forced margin-top here to allow global section spacing */
 }

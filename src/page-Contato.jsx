@@ -7,8 +7,8 @@ export default function Contato() {
   return (
     <>
   <MenuLogin />
-  <div className="">
-  <section id="contato">
+  <div className="page-wrapper">
+  <div className="page-content" id="contato">
         <div className="page-section contato">
           <h2 className="contato__title">Contato</h2>
           <p className="contato-intro">
@@ -21,8 +21,8 @@ export default function Contato() {
             <p>Telefone: (00) 0000-0000</p>
             <p>E-mail: suporte@pecafacil.com.br</p>
           </div>
-        </div>
-  </section>
+    </div>
+  </div>
   </div>
     </>
   );

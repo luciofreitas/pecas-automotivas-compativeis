@@ -16,8 +16,8 @@ export default function ContatoLogado() {
   return (
     <>
       <Menu />
-  <div className="menu-page">
-        <section id="contato-logado">
+  <div className="page-wrapper menu-page">
+  <div className="page-content" id="contato-logado">
           <div className="page-section">
             <h2 className="page-heading page-title">Contato</h2>
             <p className="contato-logado-intro">
@@ -31,7 +31,7 @@ export default function ContatoLogado() {
               <p>E-mail: suporte@pecafacil.com.br</p>
             </div>
           </div>
-        </section>
+  </div>
       </div>
     </>
   );

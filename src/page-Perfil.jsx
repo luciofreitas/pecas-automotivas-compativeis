@@ -25,13 +25,13 @@ export default function PagePerfil() {
     <>
       <Menu />
       <div className="site-header-spacer" aria-hidden="true"></div>
-      <div className="menu-page">
-        <section id="perfil">
+      <div className="page-wrapper menu-page">
+  <div className="page-content" id="perfil">
           <div className="page-section">
             <h2 className="page-heading page-title">Meu Perfil</h2>
             <PerfilForm formData={usuarioLogado} />
           </div>
-        </section>
+  </div>
       </div>
     </>
   );

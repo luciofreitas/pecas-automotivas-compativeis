@@ -6,8 +6,8 @@ export default function SejaPro() {
   return (
     <>
   <MenuLogin />
-  <div className="">
-  <section id="seja-pro">
+  <div className="page-wrapper">
+  <div className="page-content" id="seja-pro">
         <div className="page-section">
           <h2 className="seja-pro__title">Seja Pro</h2>
           <p className="seja-pro-intro">
@@ -16,7 +16,7 @@ export default function SejaPro() {
           <div className="seja-pro-cards">
             <div className="seja-pro-card">
               <h3 className="seja-pro-card-title">Básico</h3>
-              <p className="seja-pro-card-lead">Todos os benefícios da versão gratuita.</p>
+              <p className="seja-pro-card-lead">Todos os benefícios da versão Básica.</p>
               <div className="seja-pro-card-body">
                 <ul className="seja-pro-features">
                   <li>Acesso ao buscador de peças.</li>
@@ -42,9 +42,9 @@ export default function SejaPro() {
               </div>
             </div>
           </div>
+              </div>
         </div>
-  </section>
-  </div>
+        </div>
     </>
   );
 }

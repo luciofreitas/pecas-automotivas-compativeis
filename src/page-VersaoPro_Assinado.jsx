@@ -30,8 +30,8 @@ export default function VersaoPro_Assinado() {
   return (
     <>
   <Menu />
-  <div className="menu-page">
-  <section className="versaoPro_Assinado-section">
+  <div className="page-wrapper menu-page">
+  <div className="page-content versaoPro_Assinado-section">
         <div className="versaoPro_Assinado-container">
           <h2 className="page-heading versaoPro_Assinado-title page-title">Assinatura Pro ativada</h2>
           <p className="versaoPro_Assinado-intro">
@@ -61,7 +61,7 @@ export default function VersaoPro_Assinado() {
             </div>
           </div>
         </div>
-  </section>
+  </div>
   </div>
     </>
   );
