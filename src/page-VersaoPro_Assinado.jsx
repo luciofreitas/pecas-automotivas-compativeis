@@ -33,7 +33,7 @@ export default function VersaoPro_Assinado() {
   <div className="page-wrapper menu-page">
   <div className="page-content versaoPro_Assinado-section">
         <div className="versaoPro_Assinado-container">
-          <h2 className="page-heading versaoPro_Assinado-title page-title">Assinatura Pro ativada</h2>
+          <h2 className="page-title">Assinatura Pro ativada</h2>
           <p className="versaoPro_Assinado-intro">
             Obrigado{usuarioLogado && usuarioLogado.nome ? `, ${usuarioLogado.nome}` : ''} — sua assinatura Pro foi ativada com sucesso (simulada).
           </p>

@@ -10,8 +10,7 @@ export default function VersaoPro() {
   <Menu />
   <div className="page-wrapper menu-page">
   <div className="page-content" id="versao-pro">
-    <div className="page-section">
-            <h2 className="page-heading page-title">Versão Pro</h2>
+            <h2 className="page-title">Versão Pro</h2>
           <p className="versaoPro-intro">
             Tenha acesso a todos os recursos avançados, suporte prioritário e integrações para otimizar sua busca por peças.
           </p>
@@ -34,7 +33,6 @@ export default function VersaoPro() {
             </div>
           </div>
               </div>
-        </div>
         </div>
     </>
   );

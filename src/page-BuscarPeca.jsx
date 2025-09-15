@@ -139,8 +139,7 @@ export default function BuscarPeca() {
       <Menu />
       <div className="page-wrapper menu-page">
   <div className="page-content buscarpeca-section">
-          <div className="page-section">
-              <h2 className="page-heading page-title">Catálogo de Peças</h2>
+              <h2 className="page-title">Catálogo de Peças</h2>
             <SearchForm
               selectedGrupo={selectedGrupo}
               setSelectedGrupo={setSelectedGrupo}
@@ -165,18 +164,17 @@ export default function BuscarPeca() {
               loading={loading}
               error={error}
             />
-          </div>
-  </div>
-
-    <CompatibilityModal 
-          show={showModal} 
-          onClose={() => setShowModal(false)} 
-          title={modalTitle}
-          titleIcon={modalTitle === 'Compatibilidade' ? '/check.png' : null}
-        >
-          {modalContent}
-        </CompatibilityModal>
+        </div>
       </div>
+
+      <CompatibilityModal 
+        show={showModal} 
+        onClose={() => setShowModal(false)} 
+        title={modalTitle}
+        titleIcon={modalTitle === 'Compatibilidade' ? '/check.png' : null}
+      >
+        {modalContent}
+      </CompatibilityModal>
     </>
   );
 }

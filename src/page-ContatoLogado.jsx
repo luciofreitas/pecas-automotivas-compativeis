@@ -18,8 +18,7 @@ export default function ContatoLogado() {
       <Menu />
   <div className="page-wrapper menu-page">
   <div className="page-content" id="contato-logado">
-          <div className="page-section">
-            <h2 className="page-heading page-title">Contato</h2>
+            <h2 className="page-title">Contato</h2>
             <p className="contato-logado-intro">
               Entre em contato conosco pelo formulário abaixo ou pelos canais oficiais.
             </p>
@@ -30,7 +29,6 @@ export default function ContatoLogado() {
               <p>Telefone: (00) 0000-0000</p>
               <p>E-mail: suporte@pecafacil.com.br</p>
             </div>
-          </div>
   </div>
       </div>
     </>
