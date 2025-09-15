@@ -12,6 +12,7 @@ nav[class*="menu"] {
   margin-top: 0 !important;
   padding-top: 0 !important;
   border-top: 0 !important;
+  /* margin-bottom doesn't work with position:fixed - removed */
   z-index: 1000 !important;
 }
 
@@ -55,6 +56,13 @@ html, body {
   Those variables were removed; layout now uses explicit rules.
   If you need a variable-based approach again, we can reintroduce a
   compact :root block. */
+
+/* Site header spacer - better alternative to padding-top on .page-wrapper */
+.site-header-spacer {
+  height: 4.5rem; /* Match header height */
+  margin-bottom: 5rem; /* Add the visual gap we want below header */
+  flex-shrink: 0; /* Prevent shrinking in flexbox layouts */
+}
 
 /* Garantir espaçamento adequado para conteúdo abaixo do menu fixo */
 
@@ -320,8 +328,10 @@ body { scrollbar-gutter: stable; }
   */
   .page-wrapper {
     box-sizing: border-box;
-    padding-top: 4.5rem; /* reserve space for fixed header (matches .page-title scroll-margin-top) */
-    min-height: calc(100vh - 4.5rem);
+    /* Padding-top removed - use .site-header-spacer element instead
+       for better semantic structure and easier maintenance.
+       The spacer element handles header height (4.5rem) + gap (5rem). */
+    min-height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center; /* center the inner content horizontally */

@@ -167,8 +167,10 @@ export default function Login() {
   );
 
   return (
+    <>
+    <MenuLogin />
+    <div className="site-header-spacer"></div>
     <div className="page-root">
-      <MenuLogin />
       <div className="page-wrapper login-page-wrapper">
         <div className="page-content login-content-container">
           <h2 className="page-heading login-heading page-title">Faça o Login ou Cadastro</h2>
@@ -223,5 +225,6 @@ export default function Login() {
         </div>
       </div>
     </div>
+    </>
   );
 }

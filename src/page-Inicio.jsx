@@ -7,8 +7,10 @@ export default function PageInicio() {
   const navigate = useNavigate();
 
   return (
-  <div className="page-wrapper">
+  <>
       <MenuLogin />
+      <div className="site-header-spacer"></div>
+  <div className="page-wrapper">
       <div className="page-content inicio-main">
   <div className="inicio-hero">
           <div className="inicio-hero-inner">
@@ -29,5 +31,6 @@ export default function PageInicio() {
   </div>
       </div>
     </div>
+  </>
   );
 }

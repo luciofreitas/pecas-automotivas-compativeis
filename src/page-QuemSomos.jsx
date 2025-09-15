@@ -6,10 +6,11 @@ export default function QuemSomos() {
   return (
     <>
     <MenuLogin />
+    <div className="site-header-spacer"></div>
     <div className="page-wrapper">
   <div className="page-content" id="quem-somos">
         <div className="page-section">
-          <h2 className="quem-somos__title">Quem Somos</h2>
+          <h2 className="page-title">Quem Somos</h2>
 
           <div className="quem-somos__content">
             <p className="quem-somos__lead">
