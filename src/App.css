@@ -80,13 +80,16 @@ html, body {
 /* Make sure modal content appears as a centered card with a header and scrollable body */
 .modal-overlay {
   position: fixed;
-  inset: 0;
+  top: 4.5rem; /* Start below fixed header */
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: transparent;
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* Align to top instead of center */
   justify-content: center;
   z-index: 10000;
-  padding: 1rem;
+  padding: 2rem 1rem 1rem; /* Extra top padding for visual spacing */
 }
 
 .modal-content {
@@ -431,13 +434,16 @@ body { scrollbar-gutter: stable; }
 /* Generic overlay for custom modals */
 .modal-overlay {
   position: fixed;
-  inset: 0;
+  top: 4.5rem; /* Start below fixed header */
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: transparent;
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* Align to top instead of center */
   justify-content: center;
   z-index: 10000;
-  padding: 1rem;
+  padding: 2rem 1rem 1rem; /* Extra top padding for visual spacing */
 }
 
 /* modal-content should be centered and constrained */
