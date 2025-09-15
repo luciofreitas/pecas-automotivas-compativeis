@@ -11,16 +11,18 @@
   text-align: center;
 }
 
+/* Title now uses .page-title class from App.css - keeping this for reference
 .nosso-projeto__title {
   color: #2563eb;
   text-align: center;
   margin-bottom: 1.5rem;
-  margin-top: 0; /* clean reset */
+  margin-top: 0;
   font-weight: 600;
   font-size: 2rem;
   display: block;
-  padding: 0; /* clean padding */
+  padding: 0;
 }
+*/
 
 .nosso-projeto-paragraph {
   margin-top: 0.75rem;
@@ -50,9 +52,5 @@
 
 /* HD - 1366x768 */
 @media (min-width: 85.312rem) and (max-width: 85.375rem) {
-  .nosso-projeto__title {
-    font-size: 2rem !important;
-    margin-bottom: 1rem !important;
-    padding: 2.5rem 1rem !important;
-  }
+  /* Title styles now handled by .page-title class */
 }

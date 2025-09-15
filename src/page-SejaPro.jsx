@@ -8,8 +8,7 @@ export default function SejaPro() {
   <MenuLogin />
   <div className="page-wrapper">
   <div className="page-content" id="seja-pro">
-        <div className="page-section">
-          <h2 className="seja-pro__title">Seja Pro</h2>
+          <h2 className="page-title">Seja Pro</h2>
           <p className="seja-pro-intro">
             Tenha acesso a benefícios exclusivos e suporte prioritário ao se tornar um membro Pro.
           </p>
@@ -42,9 +41,8 @@ export default function SejaPro() {
               </div>
             </div>
           </div>
-              </div>
         </div>
-        </div>
+      </div>
     </>
   );
 }

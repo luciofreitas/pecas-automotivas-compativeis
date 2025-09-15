@@ -7,10 +7,8 @@ export default function Contato() {
   return (
     <>
   <MenuLogin />
-  <div className="site-header-spacer"></div>
   <div className="page-wrapper">
   <div className="page-content" id="contato">
-        <div className="page-section contato">
           <h2 className="page-title">Contato</h2>
           <p className="contato-intro">
             Entre em contato conosco pelo formulário abaixo ou pelos canais oficiais.
@@ -23,7 +21,6 @@ export default function Contato() {
             <p>E-mail: suporte@pecafacil.com.br</p>
           </div>
     </div>
-  </div>
   </div>
     </>
   );

@@ -169,7 +169,6 @@ export default function Login() {
   return (
     <>
     <MenuLogin />
-    <div className="site-header-spacer"></div>
     <div className="page-root">
       <div className="page-wrapper login-page-wrapper">
         <div className="page-content login-content-container">

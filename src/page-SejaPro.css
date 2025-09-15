@@ -6,16 +6,18 @@
 }
 
 /* Center heading and intro paragraph; use site blue for H2 */
+/* Title now uses .page-title class from App.css - keeping this for reference
 .seja-pro__title {
   color: #2563eb;
   text-align: center;
   margin-bottom: 1.5rem;
-  margin-top: 0; /* clean reset */
+  margin-top: 0;
   font-weight: 600;
   font-size: 2rem;
   display: block;
-  padding: 0; /* clean padding */
+  padding: 0;
 }
+*/
 
 .seja-pro-intro {
   color: #374151;

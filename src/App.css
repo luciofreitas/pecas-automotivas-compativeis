@@ -59,9 +59,12 @@ html, body {
 
 /* Site header spacer - better alternative to padding-top on .page-wrapper */
 .site-header-spacer {
+  display: block; /* Ensure block-level behavior */
+  width: 100%; /* Full width */
   height: 4.5rem; /* Match header height */
   margin-bottom: 5rem; /* Add the visual gap we want below header */
   flex-shrink: 0; /* Prevent shrinking in flexbox layouts */
+  background: transparent; /* Invisible spacer element */
 }
 
 /* Garantir espaçamento adequado para conteúdo abaixo do menu fixo */
@@ -273,15 +276,17 @@ body { scrollbar-gutter: stable; }
    This lets pages opt-in by adding `page-title` to the h2 and keeps layout
    spacing controlled by `.page-offset` on the container. */
 .page-title {
-  /* appearance only: avoid adding top margin so container controls clearance */
-  /* margin-top removed to allow .page-section margin to control spacing */
-  padding: 1rem 1rem !important;
+  /* Global page title styles - used consistently across all pages */
+  padding: 0 !important; /* Remove all padding to ensure consistency */
+  margin-top: 0 !important; /* No top margin - container controls top spacing */
+  margin-bottom: 1.5rem !important; /* Consistent bottom spacing */
   font-size: 2rem !important;
   color: #2563eb !important;
   display: block !important;
   text-align: center !important;
   scroll-margin-top: calc(4.5rem + 0.5rem) !important;
-  font-weight: 400 !important;
+  font-weight: 600 !important;
+  width: 100% !important; /* Full width for center alignment */
 }
 
 /* Keep a specific rule for pages with .menu-page to avoid double spacing on some breakpoints. */
@@ -328,9 +333,8 @@ body { scrollbar-gutter: stable; }
   */
   .page-wrapper {
     box-sizing: border-box;
-    /* Padding-top removed - use .site-header-spacer element instead
-       for better semantic structure and easier maintenance.
-       The spacer element handles header height (4.5rem) + gap (5rem). */
+    /* Fallback padding-top for header spacing in case spacer element fails */
+    padding-top: calc(4.5rem + 5rem); /* header height + gap */
     min-height: 100vh;
     width: 100%;
     display: flex;
@@ -628,8 +632,7 @@ select { -webkit-appearance: none; appearance: none; }
 
   /* page headings and sections - controlled only via .page-section */
   .page-section { padding: 0 1rem; }
-  /* Global vertical offset for page sections to clear fixed header */
-  .page-section { margin-top: 4rem !important; }
+  /* Removed global margin-top: 4rem as .page-wrapper padding-top already handles header spacing */
   .page-offset > section, .page-offset > div { max-width: 62.5rem; margin: 0 auto; text-align: center; }
   .page-offset .page-heading { padding: 0 0 !important; }
 

@@ -20,13 +20,15 @@
   text-align: center;
 }
 
+/* Title now uses .page-title class from App.css - keeping this for reference
 .inicio-title {
-  font-size: 2rem; /* match h2 size */
+  font-size: 2rem;
   line-height: 1.15;
   margin: 0 0 1.5rem 0;
   color: #2563eb;
-  font-weight: 600; /* consistent with other titles */
+  font-weight: 600;
 }
+*/
 
 .inicio-subtitle {
   color: #475569;
@@ -80,7 +82,7 @@
   .page-inicio { min-height: 100vh; display: flex; flex-direction: column; background: #ffffff; }
   .inicio-main { flex: 1; width: 100%; max-width: 68.75rem; margin: 0 auto; box-sizing: border-box; }
   .inicio-hero { padding: 0 !important; text-align: center; }
-  .inicio-title { font-size: 2rem; line-height: 1.15; margin: 0 0 0.75rem 0; color: #2563eb; font-weight: 600; }
+  /* Title styles now handled by .page-title class */
   .inicio-subtitle { color: #475569; margin: 0 0 1rem 0; }
   .inicio-actions { display: flex; gap: 0.75rem; justify-content: center; margin-top: 1.125rem; }
   .btn-primary { background: #2563eb; color: white; border: none; padding: 0.625rem 1.125rem; border-radius: 0.5rem; cursor: pointer; }

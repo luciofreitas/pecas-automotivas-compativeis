@@ -9,12 +9,11 @@ export default function PageInicio() {
   return (
   <>
       <MenuLogin />
-      <div className="site-header-spacer"></div>
   <div className="page-wrapper">
       <div className="page-content inicio-main">
   <div className="inicio-hero">
           <div className="inicio-hero-inner">
-                    <h2 className="inicio-title">Bem Vindo ao Peça Fácil</h2>
+                    <h2 className="page-title">Bem Vindo ao Peça Fácil</h2>
             <p className="inicio-subtitle">Encontre peças compatíveis com economia e confiança.</p>
 
             <div className="inicio-actions">

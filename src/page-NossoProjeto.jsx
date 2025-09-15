@@ -9,7 +9,7 @@ export default function NossoProjeto() {
   <div className="page-wrapper">
   <div className="page-content" id="nosso-projeto">
   <div className="nosso-projeto-section nosso-projeto-container">
-          <h2 className="nosso-projeto__title">Nosso Projeto</h2>
+          <h2 className="page-title">Nosso Projeto</h2>
 
           <div>
             <p className="nosso-projeto-paragraph">
