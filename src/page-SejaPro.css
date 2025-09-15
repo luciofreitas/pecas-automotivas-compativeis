@@ -141,7 +141,7 @@
 /* Full HD - 1920x1080 */
 @media (min-width: 118.75rem) and (max-width: 121.25rem) {
   #seja-pro{
-    padding: 2rem 1rem;
+    padding: 0 1rem; /* Removed top padding to match other pages */
   }
 
   /* SejaPro */
