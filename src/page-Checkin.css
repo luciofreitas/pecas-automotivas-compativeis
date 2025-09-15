@@ -1,8 +1,8 @@
 /* page-Checkin.css - Estilos específicos da página Checkin */
 
 .checkin-section {
-  padding: 0 1rem;
-  background: #fff;
+  padding: 0 var(--space-md);
+  background: var(--bg-white);
 }
 
 .checkin-container {
@@ -11,46 +11,48 @@
 }
 
 .checkin-intro {
-  color: #374151;
-  line-height: 1.6;
-  margin-bottom: 2rem;
+  color: var(--text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-xl);
   text-align: center;
 }
 
 .checkin-form {
-  margin-top: 2rem;
+  margin-top: var(--space-xl);
   display: grid;
-  gap: 1.5rem;
+  gap: var(--space-lg);
 }
 
 .checkin-label {
   display: block;
-  margin-bottom: 0.5rem;
-  color: #374151;
-  font-weight: 600;
+  margin-bottom: var(--space-sm);
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
 }
 
 .checkin-input {
   width: 100%;
-  padding: 0.75rem;
-  border: 0.062rem solid #d1d5db;
-  border-radius: 0.5rem;
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--border-gray);
+  border-radius: var(--radius-base);
   box-sizing: border-box;
-  font-size: 1rem;
-  background: #fff;
-  color: #111827;
+  font-size: var(--font-size-base);
+  background: var(--bg-white);
+  color: var(--text-primary);
   box-shadow: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .checkin-input:focus {
   outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 0.25rem rgba(37,99,235,0.08);
+  border-color: var(--border-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 .checkin-row {
   display: flex;
-  gap: 1rem;
+  gap: var(--space-md);
   align-items: flex-start;
 }
 
@@ -64,88 +66,90 @@
 }
 
 .checkin-error {
-  color: #dc2626;
-  font-size: 0.9rem;
-  margin-top: 0.25rem;
+  color: var(--color-error);
+  font-size: var(--font-size-sm);
+  margin-top: var(--space-xs);
 }
 
 .checkin-error-global {
-  color: #dc2626;
+  color: var(--color-error);
   text-align: center;
-  padding: 1rem;
-  background: #fef2f2;
-  border: 0.062rem solid #fecaca;
-  border-radius: 0.5rem;
-  margin: 1rem 0;
+  padding: var(--space-md);
+  background: var(--bg-error-50);
+  border: 1px solid var(--border-error);
+  border-radius: var(--radius-base);
+  margin: var(--space-md) 0;
 }
 
 .checkin-success {
-  color: #16a34a;
+  color: var(--color-success);
   text-align: center;
-  padding: 1rem;
-  background: #f0fdf4;
-  border: 0.062rem solid #bbf7d0;
-  border-radius: 0.5rem;
-  margin: 1rem 0;
+  padding: var(--space-md);
+  background: var(--bg-success-50);
+  border: 1px solid var(--border-success);
+  border-radius: var(--radius-base);
+  margin: var(--space-md) 0;
 }
 
 .checkin-success-text {
-  color: #374151;
-  margin-top: 0.5rem;
+  color: var(--text-secondary);
+  margin-top: var(--space-sm);
   text-align: center;
 }
 
 .checkin-actions {
   display: flex;
-  gap: 1rem;
+  gap: var(--space-md);
   align-items: center;
-  margin-top: 1rem;
+  margin-top: var(--space-md);
 }
 
 .checkin-btnPrimary {
-  padding: 0.75rem 1.5rem;
-  background: #2563eb;
-  color: #fff;
+  padding: var(--space-sm) var(--space-lg);
+  background: var(--color-primary);
+  color: var(--text-inverse);
   border: none;
-  border-radius: 0.5rem;
+  border-radius: var(--radius-base);
   cursor: pointer;
-  font-weight: 600;
-  transition: background 0.2s ease;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  transition: background var(--transition-fast);
 }
 
 .checkin-btnPrimary:hover:not(:disabled) {
-  background: #1e40af;
+  background: var(--color-primary-dark);
 }
 
 .checkin-btnPrimary:disabled {
-  background: #9ca3af;
+  background: var(--text-muted);
   cursor: not-allowed;
 }
 
 .checkin-btnSecondary {
-  padding: 0.75rem 1.5rem;
-  background: #f3f4f6;
-  color: #111827;
-  border: 0.062rem solid #d1d5db;
-  border-radius: 0.5rem;
+  padding: var(--space-sm) var(--space-lg);
+  background: var(--bg-gray-100);
+  color: var(--text-primary);
+  border: 1px solid var(--border-gray);
+  border-radius: var(--radius-base);
   cursor: pointer;
-  font-weight: 600;
-  transition: background 0.2s ease;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  transition: background var(--transition-fast);
 }
 
 .checkin-btnSecondary:hover {
-  background: #e5e7eb;
+  background: var(--bg-gray-200);
 }
 
 .checkin-note {
-  margin-top: 1rem;
-  color: #6b7280;
-  font-size: 0.9rem;
+  margin-top: var(--space-md);
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
 }
 
 .checkin-loading {
   text-align: center;
-  padding: 2rem;
+  padding: var(--space-xl);
   color: #6b7280;
 }
 

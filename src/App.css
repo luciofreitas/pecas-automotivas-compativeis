@@ -1,3 +1,95 @@
+/* ===== DESIGN TOKENS ===== */
+:root {
+  /* Layout & Spacing */
+  --header-height: 4.5rem;
+  --header-gap: 5rem;
+  --page-top-offset: calc(var(--header-height) + var(--header-gap));
+  
+  /* Spacing Scale */
+  --space-xs: 0.25rem;   /* 4px */
+  --space-sm: 0.5rem;    /* 8px */
+  --space-md: 1rem;      /* 16px */
+  --space-lg: 1.5rem;    /* 24px */
+  --space-xl: 2rem;      /* 32px */
+  --space-2xl: 3rem;     /* 48px */
+  --space-3xl: 4rem;     /* 64px */
+  
+  /* Colors */
+  --color-primary: #2563eb;
+  --color-primary-dark: #1e40af;
+  --color-primary-light: #3b82f6;
+  --color-secondary: #64748b;
+  --color-success: #16a34a;
+  --color-error: #dc2626;
+  --color-warning: #d97706;
+  
+  /* Text Colors */
+  --text-primary: #111827;
+  --text-secondary: #374151;
+  --text-muted: #6b7280;
+  --text-inverse: #ffffff;
+  
+  /* Background Colors */
+  --bg-white: #ffffff;
+  --bg-gray-50: #f9fafb;
+  --bg-gray-100: #f3f4f6;
+  --bg-gray-200: #e5e7eb;
+  --bg-primary-50: #eff6ff;
+  --bg-success-50: #f0fdf4;
+  --bg-error-50: #fef2f2;
+  
+  /* Border Colors */
+  --border-gray: #d1d5db;
+  --border-primary: #2563eb;
+  --border-success: #bbf7d0;
+  --border-error: #fecaca;
+  
+  /* Typography */
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-size-xs: 0.75rem;   /* 12px */
+  --font-size-sm: 0.875rem;  /* 14px */
+  --font-size-base: 1rem;    /* 16px */
+  --font-size-lg: 1.125rem;  /* 18px */
+  --font-size-xl: 1.25rem;   /* 20px */
+  --font-size-2xl: 1.5rem;   /* 24px */
+  --font-size-3xl: 1.875rem; /* 30px */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem;   /* 4px */
+  --radius-base: 0.5rem;  /* 8px */
+  --radius-md: 0.75rem;   /* 12px */
+  --radius-lg: 1rem;      /* 16px */
+  --radius-full: 9999px;
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 350ms ease;
+  
+  /* Z-index */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+}
+
 /* ===== REGRA GLOBAL PARA MENUS FIXOS NO TOPO ===== */
 /* Garantir que todos os menus (Menu.jsx e MenuLogin.jsx) fiquem fixos no topo sem espaço acima */
 .site-header,
@@ -13,7 +105,7 @@ nav[class*="menu"] {
   padding-top: 0 !important;
   border-top: 0 !important;
   /* margin-bottom doesn't work with position:fixed - removed */
-  z-index: 1000 !important;
+  z-index: var(--z-fixed) !important;
 }
 
 /* Garantir que todos os elementos DENTRO do header fixo mantenham posicionamento correto */
@@ -80,7 +172,7 @@ html, body {
 /* Make sure modal content appears as a centered card with a header and scrollable body */
 .modal-overlay {
   position: fixed;
-  top: 4.5rem; /* Start below fixed header */
+  top: var(--header-height); /* Start below fixed header using token */
   left: 0;
   right: 0;
   bottom: 0;
@@ -88,8 +180,8 @@ html, body {
   display: flex;
   align-items: flex-start; /* Align to top instead of center */
   justify-content: center;
-  z-index: 10000;
-  padding: 2rem 1rem 1rem; /* Extra top padding for visual spacing */
+  z-index: var(--z-modal-backdrop); /* Using design token */
+  padding: var(--space-xl) var(--space-md) var(--space-md); /* Using design tokens */
 }
 
 .modal-content {
@@ -282,13 +374,13 @@ body { scrollbar-gutter: stable; }
   /* Global page title styles - used consistently across all pages */
   padding: 0 !important; /* Remove all padding to ensure consistency */
   margin-top: 0 !important; /* No top margin - container controls top spacing */
-  margin-bottom: 1.5rem !important; /* Consistent bottom spacing */
-  font-size: 2rem !important;
-  color: #2563eb !important;
+  margin-bottom: var(--space-lg) !important; /* Consistent bottom spacing using token */
+  font-size: var(--font-size-2xl) !important; /* Using design token for size */
+  color: var(--color-primary) !important; /* Using design token for color */
   display: block !important;
   text-align: center !important;
-  scroll-margin-top: calc(4.5rem + 0.5rem) !important;
-  font-weight: 600 !important;
+  scroll-margin-top: calc(var(--header-height) + var(--space-sm)) !important; /* Using tokens */
+  font-weight: var(--font-weight-semibold) !important; /* Using design token */
   width: 100% !important; /* Full width for center alignment */
 }
 
@@ -337,7 +429,7 @@ body { scrollbar-gutter: stable; }
   .page-wrapper {
     box-sizing: border-box;
     /* Fallback padding-top for header spacing in case spacer element fails */
-    padding-top: calc(4.5rem + 5rem); /* header height + gap */
+    padding-top: var(--page-top-offset); /* header height + gap using design token */
     min-height: 100vh;
     width: 100%;
     display: flex;
@@ -822,3 +914,160 @@ select { -webkit-appearance: none; appearance: none; }
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
+
+/* ===== UTILITY CLASSES BASED ON DESIGN TOKENS ===== */
+
+/* Card Components */
+.card {
+  border-radius: var(--radius-base);
+  box-shadow: var(--shadow-base);
+  padding: var(--space-md);
+  background: var(--bg-white);
+  border: 1px solid var(--border-gray);
+  transition: box-shadow var(--transition-base);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.card-elevated {
+  box-shadow: var(--shadow-lg);
+}
+
+.card-flat {
+  box-shadow: none;
+  border: 1px solid var(--border-gray);
+}
+
+/* Button Components */
+.btn {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-base);
+  padding: var(--space-sm) var(--space-md);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--text-inverse);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--color-primary-dark);
+}
+
+.btn-secondary {
+  background-color: var(--bg-gray-100);
+  color: var(--text-primary);
+  border: 1px solid var(--border-gray);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--bg-gray-200);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Form Components */
+.input {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--border-gray);
+  border-radius: var(--radius-base);
+  background: var(--bg-white);
+  color: var(--text-primary);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--border-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.input-error {
+  border-color: var(--color-error);
+}
+
+.input-error:focus {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.label {
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+/* Text Utilities */
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-muted { color: var(--text-muted); }
+.text-success { color: var(--color-success); }
+.text-error { color: var(--color-error); }
+.text-warning { color: var(--color-warning); }
+
+/* Background Utilities */
+.bg-primary { background-color: var(--color-primary); }
+.bg-success { background-color: var(--bg-success-50); }
+.bg-error { background-color: var(--bg-error-50); }
+.bg-gray { background-color: var(--bg-gray-50); }
+
+/* Spacing Utilities */
+.p-xs { padding: var(--space-xs); }
+.p-sm { padding: var(--space-sm); }
+.p-md { padding: var(--space-md); }
+.p-lg { padding: var(--space-lg); }
+.p-xl { padding: var(--space-xl); }
+
+.m-xs { margin: var(--space-xs); }
+.m-sm { margin: var(--space-sm); }
+.m-md { margin: var(--space-md); }
+.m-lg { margin: var(--space-lg); }
+.m-xl { margin: var(--space-xl); }
+
+.mt-xs { margin-top: var(--space-xs); }
+.mt-sm { margin-top: var(--space-sm); }
+.mt-md { margin-top: var(--space-md); }
+.mt-lg { margin-top: var(--space-lg); }
+.mt-xl { margin-top: var(--space-xl); }
+
+.mb-xs { margin-bottom: var(--space-xs); }
+.mb-sm { margin-bottom: var(--space-sm); }
+.mb-md { margin-bottom: var(--space-md); }
+.mb-lg { margin-bottom: var(--space-lg); }
+.mb-xl { margin-bottom: var(--space-xl); }
+
+/* Border Radius Utilities */
+.rounded-sm { border-radius: var(--radius-sm); }
+.rounded { border-radius: var(--radius-base); }
+.rounded-md { border-radius: var(--radius-md); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-full { border-radius: var(--radius-full); }
+
+/* Shadow Utilities */
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow { box-shadow: var(--shadow-base); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+.shadow-xl { box-shadow: var(--shadow-xl); }
