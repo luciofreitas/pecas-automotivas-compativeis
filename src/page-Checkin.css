@@ -178,9 +178,10 @@
 /* Full HD - 1920x1080 */
 @media (min-width: 118.75rem) and (max-width: 121.25rem) {
   /* Checkin */
-  .checkin-section { padding: 2rem 1rem; background: #fff; }
+  /* Keep same padding as default to avoid extra top spacing under the fixed header */
+  .checkin-section { padding: 0 1rem; background: #fff; }
   .checkin-container { max-width: 45rem; margin: 0 auto; }
-  .checkin-title { color: #2563eb; margin-bottom: 0.5rem; }
+  /* .checkin-title removed - H2 uses global .page-title to ensure consistent spacing */
   .checkin-intro { color: #374151; margin-top: 0; }
   .checkin-form { margin-top: 1.125rem; display: grid; gap: 0.75rem; }
   .checkin-label { display: block; }
