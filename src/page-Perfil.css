@@ -3,6 +3,10 @@
 #perfil {
   padding: 0 1rem;
   background: #fff;
+  /* Centraliza o conteúdo no mobile e mantém alinhamento consistente */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .perfil-error {
@@ -161,8 +165,10 @@
 
 /* Responsividade */
 @media (max-width: 48rem) {
+  /* Centraliza o card no mobile */
   .perfil-card {
-    margin: 0 1rem;
+    margin: 1rem auto; /* centralizado */
+    width: 100%;
     padding: 1.5rem;
   }
 
@@ -180,11 +186,12 @@
 
 @media (max-width: 30rem) {
   #perfil {
-    padding: 0 0.5rem;
+    padding: 0 0.75rem; /* um pouco mais de respiro nas laterais */
   }
 
   .perfil-card {
-    margin: 0 0.5rem;
+    margin: 0.75rem auto; /* centralizado */
+    width: 100%;
     padding: 1rem;
   }
 }

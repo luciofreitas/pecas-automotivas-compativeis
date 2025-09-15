@@ -231,7 +231,7 @@ export default function PerfilForm({
                 value={local.senhaAtual} 
                 onChange={handleChange} 
                 className={`form-input ${errors.senhaAtual ? 'error' : ''} password-input`}
-                placeholder="Digite sua senha atual (apenas para alterar)" 
+                placeholder="Digite sua senha atual" 
               />
               <span
                 className={`car-toggle ${showSenhaAtual ? 'headlight-on' : 'headlight-off'}`}
@@ -285,7 +285,7 @@ export default function PerfilForm({
                 value={local.novaSenha} 
                 onChange={handleChange} 
                 className={`form-input password-input ${errors.novaSenha ? 'error' : ''}`}
-                placeholder="Digite a nova senha (opcional)" 
+                placeholder="Digite a nova senha" 
               />
               <span
                 className={`car-toggle ${showPasswordState ? 'headlight-on' : 'headlight-off'}`}
