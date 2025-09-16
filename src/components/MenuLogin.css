@@ -27,7 +27,7 @@
   width: 100% !important;
   display: flex !important;
   align-items: center !important;
-  justify-content: space-between !important; /* Logo à esquerda, conteúdo à direita */
+  justify-content: flex-start !important; /* Alinha tudo à esquerda, depois ajustamos individualmente */
   padding: 0 2rem 0 0.5rem !important; /* Padding mínimo à esquerda */
   padding-bottom: 0.5rem !important; /* espaço visual para underline */
   height: 100% !important;
@@ -53,6 +53,16 @@
   justify-self: flex-start !important; /* Força alinhamento à esquerda */
 }
 
+/* Ensure logo stays left in desktop versions (overrides any centering) */
+@media (min-width: 48.1rem) {
+  .menu-login-logo {
+    position: static !important;
+    left: auto !important;
+    transform: none !important;
+    order: 1 !important; /* First item - leftmost */
+  }
+}
+
 .menu-login-logo img {
   /* size the logo proportionally to header height so it scales across viewports */
   height: calc(4.5rem * 0.7);
@@ -75,7 +85,8 @@
   align-items: center;
   min-width: 0;
   order: 2 !important; /* Segunda posição na ordem */
-  /* Em desktop: permite que fique no centro, em mobile: será reposicionado */
+  margin-left: clamp(2rem, 8vw, 8rem) !important; /* Margem responsiva proporcional à viewport */
+  /* Em desktop: distância proporcional da logo, em mobile: será reposicionado */
 }
 
 /* Navegação do menu */
@@ -88,7 +99,7 @@
 /* Lista de itens do menu */
 .menu-list {
   display: flex;
-  gap: 1.5rem;
+  gap: clamp(1rem, 2.5vw, 2.5rem); /* Espaçamento responsivo que escala com viewport */
   list-style: none;
   margin: 0;
   padding: 0;
@@ -96,6 +107,63 @@
   flex-wrap: nowrap;
   /* Garantindo que os itens fiquem centralizados sem ajustes relativos */
   justify-content: center;
+}
+
+/* Responsive spacing for different desktop resolutions */
+@media (min-width: 48rem) and (max-width: 64rem) {
+  /* Small desktop: 768px - 1024px */
+  .menu-list {
+    gap: 1.2rem;
+  }
+  .menu-login-item {
+    font-size: 0.9rem;
+    padding: 0.3em 0.7em;
+  }
+  .menu-login-center {
+    margin-left: 3rem !important; /* Distância fixa proporcional para telas pequenas */
+  }
+}
+
+@media (min-width: 64rem) and (max-width: 80rem) {
+  /* Medium desktop: 1024px - 1280px */
+  .menu-list {
+    gap: 1.5rem;
+  }
+  .menu-login-item {
+    font-size: 1rem;
+    padding: 0.35em 0.9em;
+  }
+  .menu-login-center {
+    margin-left: 4rem !important; /* Distância proporcional para telas médias */
+  }
+}
+
+@media (min-width: 80rem) and (max-width: 96rem) {
+  /* Large desktop: 1280px - 1536px */
+  .menu-list {
+    gap: 2rem;
+  }
+  .menu-login-item {
+    font-size: 1.1rem;
+    padding: 0.4em 1em;
+  }
+  .menu-login-center {
+    margin-left: 6rem !important; /* Distância maior para telas grandes */
+  }
+}
+
+@media (min-width: 96rem) {
+  /* Extra large desktop: 1536px+ */
+  .menu-list {
+    gap: 2.5rem;
+  }
+  .menu-login-item {
+    font-size: 1.2rem;
+    padding: 0.45em 1.1em;
+  }
+  .menu-login-center {
+    margin-left: 8rem !important; /* Distância máxima para telas muito grandes */
+  }
 }
 
 /* Estilo para indicador acima do item do menu ao hover */
@@ -142,12 +210,13 @@
   width: 60%;
 }
 
-/* Ajuste para itens específicos que podem ser mais longos */
+/* Ajuste para itens específicos que podem ser mais longos - removido max-width para permitir espaçamento natural */
 .menu-login-item.nosso-projeto,
 .menu-login-item.entrar-registrar {
-  max-width: 8.125rem;
+  /* max-width removido para permitir espaçamento igual entre todos os itens */
   text-overflow: ellipsis;
   overflow: hidden;
+  white-space: nowrap;
 }
 
 /* ===== RESPONSIVIDADE DO MENU ===== */
@@ -178,15 +247,6 @@
   .menu-responsive .menu-login-item {
     font-size: 0.812rem;
     padding: 0.25em 0.5em;
-  }
-  
-  /* Ajuste para itens mais longos em telas pequenas */
-  .menu-responsive .menu-login-item.nosso-projeto {
-    max-width: 5rem;
-  }
-  
-  .menu-responsive .menu-login-item.entrar-registrar {
-    max-width: 5.625rem;
   }
 }
 
@@ -760,19 +820,33 @@
 
 /* Mobile responsive styles */
 @media (max-width: 48rem) {
-  /* Show hamburger button on mobile - move to LEFT */
+  /* Show hamburger button on mobile - alinhado verticalmente */
   .mobile-menu-toggle {
     display: flex !important; 
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    order: 1 !important; /* Hamburger first (left) */
+    position: relative !important;
+    flex-shrink: 0 !important; /* Não encolhe */
+    width: 40px !important; /* Largura fixa do hamburger */
+    height: 40px !important;
+    z-index: 20 !important; /* Acima da logo */
+    margin-right: 0.5rem !important; /* Espaço pequeno entre hamburger e onde a logo vai começar */
+    /* Garante alinhamento vertical com a logo */
+    align-self: center !important;
   }
 
-  /* Reduce padding on mobile and ensure space-between layout */
+  /* Reduce padding on mobile and ensure proper layout for logo centrada */
   .menu-login-root {
-    padding: 0 0.5rem !important;
-    justify-content: space-between !important;
+    padding: 1rem 0.5rem !important; /* Aumenta padding vertical para dar mais espaço */
+    justify-content: flex-start !important; /* Alinhamento à esquerda para controle preciso */
+    min-height: 140px !important; /* Altura maior para acomodar logo completa de 88px + padding aumentado */
+    align-items: center !important;
+    position: relative !important;
+    flex-wrap: nowrap !important;
+    overflow: visible !important; /* Permite que a logo seja visível mesmo se sair um pouco do container */
+    display: flex !important;
+    gap: 0 !important; /* Remove gaps padrão */
   }
 
   /* Evita que a navegação central se comporte como barra horizontal no topo */
@@ -781,19 +855,86 @@
     display: block !important;
   }
 
-  /* Logo no centro - ordem 2, hide text, show only image */
-  .menu-login-logo {
-    order: 2 !important;
+  /* MOBILE ONLY: Logo alinhada horizontalmente com o hamburguer - OVERRIDE todas outras regras */
+  .menu-login-root .menu-login-logo,
+  .menu-responsive .menu-login-logo,
+  .site-header .menu-login-root .menu-login-logo {
     position: absolute !important;
     left: 50% !important;
-    transform: translateX(-50%) !important;
+    top: 50% !important; /* Alinha com o centro vertical do container, igual ao hamburguer */
+    transform: translate(-50%, -50%) !important;
+    /* Ajusta o deslocamento para considerar o hamburger como limite esquerdo */
+    margin-left: 20px !important; /* Compensa metade da largura do hamburger (40px/2) */
+    width: 300.52px !important; /* Força largura exata */
+    height: 88px !important; /* Força altura exata */
+    padding: 0 !important;
     margin: 0 !important;
+    margin-left: 20px !important; /* Reforça a compensação do hamburger */
+    margin-top: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 10 !important; /* Garante que fique acima de outros elementos, mas abaixo do hamburger e user menu */
+    min-width: 300.52px !important;
+    max-width: 300.52px !important;
+    min-height: 88px !important;
+    max-height: 88px !important;
+    /* Garante que não seja cortada */
+    overflow: visible !important;
+    /* OVERRIDE regras anteriores */
+    order: unset !important;
+    flex-shrink: unset !important;
+    justify-self: unset !important;
+  }
+
+  /* Logo container interno - deve manter toda a estrutura */
+  .menu-login-logo .logo-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 300.52px !important;
+    height: 88px !important;
+    gap: 0.5rem !important; /* Espaço entre imagem e texto */
+    overflow: visible !important; /* Garante que nada seja cortado */
+  }
+
+  /* Logo image com dimensões proporcionais */
+  .menu-login-logo .logo-image {
+    width: auto !important;
+    height: 88px !important; /* Altura total disponível */
+    max-width: 150px !important; /* Limita largura para deixar espaço para texto */
+    object-fit: contain !important;
+    border: none !important;
+    outline: none !important;
     flex-shrink: 0 !important;
   }
 
-  /* Hide logo text in mobile, keep only image */
+  /* SHOW logo text in mobile - texto ao lado da imagem */
   .menu-login-logo .logo-text-container {
-    display: none !important;
+    display: flex !important; /* Mostra o texto da logo */
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    flex: 1 !important;
+    height: 88px !important;
+  }
+
+  /* Títulos da logo */
+  .menu-login-logo .logo-title {
+    font-size: 1.2rem !important;
+    font-weight: bold !important;
+    margin: 0 !important;
+    line-height: 1.2 !important;
+    color: white !important;
+  }
+
+  .menu-login-logo .logo-subtitle {
+    font-size: 0.8rem !important;
+    margin: 0 !important;
+    line-height: 1.1 !important;
+    color: rgba(255, 255, 255, 0.9) !important;
   }
 
   /* Hamburger menu dropdown positioning */
@@ -806,11 +947,14 @@
     right: auto !important;
   }
 
-  /* User menu à direita - ordem 3 */
+  /* User menu à direita - posição fixa */
   .menu-login-right {
-    order: 3 !important;
+    position: relative !important;
     display: flex !important; /* Show user menu in mobile */
-    position: relative;
+    flex-shrink: 0 !important; /* Não encolhe */
+    align-items: center !important;
+    z-index: 20 !important; /* Acima da logo */
+    margin-left: auto !important; /* Empurra para a direita */
   }
 
   /* Hide desktop navigation by default on mobile - show as dropdown popup EXACTLY like user menu */
