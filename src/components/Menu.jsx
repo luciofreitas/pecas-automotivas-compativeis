@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useRef } from 'react';
+import React, { useContext, useEffect, useLayoutEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../App';
 import './MenuLogin.css';
@@ -16,6 +16,23 @@ function Menu() {
   const { usuarioLogado, setUsuarioLogado } = useContext(AuthContext);
   const proActive = Boolean(usuarioLogado && usuarioLogado.isPro) || localStorage.getItem('versaoProAtiva') === 'true';
   const headerRef = useRef(null);
+
+  // shared menu items to render in desktop nav and mobile dropdown
+  const menuItems = [
+    {
+      id: 'buscar',
+      label: 'Buscar Peças',
+      onClick: () => {
+        if (window.location.pathname === '/') {
+          window.location.reload();
+        } else {
+          navigate('/');
+        }
+      }
+    },
+    { id: 'parceiros', label: 'Parceiros', onClick: () => navigate('/parceiros') },
+    { id: 'contato', label: 'Contato', onClick: () => navigate('/contato-logado') }
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,9 +52,17 @@ function Menu() {
   const calculateMobileMenuPosition = () => {
     if (mobileMenuButtonRef.current) {
       const rect = mobileMenuButtonRef.current.getBoundingClientRect();
-      // alinhar exatamente sob o botão com um pequeno offset para não colar
-      const top = Math.round(rect.bottom + 6);
-      const left = Math.round(rect.left);
+
+      // Position below the button like MenuUsuario.jsx does
+      const top = Math.round(rect.bottom + 4); // Small gap below the button
+      const left = Math.round(rect.left); // Align left edge with hamburger icon
+
+      // Set CSS custom properties for positioning
+      if (mobileMenuRef.current) {
+        mobileMenuRef.current.style.setProperty('--dropdown-top', `${top}px`);
+        mobileMenuRef.current.style.setProperty('--dropdown-left', `${left}px`);
+      }
+
       setMobileMenuPosition({ top, left });
     }
   };
@@ -49,8 +74,10 @@ function Menu() {
   const toggleMobileMenu = () => {
     const newState = !mobileMenuOpen;
     setMobileMenuOpen(newState);
+    // If opening, calculate position after next paint (we measure in useLayoutEffect too)
     if (newState) {
-      calculateMobileMenuPosition();
+      // slight delay to allow DOM updates; calculateMobileMenuPosition will also run in useLayoutEffect
+      window.requestAnimationFrame(() => calculateMobileMenuPosition());
     }
   };
 
@@ -87,52 +114,73 @@ function Menu() {
     };
   }, [mobileMenuOpen]);
 
+  // Measure dropdown size and recalculate position precisely after it's mounted/updated
+  useLayoutEffect(() => {
+    if (mobileMenuOpen && mobileMenuRef.current && mobileMenuButtonRef.current) {
+      // Recalculate position like MenuUsuario.jsx does
+      const rect = mobileMenuButtonRef.current.getBoundingClientRect();
+      const top = Math.round(rect.bottom + 4); // Position below button
+      const left = Math.round(rect.left); // Align left edge with hamburger icon
+
+      // Set CSS custom properties for positioning
+      if (mobileMenuRef.current) {
+        mobileMenuRef.current.style.setProperty('--dropdown-top', `${top}px`);
+        mobileMenuRef.current.style.setProperty('--dropdown-left', `${left}px`);
+      }
+
+      setMobileMenuPosition({ top, left });
+    }
+  }, [mobileMenuOpen]);
+
   return (
     <header ref={headerRef} className="site-header menu-login">
       <div className="menu-login-root menu-responsive">
         <Logo />
 
-        {/* Mobile hamburger button */}
-        <button 
-          ref={mobileMenuButtonRef}
-          className={`mobile-menu-toggle ${mobileMenuOpen ? 'active' : ''}`}
-          onClick={toggleMobileMenu}
-          aria-label="Toggle mobile menu"
-        >
-          <span className="hamburger-line"></span>
-          <span className="hamburger-line"></span>
-          <span className="hamburger-line"></span>
-        </button>
+        {/* Mobile hamburger button - replicate MenuUsuario structure */}
+        <div className="user-menu-root hamburger-menu-root">
+          <button
+            ref={mobileMenuButtonRef}
+            className={`mobile-menu-toggle ${mobileMenuOpen ? 'active' : ''}`}
+            onClick={() => { setMobileMenuOpen(v => !v); if (!mobileMenuOpen) calculateMobileMenuPosition(); }}
+            aria-label="Toggle mobile menu"
+            aria-haspopup="true"
+            aria-expanded={mobileMenuOpen}
+          >
+            <span className="hamburger-line"></span>
+            <span className="hamburger-line"></span>
+            <span className="hamburger-line"></span>
+          </button>
 
-        {/* Navigation menu */}
-        <div 
-          ref={mobileMenuRef}
-          className={`menu-login-center ${mobileMenuOpen ? 'mobile-open' : ''}`}
-          style={mobileMenuOpen ? {
-            top: `${mobileMenuPosition.top}px`,
-            left: `${mobileMenuPosition.left}px`
-          } : {}}
-        >
+          {/* Dropdown balloon replicated from MenuUsuario */}
+          <div
+            ref={mobileMenuRef}
+            className={`user-dropdown ${mobileMenuOpen ? 'open' : 'closed'}`}
+            role="menu"
+            aria-hidden={!mobileMenuOpen}
+          >
+            {menuItems.map(item => (
+              <button key={item.id} className="dropdown-item" onClick={() => { setMobileMenuOpen(false); item.onClick(); }}>
+                {item.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Navigation menu (desktop) */}
+        <div className="menu-login-center">
           <nav className="menu-nav">
             <ul className="menu-list">
-              <li>
-                <a href="#buscar" className="menu-login-item" onClick={handleNavigation(() => { 
-                  if (window.location.pathname === '/') { 
-                    window.location.reload(); 
-                  } else { 
-                    navigate('/'); 
-                  } 
-                })}>Buscar Peças</a>
-              </li>
-              <li>
-                <a href="#parceiros" className="menu-login-item" onClick={handleNavigation(() => navigate('/parceiros'))}>Parceiros</a>
-              </li>
-              <li>
-                <a href="#contato-logado" className="menu-login-item" onClick={handleNavigation(() => navigate('/contato-logado'))}>Contato</a>
-              </li>
+              {menuItems.map(item => (
+                <li key={item.id}>
+                  <a href={`#${item.id}`} className="menu-login-item" onClick={handleNavigation(item.onClick)}>{item.label}</a>
+                </li>
+              ))}
             </ul>
           </nav>
         </div>
+
+        {/* NOTE: mobile dropdown uses the replicated user-dropdown earlier; no separate mobile-menu-dropdown required */}
 
         <div className="menu-login-right">
         {!usuarioLogado ? (

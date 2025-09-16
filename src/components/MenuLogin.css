@@ -796,6 +796,16 @@
     display: none !important;
   }
 
+  /* Hamburger menu dropdown positioning */
+  .hamburger-menu-root .user-dropdown {
+    position: fixed !important;
+    /* top and left will be set via CSS custom properties from JS */
+    top: var(--dropdown-top, 0);
+    left: var(--dropdown-left, 0);
+    /* Remove any right positioning that might conflict */
+    right: auto !important;
+  }
+
   /* User menu à direita - ordem 3 */
   .menu-login-right {
     order: 3 !important;

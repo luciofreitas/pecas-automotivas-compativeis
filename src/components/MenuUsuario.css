@@ -81,6 +81,27 @@
   pointer-events: auto !important; /* Garante que seja clicável */
 }
 
+/* Transition / animation helpers for dropdown open/close */
+.user-menu-root .user-dropdown {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 160ms cubic-bezier(.2,.8,.2,1), transform 160ms cubic-bezier(.2,.8,.2,1);
+}
+
+/* When dropdown is initially rendered but closed we keep it visually hidden but present to measure */
+.user-menu-root .user-dropdown.closed {
+  opacity: 0;
+  transform: scale(0.96);
+  pointer-events: none !important; /* avoid intercepting clicks when closed */
+}
+
+/* Open state explicitly set via class or rendering state */
+.user-menu-root .user-dropdown.open {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto !important;
+}
+
 /* Force dropdown above any menu pseudo-elements that might overlap */
 .user-menu-root .user-dropdown {
   z-index: 20000 !important;
@@ -156,10 +177,11 @@
 }
 
 .user-menu-root .user-dropdown .dropdown-item-logout {
-  border-top: 0.062rem solid #e5e7eb !important;
-  margin-top: 0.25rem !important;
-  padding-top: 0.5rem !important;
-  color: #dc2626 !important; /* Force red color for logout */
+  /* Make logout visually identical to other dropdown items */
+  border-top: none !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  color: #374151 !important; /* same as other items */
 }
 
 /* Linha amarela também para o item de logout */
