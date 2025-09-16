@@ -1,8 +1,13 @@
 /* page-BuscarPeca.css */
 
 .buscarpeca-section {
-  padding: 0 1rem;
+  padding: 0;
   background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
 }
 
 .buscarpeca-intro {

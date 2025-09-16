@@ -27,6 +27,88 @@
   position: relative;
 }
 
+/* Desktop: mostrar nome, esconder ícone */
+.user-name-desktop {
+  display: inline !important;
+}
+
+.user-icon-mobile {
+  display: none !important;
+}
+
+/* Mobile: esconder nome, mostrar ícone */
+@media (max-width: 48rem) {
+  .user-name-desktop {
+    display: none !important;
+  }
+  
+  .user-icon-mobile {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Ajustar padding do botão no mobile para acomodar apenas o ícone */
+  .user-menu-root .user-button {
+    padding: 0.5em !important;
+    min-width: 44px !important; /* Touch target mínimo */
+    min-height: 44px !important;
+  }
+  
+  /* Remover linha amarela (seletor) no mobile quando mostrar apenas ícone */
+  .user-menu-root .user-button::after {
+    display: none !important;
+  }
+  
+  .user-menu-root .user-button:hover::after {
+    display: none !important;
+    width: 0 !important;
+  }
+}
+
+/* Nome do usuário no dropdown (apenas visível no mobile) */
+.dropdown-user-name {
+  background-color: #f3f4f6 !important;
+  font-weight: 600 !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  cursor: default !important;
+  padding: 0.75rem 1rem !important;
+}
+
+/* Header específico - não interativo - SIMPLES */
+.dropdown-user-name-header {
+  pointer-events: none !important; /* Não clicável */
+  cursor: default !important;
+  transition: none !important; /* Remove transições */
+  background-color: #f3f4f6 !important; /* Fundo fixo */
+}
+
+/* Remover traço amarelo APENAS do primeiro item */
+.dropdown-user-name-header::after {
+  display: none !important;
+}
+
+.dropdown-user-name:hover,
+.dropdown-user-name-header:hover {
+  background-color: #f3f4f6 !important; /* Não muda cor no hover */
+  transform: none !important; /* Remove qualquer transformação no hover */
+}
+
+/* Garantir que não haja traço amarelo no hover para o header */
+.dropdown-user-name-header:hover::after,
+.dropdown-user-name-header:focus::after {
+  display: none !important;
+  width: 0 !important;
+}
+
+/* Desktop: esconder nome do usuário no dropdown */
+@media (min-width: 48.1rem) {
+  .dropdown-user-name,
+  .dropdown-user-name-header {
+    display: none !important;
+  }
+}
+
 /* Linha amarela no hover do nome do usuário - stronger specificity */
 .user-menu-root .user-button::after {
   content: '';

@@ -1148,15 +1148,6 @@ select { -webkit-appearance: none; appearance: none; }
     flex-direction: column !important;
     gap: var(--space-sm) !important;
   }
-  
-  .checkin-row {
-    flex-direction: column !important;
-    gap: var(--space-sm) !important;
-  }
-  
-  .checkin-row-item-small {
-    width: 100% !important;
-  }
 
   /* Full-width modal with safe side padding */
   .modal-overlay {

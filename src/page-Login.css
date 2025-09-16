@@ -169,5 +169,11 @@
     gap: 1.5rem;
     align-items: center;
   }
-  .login-forms-row .login-form-card { max-width: 100% !important; flex: 0 1 100% !important; }
+  /* Reduce card width on mobile so Entrar/Registrar don't span full width */
+  .login-forms-row .login-form-card {
+    max-width: 20rem !important; /* ~320px, narrower card on mobile */
+    flex: 0 1 20rem !important;
+    width: 90% !important; /* Allow slight breathing room on very small screens */
+    box-sizing: border-box !important;
+  }
 }
